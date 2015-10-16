@@ -106,7 +106,7 @@ Zde naleznete seznam všech API služeb, a jejich chování v rámci aplikace Al
         }
             
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + header
     
@@ -114,27 +114,27 @@ Zde naleznete seznam všech API služeb, a jejich chování v rámci aplikace Al
             
     + Body        
 
-            [
-                {
-                    "err": 0,
-                    "msg": null,
-                    "vzt": 254798307,
-                    "user_name": "WEB@ TEST",
-                    "basket_cnt": 3,
-                    "basket_total_cnt": 4,
-                    "user_id": 2366954,
-                    "favCnt": 10,
-                    "alzaCredit": "134 Kč",
-                    "countryID": 0,
-                    "countryPhonePrefix": "420",
-                    "premiumBooks": 10,
-                    "premiumMusic": 10,
-                    "premiumMovies": 10,
-                    "premiumDelivery": 10,
-                    "premiumValidTo": "24. 6. 2018",
-                    "premiumRenew": false
-                }
-            ]
+
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "WEB@ TEST",
+                "basket_cnt": 3,
+                "basket_total_cnt": 4,
+                "user_id": 2366954,
+                "favCnt": 10,
+                "alzaCredit": "134 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "24. 6. 2018",
+                "premiumRenew": false
+            }
+
 
 + Response 400 (text/html)
 
@@ -418,7 +418,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 #### v5/getMyLibrary [GET]
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -430,129 +430,129 @@ Zobrazeni weboveho clanku ve webview aplikace
     + asc_desc: 0 (number) - smer razeni. Vzestupne nebo zestupne
 
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "data_cnt": 10,
-                "data": [
-                    {
-                        "Id": 51786007,
-                        "productId": 2414990,
-                        "orderId": "153001699",
-                        "invoiceId": "2150817142",
-                        "invoicedate": "27. 03. 2015 12:00",
-                        "freeCharge": false,
-                        "code": "XXEK5442",
-                        "name": "Levhart",
-                        "specification": "Ze série Harry Hole, autor Jo Nesbo, 722 stran",
-                        "price": "0 Kč",
-                        "priceWithVat": "0 Kč",
-                        "serialnumber": null,
-                        "url": "https://www.alza.cz/media/levhart-d2414990.htm",
-                        "imageUrl": "https://i3.alza.cz/Foto/f8/XX/XXEK5442.jpg",
-                        "bigImgUrl": "https://i3.alza.cz/Foto/f9_rect/XX/XXEK5442.jpg",
-                        "palmsbookId": "6231",
-                        "drm": "Social",
-                        "activationstate": "Active",
-                        "mustconfirm": false,
-                        "EpubUrl": "https://www.alza.cz/download/eknihy/51786007-201510081035-02wB39646C1C2E1E2F417B4123625.epub",
-                        "kindleurl": "https://www.alza.cz/download/eknihy/51786007-201510081035-07G869683E42AM2E17s18u33W.mobi",
-                        "pdfurl": "https://www.alza.cz/download/eknihy/51786007-201510081035-071283B336A12284D7E1121Du3433.pdf",
-                        "PdfReadersUrl": "https://www.alza.cz/download/eknihy/51786007-201510081035-024236F6e432E1E2811qD7V25v-r.pdf",
-                        "ExistsForEPub": true,
-                        "ExistsForKindle": true,
-                        "ExistsForPdf": true,
-                        "ExistsForPdfReaders": true,
-                        "EpubSize": null,
-                        "Kindlesize": null,
-                        "Pdfsize": null,
-                        "PdfReadersize": null,
-                        "url_msg": null,
-                        "bookHash": "",
-                        "recommendedBooks_cnt": 0,
-                        "recommendedBooks": null,
-                        "bookAuthors_cnt": 1,
-                        "bookAuthors": [
-                            {
-                                "id": 5315,
-                                "name": "Nesbo, Jo",
-                                "url": "Jo Nesbo-cat0.htm?p=1026-5315"
-                            }
-                            ],
-                            "genres": []
-                    }, {
-                        "Id": 51786006,
-                        "productId": 2414997,
-                        "orderId": "153001699",
-                        "invoiceId": "2150817142",
-                        "invoicedate": "27. 03. 2015 12:00",
-                        "freeCharge": false,
-                        "code": "XXEK11678",
-                        "name": "Americký sniper",
-                        "specification": "Autor Chris Kyle, Scott McEwen, Jim DeFelice, 400 stran",
-                        "price": "0 Kč",
-                        "priceWithVat": "0 Kč",
-                        "serialnumber": null,
-                        "url": "https://www.alza.cz/media/americky-sniper-d2414997.htm",
-                        "imageUrl": "https://i2.alza.cz/Foto/f8/XX/XXEK11678.jpg",
-                        "bigImgUrl": "https://i2.alza.cz/Foto/f9_rect/XX/XXEK11678.jpg",
-                        "palmsbookId": "6808",
-                        "drm": "Social",
-                        "activationstate": "Active",
-                        "mustconfirm": false,
-                        "EpubUrl": "https://www.alza.cz/download/eknihy/51786006-201510081035-0242F6C68381428197E19211F7S15.epub",
-                        "kindleurl": "https://www.alza.cz/download/eknihy/51786006-201510081035-0227C6A696Q1744D2A1tG13S38.mobi",
-                        "pdfurl": "https://www.alza.cz/download/eknihy/51786006-201510081035-0732C3E343E4wB4A7E41744E713E5.pdf",
-                        "PdfReadersUrl": null,
-                        "ExistsForEPub": true,
-                        "ExistsForKindle": true,
-                        "ExistsForPdf": true,
-                        "ExistsForPdfReaders": false,
-                        "EpubSize": null,
-                        "Kindlesize": null,
-                        "Pdfsize": null,
-                        "PdfReadersize": null,
-                        "url_msg": null,
-                        "bookHash": "",
-                        "recommendedBooks_cnt": 0,
-                        "recommendedBooks": null,
-                        "bookAuthors_cnt": 3,
-                        "bookAuthors": [
-                            {
-                                "id": 21047,
-                                "name": "Kyle, Chris",
-                                "url": "Chris Kyle-cat0.htm?p=1026-21047"
-                            },
-                            {
-                                "name": "McEwen, Scott"
-                            },
-                            {
-                                "name": "DeFelice, Jim"
-                            }
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 10,
+            "data": [
+                {
+                    "Id": 51786007,
+                    "productId": 2414990,
+                    "orderId": "153001699",
+                    "invoiceId": "2150817142",
+                    "invoicedate": "27. 03. 2015 12:00",
+                    "freeCharge": false,
+                    "code": "XXEK5442",
+                    "name": "Levhart",
+                    "specification": "Ze série Harry Hole, autor Jo Nesbo, 722 stran",
+                    "price": "0 Kč",
+                    "priceWithVat": "0 Kč",
+                    "serialnumber": null,
+                    "url": "https://www.alza.cz/media/levhart-d2414990.htm",
+                    "imageUrl": "https://i3.alza.cz/Foto/f8/XX/XXEK5442.jpg",
+                    "bigImgUrl": "https://i3.alza.cz/Foto/f9_rect/XX/XXEK5442.jpg",
+                    "palmsbookId": "6231",
+                    "drm": "Social",
+                    "activationstate": "Active",
+                    "mustconfirm": false,
+                    "EpubUrl": "https://www.alza.cz/download/eknihy/51786007-201510081035-02wB39646C1C2E1E2F417B4123625.epub",
+                    "kindleurl": "https://www.alza.cz/download/eknihy/51786007-201510081035-07G869683E42AM2E17s18u33W.mobi",
+                    "pdfurl": "https://www.alza.cz/download/eknihy/51786007-201510081035-071283B336A12284D7E1121Du3433.pdf",
+                    "PdfReadersUrl": "https://www.alza.cz/download/eknihy/51786007-201510081035-024236F6e432E1E2811qD7V25v-r.pdf",
+                    "ExistsForEPub": true,
+                    "ExistsForKindle": true,
+                    "ExistsForPdf": true,
+                    "ExistsForPdfReaders": true,
+                    "EpubSize": null,
+                    "Kindlesize": null,
+                    "Pdfsize": null,
+                    "PdfReadersize": null,
+                    "url_msg": null,
+                    "bookHash": "",
+                    "recommendedBooks_cnt": 0,
+                    "recommendedBooks": null,
+                    "bookAuthors_cnt": 1,
+                    "bookAuthors": [
+                        {
+                            "id": 5315,
+                            "name": "Nesbo, Jo",
+                            "url": "Jo Nesbo-cat0.htm?p=1026-5315"
+                        }
                         ],
                         "genres": []
-                    }
-                ]
-            }
-        ]
+                }, {
+                    "Id": 51786006,
+                    "productId": 2414997,
+                    "orderId": "153001699",
+                    "invoiceId": "2150817142",
+                    "invoicedate": "27. 03. 2015 12:00",
+                    "freeCharge": false,
+                    "code": "XXEK11678",
+                    "name": "Americký sniper",
+                    "specification": "Autor Chris Kyle, Scott McEwen, Jim DeFelice, 400 stran",
+                    "price": "0 Kč",
+                    "priceWithVat": "0 Kč",
+                    "serialnumber": null,
+                    "url": "https://www.alza.cz/media/americky-sniper-d2414997.htm",
+                    "imageUrl": "https://i2.alza.cz/Foto/f8/XX/XXEK11678.jpg",
+                    "bigImgUrl": "https://i2.alza.cz/Foto/f9_rect/XX/XXEK11678.jpg",
+                    "palmsbookId": "6808",
+                    "drm": "Social",
+                    "activationstate": "Active",
+                    "mustconfirm": false,
+                    "EpubUrl": "https://www.alza.cz/download/eknihy/51786006-201510081035-0242F6C68381428197E19211F7S15.epub",
+                    "kindleurl": "https://www.alza.cz/download/eknihy/51786006-201510081035-0227C6A696Q1744D2A1tG13S38.mobi",
+                    "pdfurl": "https://www.alza.cz/download/eknihy/51786006-201510081035-0732C3E343E4wB4A7E41744E713E5.pdf",
+                    "PdfReadersUrl": null,
+                    "ExistsForEPub": true,
+                    "ExistsForKindle": true,
+                    "ExistsForPdf": true,
+                    "ExistsForPdfReaders": false,
+                    "EpubSize": null,
+                    "Kindlesize": null,
+                    "Pdfsize": null,
+                    "PdfReadersize": null,
+                    "url_msg": null,
+                    "bookHash": "",
+                    "recommendedBooks_cnt": 0,
+                    "recommendedBooks": null,
+                    "bookAuthors_cnt": 3,
+                    "bookAuthors": [
+                        {
+                            "id": 21047,
+                            "name": "Kyle, Chris",
+                            "url": "Chris Kyle-cat0.htm?p=1026-21047"
+                        },
+                        {
+                            "name": "McEwen, Scott"
+                        },
+                        {
+                            "name": "DeFelice, Jim"
+                        }
+                    ],
+                    "genres": []
+                }
+            ]
+        }
+
 
 
 
@@ -572,7 +572,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 `"code": "XXEK5442` - Kod produktu
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -583,198 +583,57 @@ Zobrazeni weboveho clanku ve webview aplikace
     + sort_type: 1 (number) - zpusob razeni
     + asc_desc: 0 (number) - smer razeni. Vzestupne nebo zestupne
     
-+ Response 200 (application/json)
-
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "data_cnt": 10,
-                "data": [
-                    {
-                        "Id": 51786007,
-                        "productId": 2414990,
-                        "orderId": "153001699",
-                        "invoiceId": "2150817142",
-                        "invoicedate": "27. 03. 2015 12:00",
-                        "freeCharge": false,
-                        "code": "XXEK5442",
-                        "name": "Levhart",
-                        "specification": "Ze série Harry Hole, autor Jo Nesbo, 722 stran",
-                        "price": "0 Kč",
-                        "priceWithVat": "0 Kč",
-                        "serialnumber": null,
-                        "url": "https://www.alza.cz/media/levhart-d2414990.htm",
-                        "imageUrl": "https://i3.alza.cz/Foto/f8/XX/XXEK5442.jpg",
-                        "bigImgUrl": "https://i3.alza.cz/Foto/f9_rect/XX/XXEK5442.jpg",
-                        "palmsbookId": "6231",
-                        "drm": "Social",
-                        "activationstate": "Active",
-                        "mustconfirm": false,
-                        "EpubUrl": "https://www.alza.cz/download/eknihy/51786007-201510081040-02R36F636A1g94B7D1R21D72622.epub",
-                        "kindleurl": "https://www.alza.cz/download/eknihy/51786007-201510081040-02RF38646A1rE4979142dD7SF5.mobi",
-                        "pdfurl": "https://www.alza.cz/download/eknihy/51786007-201510081040-0742C626SF4GQE291W14824625.pdf",
-                        "PdfReadersUrl": "https://www.alza.cz/download/eknihy/51786007-201510081040-022Bc35n437C442F42t1C21b46-r.pdf",
-                        "ExistsForEPub": true,
-                        "ExistsForKindle": true,
-                        "ExistsForPdf": true,
-                        "ExistsForPdfReaders": true,
-                        "EpubSize": null,
-                        "Kindlesize": null,
-                        "Pdfsize": null,
-                        "PdfReadersize": null,
-                        "url_msg": null,
-                        "bookHash": "",
-                        "recommendedBooks_cnt": 0,
-                        "recommendedBooks": null,
-                        "bookAuthors_cnt": 1,
-                        "bookAuthors": [
-                            {
-                                "id": 5315,
-                                "name": "Nesbo, Jo",
-                                "url": "Jo Nesbo-cat0.htm?p=1026-5315"
-                            }
-                        ],
-                        "genres": [],
-                        "lastreadpage": 0,
-                        "lastreadparagraph": 0,
-                        "lastreadword": 0,
-                        "lastreadchar": 0,
-                        "lastchange": "/Date(1444231199220+0200)/"
-                    }, {
-                        "Id": 51786003,
-                        "productId": 2415022,
-                        "orderId": "153001699",
-                        "invoiceId": "2150817142",
-                        "invoicedate": "27. 03. 2015 12:00",
-                        "freeCharge": false,
-                        "code": "XXEK9939",
-                        "name": "Analfabetka, která uměla počítat",
-                        "specification": "Autor Jonas Jonasson, 414 stran",
-                        "price": "0 Kč",
-                        "priceWithVat": "0 Kč",
-                        "serialnumber": null,
-                        "url": "https://www.alza.cz/media/analfabetka-ktera-umela-pocitat-d2415022.htm",
-                        "imageUrl": "https://i3.alza.cz/Foto/f8/XX/XXEK9939.jpg",
-                        "bigImgUrl": "https://i3.alza.cz/Foto/f9_rect/XX/XXEK9939.jpg",
-                        "palmsbookId": "12581",
-                        "drm": "Social",
-                        "activationstate": "Active",
-                        "mustconfirm": false,
-                        "EpubUrl": "https://www.alza.cz/download/eknihy/51786003-201510081040-02wB6F33394GC4E7D1RMt33Q.epub",
-                        "kindleurl": "https://www.alza.cz/download/eknihy/51786003-201510081040-072226C313817C197E42u182434Y.mobi",
-                        "pdfurl": "https://www.alza.cz/download/eknihy/51786003-201510081040-021223E683B1C2A1F241421825eV.pdf",
-                        "PdfReadersUrl": "https://www.alza.cz/download/eknihy/51786003-201510081040-0237F39633F417A4B7D11721C2cY-r.pdf",
-                        "ExistsForEPub": true,
-                        "ExistsForKindle": true,
-                        "ExistsForPdf": true,
-                        "ExistsForPdfReaders": true,
-                        "EpubSize": null,
-                        "Kindlesize": null,
-                        "Pdfsize": null,
-                        "PdfReadersize": null,
-                        "url_msg": null,
-                        "bookHash": "",
-                        "recommendedBooks_cnt": 0,
-                        "recommendedBooks": null,
-                        "bookAuthors_cnt": 1,
-                        "bookAuthors": [
-                            {
-                                "id": 7189,
-                                "name": "Jonasson, Jonas",
-                                "url": "Jonas Jonasson-cat0.htm?p=1026-7189"
-                            }
-                        ],
-                        "genres": [],
-                        "lastreadpage": 0,
-                        "lastreadparagraph": null,
-                        "lastreadword": null,
-                        "lastreadchar": null,
-                        "lastchange": "/Date(1443512312940+0200)/"
-                    }
-                ]
-            }
-        ]
-    
++ Response 200 (application/json; charset=utf-8)
 
 
-### eKnihy - Detail [/v1/getEbook/{bookId}]
-
-#### v1/getEbookReaderData [GET]
-
-+ Request
-
-    + header
-    
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
-
-+ Parameters
-    + bookId: 52666985 (number) - ID kniky, parametr ID
-
-+ Response 200 (application/json)
-        
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "WEB@ TEST",
-                "basket_cnt": 3,
-                "basket_total_cnt": 4,
-                "user_id": 2366954,
-                "favCnt": 10,
-                "alzaCredit": "134 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "24. 6. 2018",
-                "premiumRenew": false,
-                "book": {
-                    "Id": 52666985,
-                    "productId": 2293358,
-                    "orderId": "154829304",
-                    "invoiceId": "2152043965",
-                    "invoicedate": "28. 08. 2015 12:00",
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 10,
+            "data": [
+                {
+                    "Id": 51786007,
+                    "productId": 2414990,
+                    "orderId": "153001699",
+                    "invoiceId": "2150817142",
+                    "invoicedate": "27. 03. 2015 12:00",
                     "freeCharge": false,
-                    "code": "EK11955",
-                    "name": "Stalker ",
-                    "specification": "Autor Lars Kepler, 573 stran",
-                    "price": "156 Kč",
-                    "priceWithVat": "189 Kč",
+                    "code": "XXEK5442",
+                    "name": "Levhart",
+                    "specification": "Ze série Harry Hole, autor Jo Nesbo, 722 stran",
+                    "price": "0 Kč",
+                    "priceWithVat": "0 Kč",
                     "serialnumber": null,
-                    "url": "https://www.alza.cz/media/stopar-d2293358.htm",
-                    "imageUrl": "https://i3.alza.cz/Foto/f8/EK/EK11955.jpg",
-                    "bigImgUrl": "https://i3.alza.cz/Foto/f9_rect/EK/EK11955.jpg",
-                    "palmsbookId": "12294",
+                    "url": "https://www.alza.cz/media/levhart-d2414990.htm",
+                    "imageUrl": "https://i3.alza.cz/Foto/f8/XX/XXEK5442.jpg",
+                    "bigImgUrl": "https://i3.alza.cz/Foto/f9_rect/XX/XXEK5442.jpg",
+                    "palmsbookId": "6231",
                     "drm": "Social",
                     "activationstate": "Active",
                     "mustconfirm": false,
-                    "EpubUrl": "https://www.alza.cz/download/eknihy/52666985-201510141244-0237E3F6l122D182419vLqcW.epub",
-                    "kindleurl": "https://www.alza.cz/download/eknihy/52666985-201510141244-02rD6A61391bD182A437T82Se.mobi",
-                    "pdfurl": "https://www.alza.cz/download/eknihy/52666985-201510141244-02w968346C13791F7A1GTA2cF5.pdf",
-                    "PdfReadersUrl": null,
+                    "EpubUrl": "https://www.alza.cz/download/eknihy/51786007-201510081040-02R36F636A1g94B7D1R21D72622.epub",
+                    "kindleurl": "https://www.alza.cz/download/eknihy/51786007-201510081040-02RF38646A1rE4979142dD7SF5.mobi",
+                    "pdfurl": "https://www.alza.cz/download/eknihy/51786007-201510081040-0742C626SF4GQE291W14824625.pdf",
+                    "PdfReadersUrl": "https://www.alza.cz/download/eknihy/51786007-201510081040-022Bc35n437C442F42t1C21b46-r.pdf",
                     "ExistsForEPub": true,
                     "ExistsForKindle": true,
                     "ExistsForPdf": true,
-                    "ExistsForPdfReaders": false,
+                    "ExistsForPdfReaders": true,
                     "EpubSize": null,
                     "Kindlesize": null,
                     "Pdfsize": null,
@@ -786,14 +645,155 @@ Zobrazeni weboveho clanku ve webview aplikace
                     "bookAuthors_cnt": 1,
                     "bookAuthors": [
                         {
-                            "id": 5246,
-                            "name": "Lars Kepler",
-                            "url": "Lars Kepler-cat0.htm?p=1026-5246"
+                            "id": 5315,
+                            "name": "Nesbo, Jo",
+                            "url": "Jo Nesbo-cat0.htm?p=1026-5315"
                         }
-                    ]
+                    ],
+                    "genres": [],
+                    "lastreadpage": 0,
+                    "lastreadparagraph": 0,
+                    "lastreadword": 0,
+                    "lastreadchar": 0,
+                    "lastchange": "/Date(1444231199220+0200)/"
+                }, {
+                    "Id": 51786003,
+                    "productId": 2415022,
+                    "orderId": "153001699",
+                    "invoiceId": "2150817142",
+                    "invoicedate": "27. 03. 2015 12:00",
+                    "freeCharge": false,
+                    "code": "XXEK9939",
+                    "name": "Analfabetka, která uměla počítat",
+                    "specification": "Autor Jonas Jonasson, 414 stran",
+                    "price": "0 Kč",
+                    "priceWithVat": "0 Kč",
+                    "serialnumber": null,
+                    "url": "https://www.alza.cz/media/analfabetka-ktera-umela-pocitat-d2415022.htm",
+                    "imageUrl": "https://i3.alza.cz/Foto/f8/XX/XXEK9939.jpg",
+                    "bigImgUrl": "https://i3.alza.cz/Foto/f9_rect/XX/XXEK9939.jpg",
+                    "palmsbookId": "12581",
+                    "drm": "Social",
+                    "activationstate": "Active",
+                    "mustconfirm": false,
+                    "EpubUrl": "https://www.alza.cz/download/eknihy/51786003-201510081040-02wB6F33394GC4E7D1RMt33Q.epub",
+                    "kindleurl": "https://www.alza.cz/download/eknihy/51786003-201510081040-072226C313817C197E42u182434Y.mobi",
+                    "pdfurl": "https://www.alza.cz/download/eknihy/51786003-201510081040-021223E683B1C2A1F241421825eV.pdf",
+                    "PdfReadersUrl": "https://www.alza.cz/download/eknihy/51786003-201510081040-0237F39633F417A4B7D11721C2cY-r.pdf",
+                    "ExistsForEPub": true,
+                    "ExistsForKindle": true,
+                    "ExistsForPdf": true,
+                    "ExistsForPdfReaders": true,
+                    "EpubSize": null,
+                    "Kindlesize": null,
+                    "Pdfsize": null,
+                    "PdfReadersize": null,
+                    "url_msg": null,
+                    "bookHash": "",
+                    "recommendedBooks_cnt": 0,
+                    "recommendedBooks": null,
+                    "bookAuthors_cnt": 1,
+                    "bookAuthors": [
+                        {
+                            "id": 7189,
+                            "name": "Jonasson, Jonas",
+                            "url": "Jonas Jonasson-cat0.htm?p=1026-7189"
+                        }
+                    ],
+                    "genres": [],
+                    "lastreadpage": 0,
+                    "lastreadparagraph": null,
+                    "lastreadword": null,
+                    "lastreadchar": null,
+                    "lastchange": "/Date(1443512312940+0200)/"
                 }
+            ]
+        }
+
+    
+
+
+### eKnihy - Detail [/v1/getEbook/{bookId}]
+
+#### v1/getEbookReaderData [GET]
+
++ Request (application/json; charset=utf-8)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Parameters
+    + bookId: 52666985 (number) - ID kniky, parametr ID
+
++ Response 200 (application/json; charset=utf-8)
+        
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "WEB@ TEST",
+            "basket_cnt": 3,
+            "basket_total_cnt": 4,
+            "user_id": 2366954,
+            "favCnt": 10,
+            "alzaCredit": "134 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "24. 6. 2018",
+            "premiumRenew": false,
+            "book": {
+                "Id": 52666985,
+                "productId": 2293358,
+                "orderId": "154829304",
+                "invoiceId": "2152043965",
+                "invoicedate": "28. 08. 2015 12:00",
+                "freeCharge": false,
+                "code": "EK11955",
+                "name": "Stalker ",
+                "specification": "Autor Lars Kepler, 573 stran",
+                "price": "156 Kč",
+                "priceWithVat": "189 Kč",
+                "serialnumber": null,
+                "url": "https://www.alza.cz/media/stopar-d2293358.htm",
+                "imageUrl": "https://i3.alza.cz/Foto/f8/EK/EK11955.jpg",
+                "bigImgUrl": "https://i3.alza.cz/Foto/f9_rect/EK/EK11955.jpg",
+                "palmsbookId": "12294",
+                "drm": "Social",
+                "activationstate": "Active",
+                "mustconfirm": false,
+                "EpubUrl": "https://www.alza.cz/download/eknihy/52666985-201510141244-0237E3F6l122D182419vLqcW.epub",
+                "kindleurl": "https://www.alza.cz/download/eknihy/52666985-201510141244-02rD6A61391bD182A437T82Se.mobi",
+                "pdfurl": "https://www.alza.cz/download/eknihy/52666985-201510141244-02w968346C13791F7A1GTA2cF5.pdf",
+                "PdfReadersUrl": null,
+                "ExistsForEPub": true,
+                "ExistsForKindle": true,
+                "ExistsForPdf": true,
+                "ExistsForPdfReaders": false,
+                "EpubSize": null,
+                "Kindlesize": null,
+                "Pdfsize": null,
+                "PdfReadersize": null,
+                "url_msg": null,
+                "bookHash": "",
+                "recommendedBooks_cnt": 0,
+                "recommendedBooks": null,
+                "bookAuthors_cnt": 1,
+                "bookAuthors": [
+                    {
+                        "id": 5246,
+                        "name": "Lars Kepler",
+                        "url": "Lars Kepler-cat0.htm?p=1026-5246"
+                    }
+                ]
             }
-        ]
+        }
+
 
 
 
@@ -825,7 +825,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 **iOS + AN - PDF - Nastaveni zalozky**
 `page` - zislo stranky
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -834,47 +834,47 @@ Zobrazeni weboveho clanku ve webview aplikace
 + Parameters
     + bookId: 52666985 (number) - ID kniky, parametr ID
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
         
-        [
-            {
-                "err": 0,
-                "msg": "",
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "lastreadpage": 0,
-                "lastreadparagraph": 0,
-                "lastreadword": 0,
-                "lastreadchar": 0,
-                "lastchange": "/Date(1444305325187+0200)/",
-                "bookmarks": [
-                    {
-                        "id": 9402,
-                        "page": 0,
-                        "note": "redigované vzpomínky z dětství, vybrané podle jed…",
-                        "paragraphIndex": 0,
-                        "wordIndex": 0,
-                        "charIndex": 0,
-                        "chapter": 13,
-                        "chapterIndex": 9411
-                    } ],
-                "lastreadchapter": 13,
-                "lastreadchapterindex": 9869
-            }
-        ]
+
+        {
+            "err": 0,
+            "msg": "",
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "lastreadpage": 0,
+            "lastreadparagraph": 0,
+            "lastreadword": 0,
+            "lastreadchar": 0,
+            "lastchange": "/Date(1444305325187+0200)/",
+            "bookmarks": [
+                {
+                    "id": 9402,
+                    "page": 0,
+                    "note": "redigované vzpomínky z dětství, vybrané podle jed…",
+                    "paragraphIndex": 0,
+                    "wordIndex": 0,
+                    "charIndex": 0,
+                    "chapter": 13,
+                    "chapterIndex": 9411
+                } ],
+            "lastreadchapter": 13,
+            "lastreadchapterindex": 9869
+        }
+
 
 
 
@@ -883,7 +883,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 #### v1/setEbookReaderData [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Header
     
@@ -899,7 +899,7 @@ Zobrazeni weboveho clanku ve webview aplikace
                 "lastReadWord": 46
             }
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
 
 
@@ -907,7 +907,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 #### v1/setEbookReaderBookmark [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Header
     
@@ -924,7 +924,7 @@ Zobrazeni weboveho clanku ve webview aplikace
                 "wordIndex": 46
             }
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
 
 
@@ -932,7 +932,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 #### v1/setEbookReaderBookmark [GET]
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -942,7 +942,7 @@ Zobrazeni weboveho clanku ve webview aplikace
     + bookId: 52666985 (number) ID knihy - jako example je nastavena kniha Levhart
     + bookmarkId: 321654321 (number)
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
 
 ## Group Audioknihy
@@ -953,7 +953,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 `lastPlayedTrack` - Posledně přehrávaná kapitola, kterou na detailu nastavujeme na player abychom mohli navazat prehravani
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -964,98 +964,98 @@ Zobrazeni weboveho clanku ve webview aplikace
     + sort_type: 1 (number) - zpusob razeni
     + asc_desc: 0 (number) - smer razeni. Vzestupne nebo zestupne
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
         
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "data_cnt": 10,
-                "data": [
-                    {
-                        "id": 2416272,
-                        "type": "Album",
-                        "code": "AKZ668",
-                        "name": "Hunger Games - Aréna smrti, Vražedná pomsta, Síla vzdoru",
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 10,
+            "data": [
+                {
+                    "id": 2416272,
+                    "type": "Album",
+                    "code": "AKZ668",
+                    "name": "Hunger Games - Aréna smrti, Vražedná pomsta, Síla vzdoru",
+                    "activationState": "Active",
+                    "length": 0,
+                    "duration": "00:00",
+                    "purchaseDate": "27. 03. 2015 02:03",
+                    "canStream": false,
+                    "canUserStream": false,
+                    "supplierCode": "fragment_5",
+                    "artist": "Collinsová, Suzanne",
+                    "imageUrl": "https://i.alza.cz/Foto/f7/AK/AKZ668.jpg",
+                    "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AK/AKZ668.jpg",
+                    "dwnUrlsCount": 0,
+                    "dwnUrls": null,
+                    "lastPlayedTrack": {
+                        "id": 2416468,
+                        "type": "Track",
+                        "code": "AKZ668-1-03",
+                        "name": "Aréna smrti - 1. část - Splátci",
                         "activationState": "Active",
                         "length": 0,
                         "duration": "00:00",
                         "purchaseDate": "27. 03. 2015 02:03",
                         "canStream": false,
                         "canUserStream": false,
-                        "supplierCode": "fragment_5",
-                        "artist": "Collinsová, Suzanne",
-                        "imageUrl": "https://i.alza.cz/Foto/f7/AK/AKZ668.jpg",
-                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AK/AKZ668.jpg",
-                        "dwnUrlsCount": 0,
-                        "dwnUrls": null,
-                        "lastPlayedTrack": {
-                            "id": 2416468,
-                            "type": "Track",
-                            "code": "AKZ668-1-03",
-                            "name": "Aréna smrti - 1. část - Splátci",
-                            "activationState": "Active",
-                            "length": 0,
-                            "duration": "00:00",
-                            "purchaseDate": "27. 03. 2015 02:03",
-                            "canStream": false,
-                            "canUserStream": false,
-                            "supplierCode": "1575068",
-                            "order": 3,
-                            "dwnUrl": null,
-                            "size": 26078085,
-                            "mimeType": "audio/mpeg",
-                            "progress": 21,
-                            "timesListened": 1,
-                            "lastListened": 1444238479,
-                            "dPrice": 0
+                        "supplierCode": "1575068",
+                        "order": 3,
+                        "dwnUrl": null,
+                        "size": 26078085,
+                        "mimeType": "audio/mpeg",
+                        "progress": 21,
+                        "timesListened": 1,
+                        "lastListened": 1444238479,
+                        "dPrice": 0
+                    },
+                    "lastPlayedTrackId": null,
+                    "genres_cnt": 4,
+                    "genres": [
+                        {
+                            "id": 3338,
+                            "name": "Dobrodružné romány"
                         },
-                        "lastPlayedTrackId": null,
-                        "genres_cnt": 4,
-                        "genres": [
-                            {
-                                "id": 3338,
-                                "name": "Dobrodružné romány"
-                            },
-                            {
-                                "id": 3398,
-                                "name": "Fantasy a sci-fi"
-                            },
-                            {
-                                "id": 3299,
-                                "name": "Pro mládež"
-                            },
-                            {
-                                "id": 3375,
-                                "name": "Zahraniční literatura"
-                            }
-                            ],
-                        "artists_cnt": 1,
-                        "artists": [
-                            {
-                             "name": "Collinsová, Suzanne"
-                            }
+                        {
+                            "id": 3398,
+                            "name": "Fantasy a sci-fi"
+                        },
+                        {
+                            "id": 3299,
+                            "name": "Pro mládež"
+                        },
+                        {
+                            "id": 3375,
+                            "name": "Zahraniční literatura"
+                        }
                         ],
-                        "url": "https://www.alza.cz/media/hunger-games-arena-smrti-vrazedna-pomsta-sila-vzdoru-d2416272.htm",
-                        "trackCount": 84
-                }
+                    "artists_cnt": 1,
+                    "artists": [
+                        {
+                         "name": "Collinsová, Suzanne"
+                        }
+                    ],
+                    "url": "https://www.alza.cz/media/hunger-games-arena-smrti-vrazedna-pomsta-sila-vzdoru-d2416272.htm",
+                    "trackCount": 84
             }
-        ]
+        }
+
 
 
 
@@ -1065,7 +1065,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 `lastPlayedTrack` - Posledně přehrávaná kapitola, kterou na detailu nastavujeme na player abychom mohli navazat prehravani
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -1074,75 +1074,75 @@ Zobrazeni weboveho clanku ve webview aplikace
 + Parameters
     + ID: 2266448 (number) - ID audioknihy
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
         
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "data_cnt": 84,
-                "data": [
-                    {
-                        "id": 2416466,
-                        "type": "Track",
-                        "code": "AKZ668-1-01",
-                        "name": "Aréna smrti - 1. část - Splátci",
-                        "activationState": "Active",
-                        "length": 0,
-                        "duration": "00:00",
-                        "purchaseDate": "27. 03. 2015 02:03",
-                        "canStream": false,
-                        "canUserStream": false,
-                        "supplierCode": "1575066",
-                        "order": 1,
-                        "dwnUrl": null,
-                        "size": 503316,
-                        "mimeType": "audio/mpeg",
-                        "progress": 0,
-                        "timesListened": 0,
-                        "lastListened": 0,
-                        "dPrice": 0
-                    },
-                    {
-                        "id": 2416467,
-                        "type": "Track",
-                        "code": "AKZ668-1-02",
-                        "name": "Aréna smrti - 1. část - Splátci",
-                        "activationState": "Active",
-                        "length": 0,
-                        "duration": "00:00",
-                        "purchaseDate": "27. 03. 2015 02:03",
-                        "canStream": false,
-                        "canUserStream": false,
-                        "supplierCode": "1575067",
-                        "order": 2,
-                        "dwnUrl": null,
-                        "size": 37549506,
-                        "mimeType": "audio/mpeg",
-                        "progress": 0,
-                        "timesListened": 2,
-                        "lastListened": 1444232476,
-                        "dPrice": 0
-                    } ]
 
-                }
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 84,
+            "data": [
+                {
+                    "id": 2416466,
+                    "type": "Track",
+                    "code": "AKZ668-1-01",
+                    "name": "Aréna smrti - 1. část - Splátci",
+                    "activationState": "Active",
+                    "length": 0,
+                    "duration": "00:00",
+                    "purchaseDate": "27. 03. 2015 02:03",
+                    "canStream": false,
+                    "canUserStream": false,
+                    "supplierCode": "1575066",
+                    "order": 1,
+                    "dwnUrl": null,
+                    "size": 503316,
+                    "mimeType": "audio/mpeg",
+                    "progress": 0,
+                    "timesListened": 0,
+                    "lastListened": 0,
+                    "dPrice": 0
+                },
+                {
+                    "id": 2416467,
+                    "type": "Track",
+                    "code": "AKZ668-1-02",
+                    "name": "Aréna smrti - 1. část - Splátci",
+                    "activationState": "Active",
+                    "length": 0,
+                    "duration": "00:00",
+                    "purchaseDate": "27. 03. 2015 02:03",
+                    "canStream": false,
+                    "canUserStream": false,
+                    "supplierCode": "1575067",
+                    "order": 2,
+                    "dwnUrl": null,
+                    "size": 37549506,
+                    "mimeType": "audio/mpeg",
+                    "progress": 0,
+                    "timesListened": 2,
+                    "lastListened": 1444232476,
+                    "dPrice": 0
+                } ]
+
             }
-        ]
+        }
+
 
 
 ### Audioknihy - Kapitoly - Ziskani linku na stazeni [/v1/getAudioBookDwnUrl/{albumId}?trackId={trackId}]
