@@ -1136,7 +1136,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 iOS a WP tuto sluzbu vubec nepouzivaji a funguji pouze na sluzbe refreshAlbumLink
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -1146,35 +1146,33 @@ iOS a WP tuto sluzbu vubec nepouzivaji a funguji pouze na sluzbe refreshAlbumLin
     + albumId: 2266448 (number) 
     + trackId: 2266450 (number)
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
         
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "data": [
-                    {
-                        "url": "https://dwn.alza.cz/getmedia.ashx?t=J8bQ%2fGWTAlCWtznH5EPVR%2bsoo3F6ZVT4OMg0FW01L902pMbtG1MRdehtNPq7o%2bHQ",
-                        "size": 503316
-                    }
-                ]
-            }
-        ]
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data": [
+                {
+                    "url": "https://dwn.alza.cz/getmedia.ashx?t=J8bQ%2fGWTAlCWtznH5EPVR%2bsoo3F6ZVT4OMg0FW01L902pMbtG1MRdehtNPq7o%2bHQ",
+                    "size": 503316
+                }
+            ]
+        }
 
 
 
@@ -1184,7 +1182,7 @@ iOS a WP tuto sluzbu vubec nepouzivaji a funguji pouze na sluzbe refreshAlbumLin
 
 `value` - URL pro stazeni kapitoly nebo tracku
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -1196,30 +1194,30 @@ iOS a WP tuto sluzbu vubec nepouzivaji a funguji pouze na sluzbe refreshAlbumLin
     + trackId: 2266450 (number)
     + type: 0 (number) - 0 pro Audioknihy a 1 pro hudbu
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
         
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "value": "https://dwn.alza.cz/getmedia.ashx?t=wI6Yu70rv%2b4K7wekNuxOkz%2fOBZafyZANwjhUVlWpKxLfTxYdBpSyFN6herCqH6BR"
-            }
-        ]
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "value": "https://dwn.alza.cz/getmedia.ashx?t=wI6Yu70rv%2b4K7wekNuxOkz%2fOBZafyZANwjhUVlWpKxLfTxYdBpSyFN6herCqH6BR"
+        }
+
 
 
 ### Audioknihy - Ulozeni rozposlouchanosti [/v1/saveAudioPosition?id={trackId}?finished={finished}?seconds={seconds}]
@@ -1228,7 +1226,7 @@ iOS a WP tuto sluzbu vubec nepouzivaji a funguji pouze na sluzbe refreshAlbumLin
 
 Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds` a tim padem se vyresetuje rozposlouchanost cele AK
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -1240,7 +1238,7 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
     + finished: false (string) - FALSE pokud chceme nastavit pozici. TRUE kdyz skonci poslech cele AK a pak se neposila seconds
     + seconds: 29 (number) - pocet vterin
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
 
 
