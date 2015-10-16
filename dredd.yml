@@ -1,0 +1,27 @@
+reporter: apiary
+custom:
+  apiaryApiKey: 3df77ef40e366172030bd26c67f7f280
+  apiaryApiName: alzamedia
+dry-run: null
+hookfiles: null
+language: nodejs
+sandbox: false
+server: null
+server-wait: 3
+init: false
+names: false
+only: []
+output: []
+header: []
+sorted: false
+user: null
+inline-errors: false
+details: false
+method: []
+color: true
+level: info
+timestamp: false
+silent: false
+path: []
+blueprint: 'https://github.com/filipbocek/AMtest/blob/master/apiary.apib'
+endpoint: 'https://www.alza.cz/media/Services/RestService.svc/'
