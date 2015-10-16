@@ -1,0 +1,3402 @@
+FORMAT: 1A
+HOST: https://www.alza.cz/media/Services/RestService.svc/
+
+
+# Alza Media
+
+Zde naleznete seznam všech API služeb, a jejich chování v rámci aplikace Alza Media
+
+## Requesty a stavy
+
+### Povolené HTTPs requesty
+
+`POST` - to create resource.
+
+`GET` - get a resource or list of resources.
+
+### Obvyklé odpovědi ze serveru
+`200` OK - the request was successful.
+
+`204` No Content - the request was successful but there is no representation to return (i.e. the response is empty).
+
+`400` Bad Request - the request could not be understood or was missing required parameters.
+
+`401` Unauthorized - authentication failed or user doesn't have permissions for requested operation.
+
+`403` Forbidden - access denied.
+
+`404` Not Found - resource was not found.
+
+`500` Internal Server Error - the server encountered an unexpected condition which prevented it from fulfilling the request.
+
+`502` Bad Gateway - the server is down.
+
+`503` Service Unavailable - the server is up however it timed out to satisfy client's response.
+
+
+## Prostredi
+
+### Produkční prostředí
+
+`https://alza.cz/media`
+`https://alza.sk/media`
+
+
+### Testovací prostředí
+
+`https://beta.alza.cz/media`
+`https://gama.alza.cz/media`
+`https://delta.alza.cz/media`
+`https://epsilon.alza.cz/media`
+`https://omega.alza.cz/media`
+`https://kappa.alza.cz/media`
+`https://lambda.alza.cz/media`
+`https://sigma.alza.cz/media`
+
+
+### Vývojové prostředí
+
+`https://dev.alza.cz/media`
+
+## Cookie a hlavni parametry
+
+### Definice cookies v header
+
+* `platform` dle dane platformy nastavujeme na hodnoty:
+    * ios
+    * iostablet
+    * android
+    * androidtablet
+    * windowsphone
+* `density` dle rozliseni zarizeni (a velikosti dislay) se nastavuje na 1 - 4 (v případě Androidu i 1,5)
+* `UIDX` serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw= (cookie pro ucet web@alza.cz)
+
+### Data obsažená v každém response
+
+* `err: 0` - Pokud 0, tak je response OK, Pokud 1, tak došlo k chybě a parametr `msg` bude obsahovat chybovou zprávu
+* `msg: null` - Je vyplňen pouze v případě, že došlo k chybě
+* `vzt: 254798307` - ID visitora. Ikdyž uživatel není přihlášech je mu přiřazena cookie / ID návštěvníka.
+* `user_name: "WEB@ TEST"` - Jméno a příjmení uživate. Pokud tyto údaje nemá vyplněny, zasílá se email
+* `basket_cnt: 1` - Počet položek v košíku
+* `basket_total_cnt: 1` - Celkový počet všech položek ve všech košících
+* `user_id: 2366954` - ID přihlášeného uživatele. pokud uživatel není přihlášen, není vyplněno
+* `favCnt: 5` - Počet kusů zboží uložených v oblíbených
+* `alzaCredit: "260 Kč"` - Výše uživatelova Alza kreditu
+* `countryID: 0` - ID Země, v rámci které se uživatel registroval
+* `countryPhonePrefix: "420"` - Prefix telefonního čísla země
+* `premiumBooks: 10` - Úroveň Alza Premium (0 - NEMÁ, 1 - PLNÉ ČLENSTVÍ, 20 - TRIAL)
+* `premiumMusic: 10` - Úroveň Alza Premium (0 - NEMÁ, 1 - PLNÉ ČLENSTVÍ, 20 - TRIAL)
+* `premiumMovies: 10` - Úroveň Alza Premium (0 - NEMÁ, 1 - PLNÉ ČLENSTVÍ, 20 - TRIAL)
+* `premiumDelivery: 10` - Úroveň Alza Premium (0 - NEMÁ, 1 - PLNÉ ČLENSTVÍ, 20 - TRIAL)
+* `premiumValidTo: "18. 6. 2018"` - Datum, do kdy má uživatel Alza Premium aktivní
+* `premiumRenew: true` - Příznak, zda se uživateli automaticky Premium obnoví po vypršení roční lhůty
+
+
+## Group Obecne
+
+### Login - Klasicky [/v1/loginUser]
+
+#### v1/loginUser [POST]
+
++ Request
+
+        {
+            [
+                {
+                    "email": "web@alza.cz"
+                    "pwd": "heslo"
+                }
+            ]
+        }
+
++ Response 200 (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+    + Body        
+
+            [
+                {
+                    "err": 0,
+                    "msg": null,
+                    "vzt": 254798307,
+                    "user_name": "WEB@ TEST",
+                    "basket_cnt": 3,
+                    "basket_total_cnt": 4,
+                    "user_id": 2366954,
+                    "favCnt": 10,
+                    "alzaCredit": "134 Kč",
+                    "countryID": 0,
+                    "countryPhonePrefix": "420",
+                    "premiumBooks": 10,
+                    "premiumMusic": 10,
+                    "premiumMovies": 10,
+                    "premiumDelivery": 10,
+                    "premiumValidTo": "24. 6. 2018",
+                    "premiumRenew": false
+                }
+            ]
+
+
+### Login - Facebook [/v1/LoginUserFacebook]
+
+#### v1/LoginUserFacebook [POST]
+
++ Request
+
+        {
+            [
+                {
+                    "token": "ya29.DALV3nMULGTyvUj9_bfEeFkXeDxpl1qbcaYbYkb2RgvEAwIlpqVlswf0lYLl0CyQaQoDeHo"
+                }
+            ]
+        }
+
++ Response 200 (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+    + Body        
+
+            [
+                {
+                    "err": 0,
+                    "msg": null,
+                    "vzt": 254798307,
+                    "user_name": "WEB@ TEST",
+                    "basket_cnt": 3,
+                    "basket_total_cnt": 4,
+                    "user_id": 2366954,
+                    "favCnt": 10,
+                    "alzaCredit": "134 Kč",
+                    "countryID": 0,
+                    "countryPhonePrefix": "420",
+                    "premiumBooks": 10,
+                    "premiumMusic": 10,
+                    "premiumMovies": 10,
+                    "premiumDelivery": 10,
+                    "premiumValidTo": "24. 6. 2018",
+                    "premiumRenew": false
+                }
+            ]
+            
+            
+### Login - Facebook [/v1/LoginUserGoogle]
+
+#### v1/LoginUserGoogle [POST]
+
++ Request
+
+        {
+            [
+                {
+                    "token": "ya29.DALV3nMULGTyvUj9_bfEeFkXeDxpl1qbcaYbYkb2RgvEAwIlpqVlswf0lYLl0CyQaQoDeHo"
+                }
+            ]
+        }
+
++ Response 200 (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+    + Body        
+
+            [
+                {
+                    "err": 0,
+                    "msg": null,
+                    "vzt": 254798307,
+                    "user_name": "WEB@ TEST",
+                    "basket_cnt": 3,
+                    "basket_total_cnt": 4,
+                    "user_id": 2366954,
+                    "favCnt": 10,
+                    "alzaCredit": "134 Kč",
+                    "countryID": 0,
+                    "countryPhonePrefix": "420",
+                    "premiumBooks": 10,
+                    "premiumMusic": 10,
+                    "premiumMovies": 10,
+                    "premiumDelivery": 10,
+                    "premiumValidTo": "24. 6. 2018",
+                    "premiumRenew": false
+                }
+            ]
+
+
+### Login - Klasicky [/v1/loginUserAdmin]
+
+Tato sluzba funguje pouze na BETA prostredi a slouzi k prihlaseni se pod uctem uzivatele
+
+#### v1/loginUserAdmin [POST]
+
++ Request
+
+        {
+            [
+                {
+                    "email": "web@alza.cz"
+                }
+            ]
+        }
+
++ Response 200 (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+    + Body        
+
+            [
+                {
+                    "err": 0,
+                    "msg": null,
+                    "vzt": 254798307,
+                    "user_name": "WEB@ TEST",
+                    "basket_cnt": 3,
+                    "basket_total_cnt": 4,
+                    "user_id": 2366954,
+                    "favCnt": 10,
+                    "alzaCredit": "134 Kč",
+                    "countryID": 0,
+                    "countryPhonePrefix": "420",
+                    "premiumBooks": 10,
+                    "premiumMusic": 10,
+                    "premiumMovies": 10,
+                    "premiumDelivery": 10,
+                    "premiumValidTo": "24. 6. 2018",
+                    "premiumRenew": false
+                }
+            ]
+
+
+### Login - Registrace [/v2/createUser]
+
+#### v2/createUser [POST]
+
++ Request
+
+        {
+            [
+                {
+                    "email": "web@alza.cz"
+                    "phone": "+420413332088"
+                    "pwd": "heslo"
+                }
+            ]
+        }
+
++ Response 200 (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+    + Body        
+
+            [
+                {
+                    "err": 0,
+                    "msg": null,
+                    "vzt": 254798307,
+                    "user_name": "WEB@ TEST",
+                    "basket_cnt": 3,
+                    "basket_total_cnt": 4,
+                    "user_id": 2366954,
+                    "favCnt": 10,
+                    "alzaCredit": "134 Kč",
+                    "countryID": 0,
+                    "countryPhonePrefix": "420",
+                    "premiumBooks": 10,
+                    "premiumMusic": 10,
+                    "premiumMovies": 10,
+                    "premiumDelivery": 10,
+                    "premiumValidTo": "24. 6. 2018",
+                    "premiumRenew": false
+                }
+            ]
+
+
+### Zpetna vazba [/v1/feedback]
+
+Odeslani zpetne vazby z aplikace
+
+#### v1/feedback [POST]
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+    
+    + Body
+    
+            {
+                "email": "web@alza.cz",
+                "message": "Zprava"
+                "spec": "Device info"
+            }
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true
+            }
+        ]
+
+
+### Clanky [/v1/article/{articleId}]
+
+Zobrazeni weboveho clanku ve webview aplikace
+
+#### v1/article [GET]
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
++ Parameters
+    + articleId: 15078 (number) - ID clanku
+
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "WEB@ TEST",
+                "basket_cnt": 3,
+                "basket_total_cnt": 5,
+                "user_id": 2366954,
+                "favCnt": 10,
+                "alzaCredit": "74 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "24. 6. 2018",
+                "premiumRenew": false,
+                "content": "<a href=\"/playstation-4/18854416.htm\">PS4</a> či <a href=\"/wii-u/18854203.htm\">Nintendo Wii U</a>.<br /><br />Základem je jednoduché používání, které vám dopřeje vrhnout všechny vaše síly na předvádění hry a klidně i s okamžitým komentářem. K tomu skvěle poslouží dodávaný dálkový ovladač s notoricky známými tlačítky.</p><img alt=\"AVerMedia Gamer Capture HD II\" class=\"pic\" src=\"https://i.alza.cz/Foto/ImgGalery/Image/a0_1.jpg\" style=\"width: 500px; height: 264px;\" title=\"AVerMedia Gamer Capture HD II\" /><h2>Ulehčí vám práci a ušetří hromadu času</h2><p style=\"text-align: justify;\">Představte si, že chytrá krabička od AVerMedia je rovnou také pokročilá střižna nahraných záznamů v 1080p. Vestavěný video editor umí hodně kousků.<br /><br />K okamžitému sdílení videa na YouTube poslouží nachystaný klasický LAN port pro připojení k internetu. V poslední době také vznikla zajímavá aplikace pro chytré telefony, která po vzájemném spárování umí podrobně informovat o stavu zařízení. Navíc z <a href=\"/mobilni-telefony/smartphone-telefony/18845588.htm\">mobilu</a> udělá i druhé dálkové ovládání.</p></div>"
+            }
+        ]
+
+
+
+
+
+## Group eKnihy
+
+### eKnihy - Načtení [/v1/getMyLibrary/{page}/{sort_type}/{asc_desc}]
+
+#### v5/getMyLibrary [GET]
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Parameters
+    + page: 1 (number) - Cislo stranky kterou chceme nacist
+    + sort_type: 1 (number) - zpusob razeni
+    + asc_desc: 0 (number) - smer razeni. Vzestupne nebo zestupne
+
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "data_cnt": 10,
+                "data": [
+                    {
+                        "Id": 51786007,
+                        "productId": 2414990,
+                        "orderId": "153001699",
+                        "invoiceId": "2150817142",
+                        "invoicedate": "27. 03. 2015 12:00",
+                        "freeCharge": false,
+                        "code": "XXEK5442",
+                        "name": "Levhart",
+                        "specification": "Ze série Harry Hole, autor Jo Nesbo, 722 stran",
+                        "price": "0 Kč",
+                        "priceWithVat": "0 Kč",
+                        "serialnumber": null,
+                        "url": "https://www.alza.cz/media/levhart-d2414990.htm",
+                        "imageUrl": "https://i3.alza.cz/Foto/f8/XX/XXEK5442.jpg",
+                        "bigImgUrl": "https://i3.alza.cz/Foto/f9_rect/XX/XXEK5442.jpg",
+                        "palmsbookId": "6231",
+                        "drm": "Social",
+                        "activationstate": "Active",
+                        "mustconfirm": false,
+                        "EpubUrl": "https://www.alza.cz/download/eknihy/51786007-201510081035-02wB39646C1C2E1E2F417B4123625.epub",
+                        "kindleurl": "https://www.alza.cz/download/eknihy/51786007-201510081035-07G869683E42AM2E17s18u33W.mobi",
+                        "pdfurl": "https://www.alza.cz/download/eknihy/51786007-201510081035-071283B336A12284D7E1121Du3433.pdf",
+                        "PdfReadersUrl": "https://www.alza.cz/download/eknihy/51786007-201510081035-024236F6e432E1E2811qD7V25v-r.pdf",
+                        "ExistsForEPub": true,
+                        "ExistsForKindle": true,
+                        "ExistsForPdf": true,
+                        "ExistsForPdfReaders": true,
+                        "EpubSize": null,
+                        "Kindlesize": null,
+                        "Pdfsize": null,
+                        "PdfReadersize": null,
+                        "url_msg": null,
+                        "bookHash": "",
+                        "recommendedBooks_cnt": 0,
+                        "recommendedBooks": null,
+                        "bookAuthors_cnt": 1,
+                        "bookAuthors": [
+                            {
+                                "id": 5315,
+                                "name": "Nesbo, Jo",
+                                "url": "Jo Nesbo-cat0.htm?p=1026-5315"
+                            }
+                            ],
+                            "genres": []
+                    }, {
+                        "Id": 51786006,
+                        "productId": 2414997,
+                        "orderId": "153001699",
+                        "invoiceId": "2150817142",
+                        "invoicedate": "27. 03. 2015 12:00",
+                        "freeCharge": false,
+                        "code": "XXEK11678",
+                        "name": "Americký sniper",
+                        "specification": "Autor Chris Kyle, Scott McEwen, Jim DeFelice, 400 stran",
+                        "price": "0 Kč",
+                        "priceWithVat": "0 Kč",
+                        "serialnumber": null,
+                        "url": "https://www.alza.cz/media/americky-sniper-d2414997.htm",
+                        "imageUrl": "https://i2.alza.cz/Foto/f8/XX/XXEK11678.jpg",
+                        "bigImgUrl": "https://i2.alza.cz/Foto/f9_rect/XX/XXEK11678.jpg",
+                        "palmsbookId": "6808",
+                        "drm": "Social",
+                        "activationstate": "Active",
+                        "mustconfirm": false,
+                        "EpubUrl": "https://www.alza.cz/download/eknihy/51786006-201510081035-0242F6C68381428197E19211F7S15.epub",
+                        "kindleurl": "https://www.alza.cz/download/eknihy/51786006-201510081035-0227C6A696Q1744D2A1tG13S38.mobi",
+                        "pdfurl": "https://www.alza.cz/download/eknihy/51786006-201510081035-0732C3E343E4wB4A7E41744E713E5.pdf",
+                        "PdfReadersUrl": null,
+                        "ExistsForEPub": true,
+                        "ExistsForKindle": true,
+                        "ExistsForPdf": true,
+                        "ExistsForPdfReaders": false,
+                        "EpubSize": null,
+                        "Kindlesize": null,
+                        "Pdfsize": null,
+                        "PdfReadersize": null,
+                        "url_msg": null,
+                        "bookHash": "",
+                        "recommendedBooks_cnt": 0,
+                        "recommendedBooks": null,
+                        "bookAuthors_cnt": 3,
+                        "bookAuthors": [
+                            {
+                                "id": 21047,
+                                "name": "Kyle, Chris",
+                                "url": "Chris Kyle-cat0.htm?p=1026-21047"
+                            },
+                            {
+                                "name": "McEwen, Scott"
+                            },
+                            {
+                                "name": "DeFelice, Jim"
+                            }
+                        ],
+                        "genres": []
+                    }
+                ]
+            }
+        ]
+
+
+
+### eKnihy - Nacteni podle rozectenosti [/v1/getMyReadingLibrary/{page}/{sort_type}/{asc_desc}]
+
+#### v1/getMyReadingLibrary [GET]
+
+**Dulezite parametry**
+
+`"Id": 51786007` - jedinecne ID polozky pro uzivatele
+
+`"productId": 2414990` - ID produktu v tabulce eo. - Tzn jedno ID per jedinecny produkt
+
+`"orderId": "153001699"` - ID objednávky v rámci ktere byla kniha zakoupena
+
+`"invoiceId": "2150817142"` - ID fakrury 
+
+`"code": "XXEK5442` - Kod produktu
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Parameters
+    + page: 1 (number) - Cislo stranky kterou chceme nacist
+    + sort_type: 1 (number) - zpusob razeni
+    + asc_desc: 0 (number) - smer razeni. Vzestupne nebo zestupne
+    
++ Response 200 (application/json)
+
+        [
+            {
+                ""err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "data_cnt": 10,
+                "data": [
+                    {
+                        "Id": 51786007,
+                        "productId": 2414990,
+                        "orderId": "153001699",
+                        "invoiceId": "2150817142",
+                        "invoicedate": "27. 03. 2015 12:00",
+                        "freeCharge": false,
+                        "code": "XXEK5442",
+                        "name": "Levhart",
+                        "specification": "Ze série Harry Hole, autor Jo Nesbo, 722 stran",
+                        "price": "0 Kč",
+                        "priceWithVat": "0 Kč",
+                        "serialnumber": null,
+                        "url": "https://www.alza.cz/media/levhart-d2414990.htm",
+                        "imageUrl": "https://i3.alza.cz/Foto/f8/XX/XXEK5442.jpg",
+                        "bigImgUrl": "https://i3.alza.cz/Foto/f9_rect/XX/XXEK5442.jpg",
+                        "palmsbookId": "6231",
+                        "drm": "Social",
+                        "activationstate": "Active",
+                        "mustconfirm": false,
+                        "EpubUrl": "https://www.alza.cz/download/eknihy/51786007-201510081040-02R36F636A1g94B7D1R21D72622.epub",
+                        "kindleurl": "https://www.alza.cz/download/eknihy/51786007-201510081040-02RF38646A1rE4979142dD7SF5.mobi",
+                        "pdfurl": "https://www.alza.cz/download/eknihy/51786007-201510081040-0742C626SF4GQE291W14824625.pdf",
+                        "PdfReadersUrl": "https://www.alza.cz/download/eknihy/51786007-201510081040-022Bc35n437C442F42t1C21b46-r.pdf",
+                        "ExistsForEPub": true,
+                        "ExistsForKindle": true,
+                        "ExistsForPdf": true,
+                        "ExistsForPdfReaders": true,
+                        "EpubSize": null,
+                        "Kindlesize": null,
+                        "Pdfsize": null,
+                        "PdfReadersize": null,
+                        "url_msg": null,
+                        "bookHash": "",
+                        "recommendedBooks_cnt": 0,
+                        "recommendedBooks": null,
+                        "bookAuthors_cnt": 1,
+                        "bookAuthors": [
+                            {
+                                "id": 5315,
+                                "name": "Nesbo, Jo",
+                                "url": "Jo Nesbo-cat0.htm?p=1026-5315"
+                            }
+                        ],
+                        "genres": [],
+                        "lastreadpage": 0,
+                        "lastreadparagraph": 0,
+                        "lastreadword": 0,
+                        "lastreadchar": 0,
+                        "lastchange": "/Date(1444231199220+0200)/"
+                    }, {
+                        "Id": 51786003,
+                        "productId": 2415022,
+                        "orderId": "153001699",
+                        "invoiceId": "2150817142",
+                        "invoicedate": "27. 03. 2015 12:00",
+                        "freeCharge": false,
+                        "code": "XXEK9939",
+                        "name": "Analfabetka, která uměla počítat",
+                        "specification": "Autor Jonas Jonasson, 414 stran",
+                        "price": "0 Kč",
+                        "priceWithVat": "0 Kč",
+                        "serialnumber": null,
+                        "url": "https://www.alza.cz/media/analfabetka-ktera-umela-pocitat-d2415022.htm",
+                        "imageUrl": "https://i3.alza.cz/Foto/f8/XX/XXEK9939.jpg",
+                        "bigImgUrl": "https://i3.alza.cz/Foto/f9_rect/XX/XXEK9939.jpg",
+                        "palmsbookId": "12581",
+                        "drm": "Social",
+                        "activationstate": "Active",
+                        "mustconfirm": false,
+                        "EpubUrl": "https://www.alza.cz/download/eknihy/51786003-201510081040-02wB6F33394GC4E7D1RMt33Q.epub",
+                        "kindleurl": "https://www.alza.cz/download/eknihy/51786003-201510081040-072226C313817C197E42u182434Y.mobi",
+                        "pdfurl": "https://www.alza.cz/download/eknihy/51786003-201510081040-021223E683B1C2A1F241421825eV.pdf",
+                        "PdfReadersUrl": "https://www.alza.cz/download/eknihy/51786003-201510081040-0237F39633F417A4B7D11721C2cY-r.pdf",
+                        "ExistsForEPub": true,
+                        "ExistsForKindle": true,
+                        "ExistsForPdf": true,
+                        "ExistsForPdfReaders": true,
+                        "EpubSize": null,
+                        "Kindlesize": null,
+                        "Pdfsize": null,
+                        "PdfReadersize": null,
+                        "url_msg": null,
+                        "bookHash": "",
+                        "recommendedBooks_cnt": 0,
+                        "recommendedBooks": null,
+                        "bookAuthors_cnt": 1,
+                        "bookAuthors": [
+                            {
+                                "id": 7189,
+                                "name": "Jonasson, Jonas",
+                                "url": "Jonas Jonasson-cat0.htm?p=1026-7189"
+                            }
+                        ],
+                        "genres": [],
+                        "lastreadpage": 0,
+                        "lastreadparagraph": null,
+                        "lastreadword": null,
+                        "lastreadchar": null,
+                        "lastchange": "/Date(1443512312940+0200)/"
+                    }
+                ]
+            }
+        ]
+    
+
+
+### eKnihy - Detail [/v1/getEbook/{bookId}]
+
+#### v1/getEbookReaderData [GET]
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Parameters
+    + bookId: 52666985 (number) - ID kniky, parametr ID
+
++ Response 200 (application/json)
+        
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "WEB@ TEST",
+                "basket_cnt": 3,
+                "basket_total_cnt": 4,
+                "user_id": 2366954,
+                "favCnt": 10,
+                "alzaCredit": "134 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "24. 6. 2018",
+                "premiumRenew": false,
+                "book": {
+                    "Id": 52666985,
+                    "productId": 2293358,
+                    "orderId": "154829304",
+                    "invoiceId": "2152043965",
+                    "invoicedate": "28. 08. 2015 12:00",
+                    "freeCharge": false,
+                    "code": "EK11955",
+                    "name": "Stalker ",
+                    "specification": "Autor Lars Kepler, 573 stran",
+                    "price": "156 Kč",
+                    "priceWithVat": "189 Kč",
+                    "serialnumber": null,
+                    "url": "https://www.alza.cz/media/stopar-d2293358.htm",
+                    "imageUrl": "https://i3.alza.cz/Foto/f8/EK/EK11955.jpg",
+                    "bigImgUrl": "https://i3.alza.cz/Foto/f9_rect/EK/EK11955.jpg",
+                    "palmsbookId": "12294",
+                    "drm": "Social",
+                    "activationstate": "Active",
+                    "mustconfirm": false,
+                    "EpubUrl": "https://www.alza.cz/download/eknihy/52666985-201510141244-0237E3F6l122D182419vLqcW.epub",
+                    "kindleurl": "https://www.alza.cz/download/eknihy/52666985-201510141244-02rD6A61391bD182A437T82Se.mobi",
+                    "pdfurl": "https://www.alza.cz/download/eknihy/52666985-201510141244-02w968346C13791F7A1GTA2cF5.pdf",
+                    "PdfReadersUrl": null,
+                    "ExistsForEPub": true,
+                    "ExistsForKindle": true,
+                    "ExistsForPdf": true,
+                    "ExistsForPdfReaders": false,
+                    "EpubSize": null,
+                    "Kindlesize": null,
+                    "Pdfsize": null,
+                    "PdfReadersize": null,
+                    "url_msg": null,
+                    "bookHash": "",
+                    "recommendedBooks_cnt": 0,
+                    "recommendedBooks": null,
+                    "bookAuthors_cnt": 1,
+                    "bookAuthors": [
+                        {
+                            "id": 5246,
+                            "name": "Lars Kepler",
+                            "url": "Lars Kepler-cat0.htm?p=1026-5246"
+                        }
+                    ]
+                }
+            }
+        ]
+
+
+
+### eKnihy - Detail rozectenosti [/v1/getEbookReaderData/{bookId}]
+
+#### v1/getEbookReaderData [GET]
+
+**iOS - ePub - Nastaveni rozectenosti**
+`lastreadchapter` - cislo rozectene kapitoly
+`lastreadchapterindex` - index (znak) v dane kapitole
+
+**AN - ePub - Nastaveni rozectenosti**
+`lastreadparagraph` - cislo rozecteneho paragrafu
+`lastreadword` - cislo slova
+`lastreadchar` - cislo znaku
+
+**iOS + AN - PDF - Nastaveni rozectenosti**
+`lastreadpage` - cislo stranky
+
+**iOS - ePub - Nastaveni zalozky**
+`chapter` - cislo kapitoly
+`chapterIndex` - index (znak) v dane kapitole
+
+**AN - ePub - Nastaveni zalozky**
+`paragraphIndex` - cislo paragrafu
+`wordIndex` - cislo slova
+`charIndex` - cislo znaku
+
+**iOS + AN - PDF - Nastaveni zalozky**
+`page` - zislo stranky
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Parameters
+    + bookId: 52666985 (number) - ID kniky, parametr ID
+
++ Response 200 (application/json)
+        
+        [
+            {
+                "err": 0,
+                "msg": "",
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "lastreadpage": 0,
+                "lastreadparagraph": 0,
+                "lastreadword": 0,
+                "lastreadchar": 0,
+                "lastchange": "/Date(1444305325187+0200)/",
+                "bookmarks": [
+                    {
+                        "id": 9402,
+                        "page": 0,
+                        "note": "redigované vzpomínky z dětství, vybrané podle jed…",
+                        "paragraphIndex": 0,
+                        "wordIndex": 0,
+                        "charIndex": 0,
+                        "chapter": 13,
+                        "chapterIndex": 9411
+                    } ],
+                "lastreadchapter": 13,
+                "lastreadchapterindex": 9869
+            }
+        ]
+
+
+
+
+### eKnihy - Ulozeni rozectenosti [/v1/setEbookReaderData]
+
+#### v1/setEbookReaderData [POST]
+
++ Request (application/json)
+
+    + Header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+    + Body
+
+            {
+                "bookId": 52764884
+                "lastReadChar": 2
+                "lastReadPage": -1
+                "lastReadParagraph": 87
+                "lastReadWord": 46
+            }
+
++ Response 200 (application/json)
+
+
+
+### eKnihy - Ulozeni zalozky [/v1/setEbookReaderBookmark]
+
+#### v1/setEbookReaderBookmark [POST]
+
++ Request (application/json)
+
+    + Header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+    + Body
+
+            {
+                "bookId": 52764884
+                "harIndex": 2
+                "note": "Nazev zalozky"
+                "page": -1
+                "paragraphIndex": 87
+                "wordIndex": 46
+            }
+
++ Response 200 (application/json)
+
+
+
+### eKnihy - Smazani zalozky [/v1/deleteEbookReaderBookmark/{bookId}/{bookmarkId}]
+
+#### v1/setEbookReaderBookmark [GET]
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Parameters
+    + bookId: 52666985 (number) ID knihy - jako example je nastavena kniha Levhart
+    + bookmarkId (number)
+
++ Response 200 (application/json)
+
+
+## Group Audioknihy
+
+### Audioknihy - Nacteni [/v4/getMyAudiobooks/{page}/{sort_type}/{asc_desc}]
+
+#### v4/getMyAudiobooks [GET]
+
+`lastPlayedTrack` - Posledně přehrávaná kapitola, kterou na detailu nastavujeme na player abychom mohli navazat prehravani
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Parameters
+    + page: 1 (number) - Cislo stranky kterou chceme nacist
+    + sort_type: 1 (number) - zpusob razeni
+    + asc_desc: 0 (number) - smer razeni. Vzestupne nebo zestupne
+
++ Response 200 (application/json)
+        
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "data_cnt": 10,
+                "data": [
+                    {
+                        "id": 2416272,
+                        "type": "Album",
+                        "code": "AKZ668",
+                        "name": "Hunger Games - Aréna smrti, Vražedná pomsta, Síla vzdoru",
+                        "activationState": "Active",
+                        "length": 0,
+                        "duration": "00:00",
+                        "purchaseDate": "27. 03. 2015 02:03",
+                        "canStream": false,
+                        "canUserStream": false,
+                        "supplierCode": "fragment_5",
+                        "artist": "Collinsová, Suzanne",
+                        "imageUrl": "https://i.alza.cz/Foto/f7/AK/AKZ668.jpg",
+                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AK/AKZ668.jpg",
+                        "dwnUrlsCount": 0,
+                        "dwnUrls": null,
+                        "lastPlayedTrack": {
+                            "id": 2416468,
+                            "type": "Track",
+                            "code": "AKZ668-1-03",
+                            "name": "Aréna smrti - 1. část - Splátci",
+                            "activationState": "Active",
+                            "length": 0,
+                            "duration": "00:00",
+                            "purchaseDate": "27. 03. 2015 02:03",
+                            "canStream": false,
+                            "canUserStream": false,
+                            "supplierCode": "1575068",
+                            "order": 3,
+                            "dwnUrl": null,
+                            "size": 26078085,
+                            "mimeType": "audio/mpeg",
+                            "progress": 21,
+                            "timesListened": 1,
+                            "lastListened": 1444238479,
+                            "dPrice": 0
+                        },
+                        "lastPlayedTrackId": null,
+                        "genres_cnt": 4,
+                        "genres": [
+                            {
+                                "id": 3338,
+                                "name": "Dobrodružné romány"
+                            },
+                            {
+                                "id": 3398,
+                                "name": "Fantasy a sci-fi"
+                            },
+                            {
+                                "id": 3299,
+                                "name": "Pro mládež"
+                            },
+                            {
+                                "id": 3375,
+                                "name": "Zahraniční literatura"
+                            }
+                            ],
+                        "artists_cnt": 1,
+                        "artists": [
+                            {
+                             "name": "Collinsová, Suzanne"
+                            }
+                        ],
+                        "url": "https://www.alza.cz/media/hunger-games-arena-smrti-vrazedna-pomsta-sila-vzdoru-d2416272.htm",
+                        "trackCount": 84
+                }
+            }
+        ]
+
+
+
+### Audioknihy - Nacteni kapitol [/v2/getAudioTracks/{ID}]
+
+#### v2/getAudioTracks [GET]
+
+`lastPlayedTrack` - Posledně přehrávaná kapitola, kterou na detailu nastavujeme na player abychom mohli navazat prehravani
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Parameters
+    + ID: 2266448 (number) - ID audioknihy
+
++ Response 200 (application/json)
+        
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "data_cnt": 84,
+                "data": [
+                    {
+                        "id": 2416466,
+                        "type": "Track",
+                        "code": "AKZ668-1-01",
+                        "name": "Aréna smrti - 1. část - Splátci",
+                        "activationState": "Active",
+                        "length": 0,
+                        "duration": "00:00",
+                        "purchaseDate": "27. 03. 2015 02:03",
+                        "canStream": false,
+                        "canUserStream": false,
+                        "supplierCode": "1575066",
+                        "order": 1,
+                        "dwnUrl": null,
+                        "size": 503316,
+                        "mimeType": "audio/mpeg",
+                        "progress": 0,
+                        "timesListened": 0,
+                        "lastListened": 0,
+                        "dPrice": 0
+                    },
+                    {
+                        "id": 2416467,
+                        "type": "Track",
+                        "code": "AKZ668-1-02",
+                        "name": "Aréna smrti - 1. část - Splátci",
+                        "activationState": "Active",
+                        "length": 0,
+                        "duration": "00:00",
+                        "purchaseDate": "27. 03. 2015 02:03",
+                        "canStream": false,
+                        "canUserStream": false,
+                        "supplierCode": "1575067",
+                        "order": 2,
+                        "dwnUrl": null,
+                        "size": 37549506,
+                        "mimeType": "audio/mpeg",
+                        "progress": 0,
+                        "timesListened": 2,
+                        "lastListened": 1444232476,
+                        "dPrice": 0
+                    } ]
+
+                }
+            }
+        ]
+
+
+### Audioknihy - Kapitoly - Ziskani linku na stazeni [/v1/getAudioBookDwnUrl/{albumId}?trackId={trackId}]
+
+#### v1/getAudioBookDwnUrl [GET]
+
+`url` - URL pro stazeni kapitoly nebo tracku
+
+iOS a WP tuto sluzbu vubec nepouzivaji a funguji pouze na sluzbe refreshAlbumLink
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Parameters
+    + albumId: 2266448 (number) 
+    + trackId: 2266450 (number)
+
++ Response 200 (application/json)
+        
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "data": [
+                    {
+                        "url": "https://dwn.alza.cz/getmedia.ashx?t=J8bQ%2fGWTAlCWtznH5EPVR%2bsoo3F6ZVT4OMg0FW01L902pMbtG1MRdehtNPq7o%2bHQ",
+                        "size": 503316
+                    }
+                ]
+            }
+        ]
+
+
+
+### Audioknihy - Kapitoly - Ziskani noveho linku na stazeni [/v1/refreshAlbumLink?a={albumId}&p={trackId}&t={type}]
+
+#### v1/refreshAlbumLink [GET]
+
+`value` - URL pro stazeni kapitoly nebo tracku
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
+
++ Parameters
+    + albumId: 2266448 (number) 
+    + trackId: 2266450 (number)
+    + type: 0 (number) - 0 pro Audioknihy a 1 pro hudbu
+
++ Response 200 (application/json)
+        
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "value": "https://dwn.alza.cz/getmedia.ashx?t=wI6Yu70rv%2b4K7wekNuxOkz%2fOBZafyZANwjhUVlWpKxLfTxYdBpSyFN6herCqH6BR"
+            }
+        ]
+
+
+### Audioknihy - Ulozeni rozposlouchanosti [/v1/saveAudioPosition?id={trackId}?finished={finished}?seconds={seconds}]
+
+#### v1/saveAudioPosition [GET]
+
+Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds` a tim padem se vyresetuje rozposlouchanost cele AK
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
+
++ Parameters
+    + trackId: 2266450 (number) - ID kapitoly AK
+    + finished: false (string) - FALSE pokud chceme nastavit pozici. TRUE kdyz skonci poslech cele AK a pak se neposila seconds
+    + seconds: 29 (number) - pocet vterin
+
++ Response 200 (application/json)
+
+
+
+
+
+
+
+
+
+## Group Hudba
+
+### Hudba - Nacteni knihovny [/v3/getMyMusic/{page}/{sort_type}/{asc_desc}]
+
+#### v3/getMyMusic [GET]
+
+`canStream` priznak zda je mozne album streamovat v ramci Alza Premium
+
+`canUserStream` priznak zda muze uzivatel album streamovat v ramci Alza Premium
+
+`supplierCode` jedinecne ID pro streamovani hudby  ramci Alza Premium
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Parameters
+    + page: 1 (number) - Cislo stranky kterou chceme nacist
+    + sort_type: 1 (number) - zpusob razeni
+    + asc_desc: 0 (number) - smer razeni. Vzestupne nebo zestupne
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Gmail",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 4840508,
+                "favCnt": 1,
+                "alzaCredit": null,
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "15. 11. 2015",
+                "premiumRenew": false,
+                "data_cnt": 4,
+                "data": [
+                    {
+                        "id": 1774646,
+                        "type": "Album",
+                        "code": "AA119805",
+                        "name": "Best Of",
+                        "activationState": "Active",
+                        "length": 232,
+                        "duration": "03:52",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "supplierCode": "Ge18XlJ2Th5LytR1VEVX3m",
+                        "sourceType": 1,
+                        "artist": "Landa, Daniel",
+                        "imageUrl": "https://i.alza.cz/Foto/f7/AA/AA119805.jpg",
+                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA119805.jpg",
+                        "dwnUrlsCount": 0,
+                        "dwnUrls": null,
+                        "lastPlayedTrack": null,
+                        "lastPlayedTrackId": null,
+                        "genres_cnt": 1,
+                        "genres": [
+                            {
+                                "id": 3,
+                                "name": "Pop",
+                                "url": "/media/popova-hudba-ke-stazeni/18854736.htm"
+                            }
+                            ],
+                        "artists_cnt": 1,
+                        "artists": [
+                            {
+                                "name": "Landa, Daniel"
+                            }
+                            ],
+                        "year": 2006,
+                        "size": 68207885,
+                        "url": "https://www.alza.cz/media/best-of-d1774646.htm",
+                        "trackCount": 1
+                    },
+                    {
+                        "id": 615454,
+                        "type": "Album",
+                        "code": "AA006662",
+                        "name": "Iron Maiden",
+                        "activationState": "Active",
+                        "length": 2449,
+                        "duration": "40:49",
+                        "purchaseDate": "09. 10. 2015 02:32",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "supplierCode": "sPvMmTpzvzd-cRTqwgVhSk",
+                        "sourceType": 3,
+                        "artist": "Maiden, Iron",
+                        "imageUrl": "https://i.alza.cz/Foto/f7/AA/AA006662.jpg",
+                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA006662.jpg",
+                        "dwnUrlsCount": 0,
+                        "dwnUrls": null,
+                        "lastPlayedTrack": null,
+                        "lastPlayedTrackId": null,
+                        "genres_cnt": 1,
+                        "genres": [
+                            {
+                                "id": 8,
+                                "name": "Metal",
+                                "url": "/media/metalova-hudba-ke-stazeni/18854752.htm"
+                            }
+                            ],
+                        "artists_cnt": 1,
+                        "artists": [
+                            {
+                                "name": "Maiden, Iron"
+                            }
+                            ],
+                        "year": 1998,
+                        "size": 39220735,
+                        "url": "https://www.alza.cz/media/iron-maiden-d615454.htm",
+                        "trackCount": 9
+                    }
+                ]
+            }
+        ]
+
+
+### Hudba - Seznam songu alba [/v1/getMusicTracks/{albumId}]
+
+#### v1/getMusicTracks [GET]
+
+`canStream` priznak zda je mozne album streamovat v ramci Alza Premium
+
+`canUserStream` priznak zda muze uzivatel album streamovat v ramci Alza Premium
+
+`supplierCode` jedinecne ID pro streamovani hudby  ramci Alza Premium
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + albumId: 2278985 (number) - ID alba
+    
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Gmail",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 4840508,
+                "favCnt": 1,
+                "alzaCredit": null,
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "15. 11. 2015",
+                "premiumRenew": false,
+                "data_cnt": 1,
+                "data": [
+                    {
+                        "id": 1774664,
+                        "type": "Track",
+                        "code": "AA11980501007",
+                        "name": "Holky A Masiny",
+                        "activationState": "Active",
+                        "length": 232,
+                        "duration": "03:52",
+                        "purchaseDate": "12. 10. 2015 05:19",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "supplierCode": "qjWFwcEWFQiOndj0-0J2pn",
+                        "sourceType": 1,
+                        "order": 1,
+                        "dwnUrl": null,
+                        "size": 9288700,
+                        "mimeType": "audio/mpeg3",
+                        "progress": 0,
+                        "timesListened": 0,
+                        "lastListened": 0,
+                        "dPrice": 0
+                    }
+                ]
+            }
+        ]
+
+
+### Hudba - Seznam songu alba vcetne URL na stazeni [/v1/getMusicTracks/{albumId}?dwnUrl={dwnUrl}]
+
+#### v1/getMusicTracks [GET]
+
+`canStream` priznak zda je mozne album streamovat v ramci Alza Premium
+
+`canUserStream` priznak zda muze uzivatel album streamovat v ramci Alza Premium
+
+`supplierCode` jedinecne ID pro streamovani hudby  ramci Alza Premium
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + albumId: 2278985 (number) - ID alba
+    + dwnUrl: 1 (bool) - priznam zda je pozadovano i URL na stazeni
+    
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Gmail",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 4840508,
+                "favCnt": 1,
+                "alzaCredit": null,
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "15. 11. 2015",
+                "premiumRenew": false,
+                "data_cnt": 1,
+                "data": [
+                    {
+                        "id": 1774664,
+                        "type": "Track",
+                        "code": "AA11980501007",
+                        "name": "Holky A Masiny",
+                        "activationState": "Active",
+                        "length": 232,
+                        "duration": "03:52",
+                        "purchaseDate": "12. 10. 2015 05:19",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "supplierCode": "qjWFwcEWFQiOndj0-0J2pn",
+                        "sourceType": 1,
+                        "order": 1,
+                        "dwnUrl": "http://podavac.mopa.cz/ef92b1a90d2c40fab76ef670f8d1a6c311fd368b/Best-Of-CD01-007-Holky-a-masiny.mp3",
+                        "size": 9288700,
+                        "mimeType": "audio/mpeg3",
+                        "progress": 0,
+                        "timesListened": 0,
+                        "lastListened": 0,
+                        "dPrice": 0
+                    }
+                ]
+            }
+        ]
+
+
+### Hudba - Premium - Seznam songu alba vcetne URL na stazeni [/v1/getMusic/{albumId}]
+
+#### v1/getMusic [GET]
+
+Provede nacteni informaci o albu a jeho pisnicek bey zavislosti na tom, zda ma uzivatel album zakoupeno.
+Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + albumId: 2278985 (number) - ID alba
+    
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Gmail",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 4840508,
+                "favCnt": 1,
+                "alzaCredit": null,
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "15. 11. 2015",
+                "premiumRenew": false,
+                "album": {
+                    "id": 1774646,
+                    "type": "Album",
+                    "code": "AA119805",
+                    "name": "Best Of",
+                    "activationState": null,
+                    "length": 4259,
+                    "duration": "01:10:59",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "supplierCode": "Ge18XlJ2Th5LytR1VEVX3m",
+                    "sourceType": 3,
+                    "artist": "Daniel Landa",
+                    "imageUrl": "https://i.alza.cz/Foto/f7/AA/AA119805.jpg",
+                    "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA119805.jpg",
+                    "dwnUrlsCount": 0,
+                    "dwnUrls": null,
+                    "lastPlayedTrack": null,
+                    "lastPlayedTrackId": null,
+                    "genres_cnt": 1,
+                    "genres": [
+                        {
+                            "id": 3,
+                            "name": "Pop"
+                        }
+                        ],
+                    "year": 2006,
+                    "url": "https://www.alza.cz/media/best-of-d1774646.htm",
+                    "trackCount": 22,
+                    "tracks": [
+                        {
+                            "id": 1774658,
+                            "type": "Track",
+                            "code": "AA11980501001",
+                            "name": "Jo, Ulice",
+                            "activationState": "Active",
+                            "length": 146,
+                            "duration": "02:26",
+                            "purchaseDate": "03. 09. 2015 09:05",
+                            "canStream": true,
+                            "canUserStream": true,
+                            "supplierCode": "IKPsh-SU8ZQyhHHHSDoShm",
+                            "sourceType": 3,
+                            "order": 1,
+                            "dwnUrl": null,
+                            "size": 5845475,
+                            "mimeType": "audio/mpeg3",
+                            "progress": 0,
+                            "timesListened": 0,
+                            "lastListened": 0,
+                            "dPrice": 0
+                        },
+                        {
+                            "id": 1774659,
+                            "type": "Track",
+                            "code": "AA11980501002",
+                            "name": "Prizraky",
+                            "activationState": "Active",
+                            "length": 160,
+                            "duration": "02:40",
+                            "purchaseDate": "03. 09. 2015 09:05",
+                            "canStream": true,
+                            "canUserStream": true,
+                            "supplierCode": "zNvAqEcfBrYYz9aeYlpBSn",
+                            "sourceType": 3,
+                            "order": 2,
+                            "dwnUrl": null,
+                            "size": 6406000,
+                            "mimeType": "audio/mpeg3",
+                            "progress": 0,
+                            "timesListened": 0,
+                            "lastListened": 0,
+                            "dPrice": 0
+                        }
+                    ]
+            }
+        ]
+
+
+### Hudba - Premium - Oblibene - Seznam skladeb [/v1/apPlaylistGet]
+
+#### v1/apPlaylistGet [GET] 
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "data_cnt": 28,
+                "data": [
+                    {
+                        "id": 1412797,
+                        "code": "AA07327102001",
+                        "img": "https://i2.alza.cz/Foto/f8/AA/AA073271.jpg",
+                        "name": "Murderer (Remix)",
+                        "spec": "Stopa",
+                        "price": "35 Kč",
+                        "cprice": null,
+                        "priceWithoutVat": "29 Kč",
+                        "avail": "Ihned k poslechu",
+                        "avail_postfix": null,
+                        "availLegend": null,
+                        "avail_postfix2": null,
+                        "avail_color": "398000",
+                        "is_action": false,
+                        "action_name": null,
+                        "rating": null,
+                        "promo_cnt": 0,
+                        "promos": null,
+                        "order": 1,
+                        "is_special_service": false,
+                        "type": 0,
+                        "artistId": 25,
+                        "artistName": "Helloween",
+                        "year": 2008,
+                        "itemType": "MusicTrack",
+                        "iType": 10,
+                        "url": "https://www.alza.cz/media/walls-of-jericho-bonus-track-edition-d1177348.htm",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "supplierCode": "f02mQbLdE7u-AQjyCcpPvm",
+                        "parentId": 1177348,
+                        "parentName": "Walls Of Jericho (Bonus Track Edition)",
+                        "minimumAmount": 1,
+                        "amountInPack": 0,
+                        "start_time": null,
+                        "variant_type": 0,
+                        "duration": "04:34"
+                    },
+                    {
+                        "id": 2827158,
+                        "code": "AA16370101003",
+                        "img": "https://i3.alza.cz/Foto/f8/AA/AA163701.jpg",
+                        "name": "The Lemon Song",
+                        "spec": "Stopa",
+                        "price": "39 Kč",
+                        "cprice": null,
+                        "priceWithoutVat": "32 Kč",
+                        "avail": "Ihned k poslechu",
+                        "avail_postfix": null,
+                        "availLegend": null,
+                        "avail_postfix2": null,
+                        "avail_color": "398000",
+                        "is_action": false,
+                        "action_name": null,
+                        "rating": null,
+                        "promo_cnt": 0,
+                        "promos": null,
+                        "order": 2,
+                        "is_special_service": false,
+                        "type": 0,
+                        "artistId": 57308,
+                        "artistName": "Led Zeppelin",
+                        "itemType": "MusicTrack",
+                        "iType": 10,
+                        "url": "https://www.alza.cz/media/led-zeppelin-ii-deluxe-edition-d2729904.htm",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "supplierCode": "2XewBB2wAGUHPvtumqGr2l",
+                        "parentId": 2729904,
+                        "parentName": "Led Zeppelin II (Deluxe Edition)",
+                        "minimumAmount": 1,
+                        "amountInPack": 0,
+                        "start_time": null,
+                        "variant_type": 0,
+                        "duration": "06:19"
+                    }
+                ]
+            }
+        ]
+
+
+### Hudba - Premium - Oblibene - Pridani skladeb [/v2/apPlaylistAdd]
+
+#### v2/apPlaylistAdd [POST] 
+
+`commodityIds` poled ID tracku, ktere chceme do oblibenych pridat
+
+`forse` v pripade ze je plna knihovna, tak nastavenim na hodnotu 1 se prepisi posledni tracky
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Request (application/json)
+
+        {
+            "commodityIds": [
+                1412797,
+                2827158
+            ],
+            "forse": 0
+        }
+
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+            }
+        ]
+
+
+### Hudba - Premium - Oblibene - Smazani skladeb [/v1/apPlaylistRemove/{trackId}]
+
+#### v1/apPlaylistRemove [GET] 
+
++ Request
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + trackId: 1412797 (number) - ID tracku
+
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+            }
+        ]
+
+
+### Hudba - Premium - Oblibene - Zmena poradi [/v1/apSetPlaylistOrder]
+
+#### v1/apSetPlaylistOrder [POST] 
+
+`commodityIds` poled ID tracku, ktere chceme do oblibenych pridat
+
+`forse` v pripade ze je plna knihovna, tak nastavenim na hodnotu 1 se prepisi posledni tracky
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+    + Body
+
+            {
+                [
+                    {
+                        "id": 123456
+                        "order": 1
+                    },
+                    {
+                        "id": 321654
+                        "order": 2
+                    }
+                ]
+            }
+
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+            }
+        ]
+
+
+### Hudba - Premium - Radio - Susteni radia podle skladby [/v1/apGetRadio/{supplierCode};{supplierCode}]
+
+#### v1/apGetRadio [GET]
+
+`supplierCode` Do sluzby je mozne poslat vice supplierCodes tracku oddelenych strednikem
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + supplierCode: 2XewBB2wAGUHPvtumqGr2l (string) - MusicJet ID tracku
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "data_cnt": 44,
+                "data": [
+                    {
+                        "id": 827184,
+                        "code": "AA03294701004",
+                        "img": "https://i1.alza.cz/Foto/f8/AA/AA032947.jpg",
+                        "name": "Future Lovers (Album Version)",
+                        "blurImg": "https://i1.alza.cz/Foto/f17/AA/AA032947.jpg",
+                        "spec": "Stopa",
+                        "price": "39 Kč",
+                        "cprice": null,
+                        "priceWithoutVat": "32 Kč",
+                        "avail": "Ihned k poslechu",
+                        "avail_postfix": null,
+                        "availLegend": null,
+                        "avail_postfix2": null,
+                        "avail_color": "398000",
+                        "is_action": false,
+                        "action_name": null,
+                        "rating": null,
+                        "promo_cnt": 0,
+                        "promos": null,
+                        "order": 0,
+                        "is_special_service": false,
+                        "type": 0,
+                        "artistId": 320,
+                        "artistName": "Madonna",
+                        "year": 2005,
+                        "itemType": "MusicTrack",
+                        "iType": 10,
+                        "url": "https://www.alza.cz/media/confessions-on-a-dance-floor-d648748.htm",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "supplierCode": "cdKY8.6EBR8Uzbx7OiJHWl",
+                        "parentId": 648748,
+                        "parentName": "Confessions On A Dance Floor",
+                        "minimumAmount": 1,
+                        "amountInPack": 0,
+                        "start_time": null,
+                        "variant_type": 0
+                    },
+                    {
+                        "id": 1247414,
+                        "code": "AA05517201005",
+                        "img": "https://i3.alza.cz/Foto/f8/AA/AA055172.jpg",
+                        "name": "Mad Cyril",
+                        "blurImg": "https://i3.alza.cz/Foto/f17/AA/AA055172.jpg",
+                        "spec": "Stopa",
+                        "price": "29 Kč",
+                        "cprice": null,
+                        "priceWithoutVat": "24 Kč",
+                        "avail": "Ihned k poslechu",
+                        "avail_postfix": null,
+                        "availLegend": null,
+                        "avail_postfix2": null,
+                        "avail_color": "398000",
+                        "is_action": false,
+                        "action_name": null,
+                        "rating": null,
+                        "promo_cnt": 0,
+                        "promos": null,
+                        "order": 0,
+                        "is_special_service": false,
+                        "type": 0,
+                        "artistId": 11139,
+                        "artistName": "Happy Mondays",
+                        "year": 1990,
+                        "itemType": "MusicTrack",
+                        "iType": 10,
+                        "url": "https://www.alza.cz/media/loads-d1159245.htm",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "supplierCode": "ogfRg1NrgDAVX4RyRGQDWm",
+                        "parentId": 1159245,
+                        "parentName": "Loads",
+                        "minimumAmount": 1,
+                        "amountInPack": 0,
+                        "start_time": null,
+                        "variant_type": 0
+                    }
+                ]
+            }
+        ]
+
+
+### Hudba - Premium - Radio - Spusteni radia podle alba [/v1/apGetRadioByAlbum/{supplierCode}]
+
+#### v1/apGetRadioByAlbum [GET]
+
+`supplierCode` Do sluzby se posila supplierCode alba podle ktereho chceme hrat radio
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + supplierCode: Ge18XlJ2Th5LytR1VEVX3m (string) - MusicJet ID alba
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "data_cnt": 44,
+                "data": [
+                    {
+                        "id": 827184,
+                        "code": "AA03294701004",
+                        "img": "https://i1.alza.cz/Foto/f8/AA/AA032947.jpg",
+                        "name": "Future Lovers (Album Version)",
+                        "blurImg": "https://i1.alza.cz/Foto/f17/AA/AA032947.jpg",
+                        "spec": "Stopa",
+                        "price": "39 Kč",
+                        "cprice": null,
+                        "priceWithoutVat": "32 Kč",
+                        "avail": "Ihned k poslechu",
+                        "avail_postfix": null,
+                        "availLegend": null,
+                        "avail_postfix2": null,
+                        "avail_color": "398000",
+                        "is_action": false,
+                        "action_name": null,
+                        "rating": null,
+                        "promo_cnt": 0,
+                        "promos": null,
+                        "order": 0,
+                        "is_special_service": false,
+                        "type": 0,
+                        "artistId": 320,
+                        "artistName": "Madonna",
+                        "year": 2005,
+                        "itemType": "MusicTrack",
+                        "iType": 10,
+                        "url": "https://www.alza.cz/media/confessions-on-a-dance-floor-d648748.htm",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "supplierCode": "cdKY8.6EBR8Uzbx7OiJHWl",
+                        "parentId": 648748,
+                        "parentName": "Confessions On A Dance Floor",
+                        "minimumAmount": 1,
+                        "amountInPack": 0,
+                        "start_time": null,
+                        "variant_type": 0
+                    },
+                    {
+                        "id": 1247414,
+                        "code": "AA05517201005",
+                        "img": "https://i3.alza.cz/Foto/f8/AA/AA055172.jpg",
+                        "name": "Mad Cyril",
+                        "blurImg": "https://i3.alza.cz/Foto/f17/AA/AA055172.jpg",
+                        "spec": "Stopa",
+                        "price": "29 Kč",
+                        "cprice": null,
+                        "priceWithoutVat": "24 Kč",
+                        "avail": "Ihned k poslechu",
+                        "avail_postfix": null,
+                        "availLegend": null,
+                        "avail_postfix2": null,
+                        "avail_color": "398000",
+                        "is_action": false,
+                        "action_name": null,
+                        "rating": null,
+                        "promo_cnt": 0,
+                        "promos": null,
+                        "order": 0,
+                        "is_special_service": false,
+                        "type": 0,
+                        "artistId": 11139,
+                        "artistName": "Happy Mondays",
+                        "year": 1990,
+                        "itemType": "MusicTrack",
+                        "iType": 10,
+                        "url": "https://www.alza.cz/media/loads-d1159245.htm",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "supplierCode": "ogfRg1NrgDAVX4RyRGQDWm",
+                        "parentId": 1159245,
+                        "parentName": "Loads",
+                        "minimumAmount": 1,
+                        "amountInPack": 0,
+                        "start_time": null,
+                        "variant_type": 0
+                    }
+                ]
+            }
+        ]
+
+
+### Hudba - Premium - Radio - Nacteni zanrovych radii [/v1/apGetRadioGenres]
+
+#### v1/apGetRadioGenres [GET]
+
+Nacteni zanrovych radii. Tyto radia jsou natvrdo vydefinovana v kodu na serveru
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "data_cnt": 17,
+                "data": [
+                    {
+                        "id": 1,
+                        "name": "ROCK",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA076350.jpg",
+                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA076350.jpg",
+                        "supplierCode": [
+                            "yC-CuWlmFRMy8aiplotkGm",
+                            "dx23HtAHjkouggbuOsulcm",
+                            ".pk.FOo5oU4QehT1GchZtn",
+                            "47CZxrpdawLWEhySFJ79Uk",
+                            "2hEVS9utj2qyXMxb4d5TQk"
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "POP",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA013673.jpg",
+                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA013673.jpg",
+                        "supplierCode": [
+                            "PoEAdmy0NpMsC2iTP3jlUl",
+                            "RGkr7IhHsa7Io0DJ2cuWQl",
+                            "DWwjiMhasOHCm5ctEp4Fpl",
+                            "cW2ROtzGhThdbWjFI3SG0n",
+                            "y5eecyYJ34xIaQ4onOEP.l"
+                        ]
+                    }
+                ]
+            }
+        ]
+
+
+### Hudba - Premium - Radio - Nacteni historickych radii [/v1/apGetRadiohistory]
+
+#### v1/apGetRadioHistory [GET]
+
+Nacteni zanrovych radii. Tyto radia jsou natvrdo vydefinovana v kodu na serveru
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "data_cnt": 17,
+                "data": [
+                    {
+                        "id": 1,
+                        "name": "ROCK",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA076350.jpg",
+                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA076350.jpg",
+                        "supplierCode": [
+                            "yC-CuWlmFRMy8aiplotkGm"
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "POP",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA013673.jpg",
+                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA013673.jpg",
+                        "supplierCode": [
+                            "PoEAdmy0NpMsC2iTP3jlUl"
+                        ]
+                    }
+                ]
+            }
+        ]
+
+
+### Hudba - Premium - Radio - Nacteni doporucenych radii [/v1/apGetRadioRecommended]
+
+#### v1/apGetRadioRecommended [GET]
+
+Nacteni doporucenych radii. Tyto radia jsou generovana na serveru podle toho co uzivatel prehrava
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "data_cnt": 17,
+                "data": [
+                    {
+                        "id": 1,
+                        "name": "ROCK",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA076350.jpg",
+                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA076350.jpg",
+                        "supplierCode": [
+                            "yC-CuWlmFRMy8aiplotkGm"
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "POP",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA013673.jpg",
+                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA013673.jpg",
+                        "supplierCode": [
+                            "PoEAdmy0NpMsC2iTP3jlUl"
+                        ]
+                    }
+                ]
+            }
+        ]
+
+
+### Hudba - Premium - Zaznameni prehravani [/v1/apSetPlayed/{trackId}]
+
+#### v1/apSetPlayed [GET]
+
+Zaznamenani prehrani pisnicky. Je zapotrebi aby server spravne generoval radia a radil hudbu.
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + trackId: 1774664 (number) - ID tracku
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+            }
+        ]
+
+
+### Hudba - Premium - Vyhledani hudby [/v1/searchMusic/{keyword}]
+
+#### v1/searchMusic [GET] 
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + keyword: Landa (string) - vyhledavany vyraz
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "data_cnt": 22,
+                "data": [
+                    {
+                        "id": 1774646,
+                        "code": "AA119805",
+                        "img": "https://i3.alza.cz/Foto/f8/AA/AA119805.jpg",
+                        "name": "Best Of",
+                        "spec": "Album MP3",
+                        "price": "239 Kč",
+                        "cprice": null,
+                        "priceWithoutVat": "198 Kč",
+                        "avail": "Ihned k poslechu",
+                        "avail_postfix": null,
+                        "availLegend": null,
+                        "avail_postfix2": null,
+                        "avail_color": "398000",
+                        "is_action": false,
+                        "action_name": null,
+                        "rating": 5,
+                        "promo_cnt": 0,
+                        "promos": null,
+                        "order": 25,
+                        "is_special_service": false,
+                        "type": 0,
+                        "artistId": 20,
+                        "artistName": "Daniel Landa",
+                        "year": 2006,
+                        "itemType": "MusicAlbum",
+                        "iType": 9,
+                        "url": "https://www.alza.cz/media/best-of-d1774646.htm",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "supplierCode": "Ge18XlJ2Th5LytR1VEVX3m",
+                        "minimumAmount": 1,
+                        "amountInPack": 0,
+                        "start_time": null,
+                        "variant_type": 0
+                    },
+                    {
+                        "id": 1164956,
+                        "code": "AA060883",
+                        "img": "https://i1.alza.cz/Foto/f8/AA/AA060883.jpg",
+                        "name": "Klic Kralu",
+                        "spec": "Album MP3",
+                        "price": "379 Kč",
+                        "cprice": null,
+                        "priceWithoutVat": "313 Kč",
+                        "avail": "Ihned k poslechu",
+                        "avail_postfix": null,
+                        "availLegend": null,
+                        "avail_postfix2": null,
+                        "avail_color": "398000",
+                        "is_action": false,
+                        "action_name": null,
+                        "rating": null,
+                        "promo_cnt": 0,
+                        "promos": null,
+                        "order": 25,
+                        "is_special_service": false,
+                        "type": 0,
+                        "artistId": 20,
+                        "artistName": "Daniel Landa",
+                        "year": 2013,
+                        "itemType": "MusicAlbum",
+                        "iType": 9,
+                        "url": "https://www.alza.cz/media/klic-kralu-d1164956.htm",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "supplierCode": "klqS5Pbg-gNY03Z0POIXYl",
+                        "minimumAmount": 1,
+                        "amountInPack": 0,
+                        "start_time": null,
+                        "variant_type": 0
+                    }
+                ]
+            }
+        ]
+
+
+
+
+
+
+
+
+## Group Filmy
+
+### Filmy - Nacteni seznamu [/v1/getMyVideoCollection?active={active}]
+
+#### v1/getMyVideoCollection [GET] 
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + active: true (bool) - defaultne nastavujeme TRUE a tim se vraceji pouze aktuvni filmy
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "videos": [
+                    {
+                        "id": 4599614,
+                        "name": "Fakjů pane učiteli",
+                        "code": "AVCA0045",
+                        "url": "https://www.alza.cz/media/fakju-pane-uciteli-d2269552.htm",
+                        "imageUrl": "https://i1.alza.cz/Foto/f7/AV/AVCA0045.jpg",
+                        "blurImageUrl": "https://i1.alza.cz/Foto/f17/AV/AVCA0045.jpg",
+                        "price": "55 Kč",
+                        "viewState": 1,
+                        "activationState": 0,
+                        "count": 1,
+                        "expiration": null,
+                        "expirationString": null,
+                        "parameterLength": "117 min",
+                        "parameterQuality": "HD (720p)",
+                        "parameterProductions": [
+                            {
+                                "id": 12608,
+                                "name": "Německo"
+                            }
+                        ],
+                        "parameterGenres": [
+                            {
+                                "id": 11606,
+                                "name": "Komedie"
+                            }
+                        ],
+                        "parameterLanguages": [
+                            {
+                                "id": 5536,
+                                "name": "česky, německy"
+                            }
+                        ],
+                        "parameterSubtitles": [
+                            {
+                                "id": 10660,
+                                "name": "České"
+                            }
+                        ],
+                        "parameterDirectors": [
+                            {
+                                "id": 19668,
+                                "name": "Bora Dagtekin"
+                            }
+                        ],
+                        "legend": "Zeki Müller nemá na vybranou. Někdo totiž postavil školní tělocvičnu přímo nad jeho &bdquo;úsporami&quot;. Tedy nad místem se zakopanými ukradenými penězi, které tam pro něj ukryla jeho přítelkyně. A tak, aby se po propuštění z basy dostal ke své kořisti, musí se vydávat za suplujícího učitele na Götheho gymnáziu, čímž vznikne už tak sužovanému vzdělávacímu systému další problém, protože od toho okamžiku zaměstnává nejbláznivějšího učitele všech dob. V noci se Zeki snaží tajně prokopat ke své uloupené kořisti a během dne používá sice drastické, ale účinné metody, aby zkrotil neukázněné teenagery ve třídě 10. B. Jeho upjatá, korektní kolegyně, učitelka Lisi Schnabelstedtová (Karoline Herfurthová), sice odsuzuje jeho neortodoxní pedagogické metody, ale nemůže si pomoct a do nového &bdquo;kolegy&quot; se zamiluje. Dokonce mu pomůže vykopat něco cennějšího než je hotovost &ndash; zbytky jeho vlastní morální integrity.",
+                        "parameterActors": [
+                            {
+                                "id": 19675,
+                                "name": "Alwara Höfels"
+                            },
+                            {
+                                "id": 19669,
+                                "name": "Elyas M'Barek"
+                            },
+                            {
+                                "id": 19674,
+                                "name": "Jana Pallaske"
+                            },
+                            {
+                                "id": 19672,
+                                "name": "Karoline Herfurth"
+                            },
+                            {
+                                "id": 19673,
+                                "name": "Katja Riemann"
+                            }
+                        ],
+                        "commodityId": 2269552,
+                        "parameterYear": "2013",
+                        "isFavourite": false,
+                        "sourceType": 3,
+                        "canStream": true,
+                        "canUserStream": true
+                    }
+                ]
+            }
+        ]
+
+
+### Filmy - Nacteni detailu zakoupeneho filmu [/v1/getVideoDetail/{videoId}]
+
+#### v1/getVideoDetail [GET] 
+
+
+`viewState` - NotViewed = 0, Viewed = 1, Expired = 2
+
+`activationState` - Active = 0, WaitingForActivation = 1, Working = 2, Inactive = 3
+
+ActivationResult 
+* Success = 0,
+* AlreadyActivated = 1,
+* LicenceNotProvided = -1,
+* LicenceNotFound = -2,
+* UnableToActivate = -3
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + videoId: 945603 (number) - ID filmu
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "movie": {
+                    "id": 941443,
+                    "name": "Mi Tu (Album Version)",
+                    "code": "AA00978003003",
+                    "url": "/media/band-5-shi-ji-zu-he-5-cd-digital-only-d621641.htm",
+                    "imageUrl": "https://i4.alza.cz/Foto/f3/AA/AA009780.jpg",
+                    "blurImageUrl": "https://i4.alza.cz/Foto/f17/AA/AA009780.jpg",
+                    "price": "35 Kč",
+                    "viewState": 0,
+                    "activationState": 0,
+                    "count": 0,
+                    "expiration": null,
+                    "expirationString": null,
+                    "parameterLength": null,
+                    "parameterQuality": null,
+                    "parameterProductions": null,
+                    "parameterGenres": null,
+                    "parameterLanguages": null,
+                    "parameterSubtitles": null,
+                    "parameterDirectors": null,
+                    "legend": null,
+                    "parameterActors": null,
+                    "commodityId": 941443,
+                    "parameterYear": null,
+                    "sourceType": 0,
+                    "canStream": true,
+                    "canUserStream": true
+                }
+            }
+        ]
+
+
+### Filmy - Nacteni detailu filmu - i pro Premium [/v1/getMyVideo/{videoId}]
+
+#### v1/getMyVideo [GET] 
+
+`playlistUrl` obsahuje URL na nacteni playlistu pro film
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + videoId: 945603 (number) - ID filmu
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": "",
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "playlistUrl": "http://cdnls01.nacevi.cz/ls/ClientLink?id=xUbtT0tKdk9d9Xm",
+                "customData": "4FXmq3fJMGFAgWPKuQqIED3Dv3nwuRpe9CqQt4ipl2iwoqUd8S2OeW96MSQx2BsK+LIrLbCEtFZ0lhhyUt3dpWdu3fhy6y5jhzYYjgujve/WG+29SzePp+yb50KtlyZI/UbgXcN5m0xAmOvoWFsdCEPiYHWovrfu3O9XIcj4U14=",
+                "id": 4599614,
+                "name": "Fakjů pane učiteli",
+                "code": "AVCA0045"
+            }
+        ]
+
+
+### Filmy - Link na stazeni [/v1/getMyVideoForDownload/{videoId}]
+
+#### v1/getMyVideoForDownload [GET] 
+
+`playlistUrl` obsahuje URL na nacteni playlistu pro film
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + videoId: 945603 (number) - ID filmu
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": "",
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "playlistUrl": "http://cdnls01.nacevi.cz/ls/ClientLink?id=xUbtT0tKdk9d9Xm",
+                "customData": "4FXmq3fJMGFAgWPKuQqIED3Dv3nwuRpe9CqQt4ipl2iwoqUd8S2OeW96MSQx2BsK+LIrLbCEtFZ0lhhyUt3dpWdu3fhy6y5jhzYYjgujve/WG+29SzePp+yb50KtlyZI/UbgXcN5m0xAmOvoWFsdCEPiYHWovrfu3O9XIcj4U14=",
+                "id": 4599614,
+                "name": "Fakjů pane učiteli",
+                "code": "AVCA0045"
+            }
+        ]
+
+
+### Filmy - Premium - Vyhledani [/v3/search?stock=false&news=false&order=0&category=18855030&page=0&exp={keyword}&facets=4]
+
+#### v3/search [GET] 
+
+`playlistUrl` obsahuje URL na nacteni playlistu pro film
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + keyword: Wick (string) - vyhledavany vyraz
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "display_cnt": 37,
+                "data1_cnt": 0,
+                "data2_cnt": 25,
+                "data1": [],
+                "data2": [
+                    {
+                        "id": 2649408,
+                        "code": "AVBF0197",
+                        "img": "https://i1.alza.cz/Foto/f8/AV/AVBF0197.jpg",
+                        "name": "John Wick",
+                        "spec": "Film k online zhlédnutí",
+                        "price": "55 Kč",
+                        "cprice": null,
+                        "priceWithoutVat": "45 Kč",
+                        "avail": "Ihned k online přehrávání",
+                        "avail_postfix": null,
+                        "availLegend": null,
+                        "avail_postfix2": null,
+                        "avail_color": "398000",
+                        "is_action": false,
+                        "action_name": null,
+                        "rating": null,
+                        "promo_cnt": 1,
+                        "promos": [
+                            {
+                                "id": 2415829,
+                                "name": "Digitální předplatné Film eXtra - aktuální číslo",
+                                "img": "https://i2.alza.cz/Foto/f8/MA/MAG01407.jpg",
+                                "count": 1,
+                                "price": "0,-",
+                                "is_enabled": true,
+                                "order": 1
+                            }
+                        ],
+                        "order": 26,
+                        "is_special_service": false,
+                        "type": 0,
+                        "itemType": "Video",
+                        "iType": 12,
+                        "url": "https://www.alza.cz/media/john-wick-d2649408.htm?o=1",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "minimumAmount": 1,
+                        "amountInPack": 0,
+                        "start_time": null,
+                        "variant_type": 0
+                    }
+                ],
+                "total": 37,
+                "has_next": true
+            }
+        ]
+
+
+### Filmy - Seznam oblibenych [/v1/favourites]
+
+#### v1/favourites [GET] 
+
+`iType` zobrazujeme pouze polozky ktere maji nastaveno iType na 12 - tzn jedna se o film
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ Response 200 (application/json)
+
+        [
+            {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 2,
+            "data": [
+                {
+                    "id": 2649408,
+                    "code": "AVBF0197",
+                    "img": "https://i1.alza.cz/Foto/f9_rect/AV/AVBF0197.jpg",
+                    "name": "John Wick",
+                    "spec": "Film k online zhlédnutí",
+                    "price": "55 Kč",
+                    "cprice": null,
+                    "priceWithoutVat": "45 Kč",
+                    "avail": "Ihned k online přehrávání",
+                    "avail_postfix": null,
+                    "availLegend": null,
+                    "avail_postfix2": null,
+                    "avail_color": "398000",
+                    "is_action": false,
+                    "action_name": null,
+                    "rating": null,
+                    "promo_cnt": 1,
+                    "promos": [
+                        {
+                            "id": 2415829,
+                            "name": "Digitální předplatné Film eXtra - aktuální číslo",
+                            "img": "https://i2.alza.cz/Foto/f8/MA/MAG01407.jpg",
+                            "count": 1,
+                            "price": "0,-",
+                            "is_enabled": true,
+                            "order": 1
+                        }
+                    ],
+                    "order": 2,
+                    "is_special_service": false,
+                    "type": 0,
+                    "itemType": "Video",
+                    "iType": 12,
+                    "url": "https://www.alza.cz/media/john-wick-d2649408.htm",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "minimumAmount": 1,
+                    "amountInPack": 0,
+                    "start_time": null,
+                    "variant_type": 0
+                }
+            ],
+            "total": 0,
+            "has_next": false
+            }
+        ]
+
+
+
+
+
+
+
+
+
+## Group Casopisy
+
+### Casopisy - Nacteni seznamu [/v1/getMyMagazines/{active}]
+
+#### v1/getMyMagazines [GET]
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + active: 1 (bool) - 1 pokud chceme vse
+
++ Response 200 (application/json)
+
+        [
+            {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 21,
+            "data": [
+                {
+                    "id": 2171409,
+                    "name": "FORBES CZ",
+                    "genresCnt": 2,
+                    "genres": [
+                        {
+                            "id": 18855334,
+                            "name": "Ekonomika a byznys"
+                        },
+                        {
+                            "id": 18855379,
+                            "name": "Obchod a marketing"
+                        }
+                    ],
+                    "url": "/media/forbes-cz-d2171409.htm",
+                    "issuesCnt": 3,
+                    "code": "MAG00008",
+                    "issues": [
+                        {
+                            "id": 4377491,
+                            "docId": 4377491,
+                            "code": "MAG00008V00043",
+                            "extId": null,
+                            "name": "FORBES CZ - 05/2015",
+                            "published": "5.5.2015",
+                            "publishedUnix": 1430863200,                                        // datum vydani
+                            "state": 0,
+                            "imgUrl": "https://i3.alza.cz/Foto/f9_rect/MA/MAG00008V00043.jpg",
+                            "isArchive": false,
+                            "canView": true,
+                            "canActivate": false,
+                            "hasAttachments": false,
+                            "freeAttachmentsCount": 0,
+                            "activationState": "Active",
+                            "issueName": "05/2015",
+                            "url": "/media/forbes-cz-05-2015-d2428730.htm"
+                        },
+                        {
+                            "id": 4146617,
+                            "docId": 4146617,
+                            "code": "MAG00008V00042",
+                            "extId": null,
+                            "name": "FORBES CZ - 04/2015",
+                            "published": "31.3.2015",
+                            "publishedUnix": 1427839200,
+                            "state": 0,
+                            "imgUrl": "https://i1.alza.cz/Foto/f9_rect/MA/MAG00008V00042.jpg",
+                            "isArchive": false,
+                            "canView": true,
+                            "canActivate": false,
+                            "hasAttachments": false,
+                            "freeAttachmentsCount": 0,
+                            "activationState": "Active",
+                            "issueName": "04/2015",
+                            "url": "/media/forbes-cz-04-2015-d2418252.htm"
+                        }
+                    ]
+                }
+            ],
+            "hasNext": false,
+            "totalCount": 0,
+            "categoryId": 18855237,
+            "categoryName": "Časopisy"
+            }
+        ]
+
+
+### Casopisy - Nacteni seznamu [/v2/getMagazineData]
+
+#### v2/getMagazineData [POST]
+
+`appId` - unikatni ID instalace aplikace
+
+`deviceId` - unikatni ID HW zarizeni
+
+`id` - id casopisu
+
+`key` - prozatim prazdne - mozna do budoucna pouzito
+
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+    + Body
+
+            {
+                "id": 6282874
+            }
+
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err":0,
+                "msg":null,
+                "vzt":257309448,
+                "user_name":"WEB@ TEST"
+                ,"basket_cnt":5,
+                "basket_total_cnt":69,
+                "user_id":2366954,
+                "favCnt":8,
+                "alzaCredit":"174 Kč",
+                "countryID":0,
+                "countryPhonePrefix":"420",
+                "premiumBooks":10,
+                "premiumMusic":10,
+                "premiumMovies":10,
+                "premiumDelivery":10,
+                "premiumValidTo":"24. 6. 2018",
+                "premiumRenew":false,
+                "url":"https:\/\/www.alza.cz\/download\/magazine\/13113713-726B686B786E6979837168857961686881646472657D67666E992-0727B6B343813281A28122TB7f35.pdf","id":0,"key":"MDc0MjM2RDZ2RTE3QzE5Mg=="
+            }
+        ]
+
+
+### Casopisy - Nacteni priloh [/v1/getMyMagazineAttachments/{magazineId}]
+
+Provolavame na casopisech (novinach) ktere maji nastaveno hasAttachments na TRUE
+
+#### v1/getMyMagazineAttachments [GET]
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
++ parameters
+    + magazineId: 4033417 (number) - ID casopisu
+
++ Response 200 (application/json)
+
+        [
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "Filip Bocek",
+                "basket_cnt": 1,
+                "basket_total_cnt": 1,
+                "user_id": 974395,
+                "favCnt": 2,
+                "alzaCredit": "16 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "19. 7. 2016",
+                "premiumRenew": true,
+                "data_cnt": 12,
+                "data": [
+                    {
+                        "issueId": 280882,
+                        "attId": 1910774,
+                        "id": 280883,
+                        "name": "Brno a Jižní Morava",
+                        "imgUrl": "https://i3.alza.cz/Foto/f9_rect/MA/MAG00601V00303E001.jpg",
+                        "isFree": true,
+                        "isOwned": true
+                    },
+                    {
+                        "issueId": 280882,
+                        "attId": 1910779,
+                        "id": 280888,
+                        "name": "Královéhradecký kraj",
+                        "imgUrl": "https://i4.alza.cz/Foto/f9_rect/MA/MAG00601V00303E006.jpg",
+                        "isFree": true,
+                        "isOwned": true
+                    }
+                ],
+                "issue": {
+                    "id": 280882,
+                    "docId": 280882,
+                    "code": "MAG00601V00303",
+                    "extId": null,
+                    "name": "2014-10-17",
+                    "published": "16.10.2014",
+                    "publishedUnix": 1413496800,
+                    "state": 0,
+                    "imgUrl": "https://i1.alza.cz/Foto/f9_rect/MA/MAG00601V00303.jpg",
+                    "isArchive": false,
+                    "canView": true,
+                    "canActivate": false,
+                    "hasAttachments": true,
+                    "freeAttachmentsCount": 14,
+                    "activationState": "Active",
+                    "issueName": null,
+                    "url": "/"
+                }
+            }
+        ]
+
+
+
+
+
+
+
+
+
+## Group Logovani
+
+
+### Log - Chyby v aplikaci [/v1/logError]
+
+#### v1/logError [POST]
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
+    + Body
+        
+            {
+                "AppId": "1"
+                "CommodityCode": "51082662_EPUB"
+                "ErrorCode": "194"
+                "ErrorType": 102
+                "Message": "500"
+                "OperatingSystemVersion": "5.1.1"
+                "Platform": 1
+                "UserID": 2366954
+                "device": "motorola XT1039"
+            }
+
++ Response 200 (application/json)
+
+        [
+            {
+               "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "WEB@ TEST",
+                "basket_cnt": 3,
+                "basket_total_cnt": 4,
+                "user_id": 2366954,
+                "favCnt": 10,
+                "alzaCredit": "134 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "24. 6. 2018",
+                "premiumRenew": false
+            }
+        ]
+
+
+### Log - Rychlost hudby [/v1/logAudioResponse]
+
+#### v1/logAudioResponse [POST]
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
+    + Body
+        
+            {
+                "app": 1
+                "musicType": 2
+                "platform": 1
+                "productCode": "AKZ476-1-60"
+                "time": 2610
+            }
+
++ Response 200 (application/json)
+
+        [
+            {
+               "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "WEB@ TEST",
+                "basket_cnt": 3,
+                "basket_total_cnt": 4,
+                "user_id": 2366954,
+                "favCnt": 10,
+                "alzaCredit": "134 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "24. 6. 2018",
+                "premiumRenew": false
+            }
+        ]
+
+
+### Log - Rychlost renderingu PDF [/v1/logMagazineRenderingTime]
+
+#### v1/logMagazineRenderingTime [POST]
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
+    + Body
+        
+            {
+                "CommodityCode": "MAG01433V00035"
+                "Device": "Manufacturer: motorola; Model: XT1039"
+                "OperatingSystemVersion": "5.1.1"
+                "Page": 1
+                "Platform": "1"
+                "Time": 1113
+            }
+
++ Response 200 (application/json)
+
+        [
+            {
+               "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "WEB@ TEST",
+                "basket_cnt": 3,
+                "basket_total_cnt": 4,
+                "user_id": 2366954,
+                "favCnt": 10,
+                "alzaCredit": "134 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "24. 6. 2018",
+                "premiumRenew": false
+            }
+        ]
+
+
+
+
+
+## Group Nastaveni
+
+### Nastaveni [/v1/logAppStarted/1]
+
+Sluzba, ktera odemyka skryte nastaveni do iOS aplikace, pokud vrati true, tak se v app zobrazi tajne funkce
+
+#### v1/logAppStarted [GET]
+
++ Request (application/json)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
+
++ Response 200 (application/json)
+
+        [
+            {
+                "v": false
+            }
+        ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
