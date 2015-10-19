@@ -139,17 +139,15 @@ Zde naleznete seznam všech API služeb, a jejich chování v rámci aplikace Al
 
 #### v1/LoginUserFacebook [POST]
 
-+ Request
++ Request (application/json; charset=utf-8)
+
 
         {
-            [
-                {
-                    "token": "ya29.DALV3nMULGTyvUj9_bfEeFkXeDxpl1qbcaYbYkb2RgvEAwIlpqVlswf0lYLl0CyQaQoDeHo"
-                }
-            ]
+            "token": "ya29.DALV3nMULGTyvUj9_bfEeFkXeDxpl1qbcaYbYkb2RgvEAwIlpqVlswf0lYLl0CyQaQoDeHo"
         }
 
-+ Response 200 (application/json)
+
++ Response 200 (application/json; charset=utf-8)
 
     + header
     
@@ -157,44 +155,42 @@ Zde naleznete seznam všech API služeb, a jejich chování v rámci aplikace Al
             
     + Body        
 
-            [
-                {
-                    "err": 0,
-                    "msg": null,
-                    "vzt": 254798307,
-                    "user_name": "WEB@ TEST",
-                    "basket_cnt": 3,
-                    "basket_total_cnt": 4,
-                    "user_id": 2366954,
-                    "favCnt": 10,
-                    "alzaCredit": "134 Kč",
-                    "countryID": 0,
-                    "countryPhonePrefix": "420",
-                    "premiumBooks": 10,
-                    "premiumMusic": 10,
-                    "premiumMovies": 10,
-                    "premiumDelivery": 10,
-                    "premiumValidTo": "24. 6. 2018",
-                    "premiumRenew": false
-                }
-            ]
+
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "WEB@ TEST",
+                "basket_cnt": 3,
+                "basket_total_cnt": 4,
+                "user_id": 2366954,
+                "favCnt": 10,
+                "alzaCredit": "134 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "24. 6. 2018",
+                "premiumRenew": false
+            }
+
             
             
 ### Login - Facebook [/v1/LoginUserGoogle]
 
 #### v1/LoginUserGoogle [POST]
 
-+ Request
++ Request (application/json; charset=utf-8)
+
 
         {
-            [
-                {
-                    "token": "ya29.DALV3nMULGTyvUj9_bfEeFkXeDxpl1qbcaYbYkb2RgvEAwIlpqVlswf0lYLl0CyQaQoDeHo"
-                }
-            ]
+            "token": "ya29.DALV3nMULGTyvUj9_bfEeFkXeDxpl1qbcaYbYkb2RgvEAwIlpqVlswf0lYLl0CyQaQoDeHo"
         }
 
-+ Response 200 (application/json)
+
++ Response 200 (application/json; charset=utf-8)
 
     + header
     
@@ -202,27 +198,27 @@ Zde naleznete seznam všech API služeb, a jejich chování v rámci aplikace Al
             
     + Body        
 
-            [
-                {
-                    "err": 0,
-                    "msg": null,
-                    "vzt": 254798307,
-                    "user_name": "WEB@ TEST",
-                    "basket_cnt": 3,
-                    "basket_total_cnt": 4,
-                    "user_id": 2366954,
-                    "favCnt": 10,
-                    "alzaCredit": "134 Kč",
-                    "countryID": 0,
-                    "countryPhonePrefix": "420",
-                    "premiumBooks": 10,
-                    "premiumMusic": 10,
-                    "premiumMovies": 10,
-                    "premiumDelivery": 10,
-                    "premiumValidTo": "24. 6. 2018",
-                    "premiumRenew": false
-                }
-            ]
+
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "WEB@ TEST",
+                "basket_cnt": 3,
+                "basket_total_cnt": 4,
+                "user_id": 2366954,
+                "favCnt": 10,
+                "alzaCredit": "134 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "24. 6. 2018",
+                "premiumRenew": false
+            }
+
 
 
 ### Login - Klasicky [/v1/loginUserAdmin]
@@ -231,17 +227,14 @@ Tato sluzba funguje pouze na BETA prostredi a slouzi k prihlaseni se pod uctem u
 
 #### v1/loginUserAdmin [POST]
 
-+ Request
++ Request (application/json; charset=utf-8)
 
         {
-            [
-                {
-                    "login": "web@alza.cz"
-                }
-            ]
+            "login": "web@alza.cz"
         }
 
-+ Response 200 (application/json)
+
++ Response 200 (application/json; charset=utf-8)
 
     + header
     
