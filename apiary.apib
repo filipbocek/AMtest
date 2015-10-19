@@ -1333,7 +1333,7 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
 
 `supplierCode` jedinecne ID pro streamovani hudby  ramci Alza Premium
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -1344,109 +1344,109 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
     + sort_type: 1 (number) - zpusob razeni
     + asc_desc: 0 (number) - smer razeni. Vzestupne nebo zestupne
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Gmail",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 4840508,
-                "favCnt": 1,
-                "alzaCredit": null,
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "15. 11. 2015",
-                "premiumRenew": false,
-                "data_cnt": 4,
-                "data": [
-                    {
-                        "id": 1774646,
-                        "type": "Album",
-                        "code": "AA119805",
-                        "name": "Best Of",
-                        "activationState": "Active",
-                        "length": 232,
-                        "duration": "03:52",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "supplierCode": "Ge18XlJ2Th5LytR1VEVX3m",
-                        "sourceType": 1,
-                        "artist": "Landa, Daniel",
-                        "imageUrl": "https://i.alza.cz/Foto/f7/AA/AA119805.jpg",
-                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA119805.jpg",
-                        "dwnUrlsCount": 0,
-                        "dwnUrls": null,
-                        "lastPlayedTrack": null,
-                        "lastPlayedTrackId": null,
-                        "genres_cnt": 1,
-                        "genres": [
-                            {
-                                "id": 3,
-                                "name": "Pop",
-                                "url": "/media/popova-hudba-ke-stazeni/18854736.htm"
-                            }
-                            ],
-                        "artists_cnt": 1,
-                        "artists": [
-                            {
-                                "name": "Landa, Daniel"
-                            }
-                            ],
-                        "year": 2006,
-                        "size": 68207885,
-                        "url": "https://www.alza.cz/media/best-of-d1774646.htm",
-                        "trackCount": 1
-                    },
-                    {
-                        "id": 615454,
-                        "type": "Album",
-                        "code": "AA006662",
-                        "name": "Iron Maiden",
-                        "activationState": "Active",
-                        "length": 2449,
-                        "duration": "40:49",
-                        "purchaseDate": "09. 10. 2015 02:32",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "supplierCode": "sPvMmTpzvzd-cRTqwgVhSk",
-                        "sourceType": 3,
-                        "artist": "Maiden, Iron",
-                        "imageUrl": "https://i.alza.cz/Foto/f7/AA/AA006662.jpg",
-                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA006662.jpg",
-                        "dwnUrlsCount": 0,
-                        "dwnUrls": null,
-                        "lastPlayedTrack": null,
-                        "lastPlayedTrackId": null,
-                        "genres_cnt": 1,
-                        "genres": [
-                            {
-                                "id": 8,
-                                "name": "Metal",
-                                "url": "/media/metalova-hudba-ke-stazeni/18854752.htm"
-                            }
-                            ],
-                        "artists_cnt": 1,
-                        "artists": [
-                            {
-                                "name": "Maiden, Iron"
-                            }
-                            ],
-                        "year": 1998,
-                        "size": 39220735,
-                        "url": "https://www.alza.cz/media/iron-maiden-d615454.htm",
-                        "trackCount": 9
-                    }
-                ]
-            }
-        ]
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Gmail",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 4840508,
+            "favCnt": 1,
+            "alzaCredit": null,
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "15. 11. 2015",
+            "premiumRenew": false,
+            "data_cnt": 4,
+            "data": [
+                {
+                    "id": 1774646,
+                    "type": "Album",
+                    "code": "AA119805",
+                    "name": "Best Of",
+                    "activationState": "Active",
+                    "length": 232,
+                    "duration": "03:52",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "supplierCode": "Ge18XlJ2Th5LytR1VEVX3m",
+                    "sourceType": 1,
+                    "artist": "Landa, Daniel",
+                    "imageUrl": "https://i.alza.cz/Foto/f7/AA/AA119805.jpg",
+                    "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA119805.jpg",
+                    "dwnUrlsCount": 0,
+                    "dwnUrls": null,
+                    "lastPlayedTrack": null,
+                    "lastPlayedTrackId": null,
+                    "genres_cnt": 1,
+                    "genres": [
+                        {
+                            "id": 3,
+                            "name": "Pop",
+                            "url": "/media/popova-hudba-ke-stazeni/18854736.htm"
+                        }
+                        ],
+                    "artists_cnt": 1,
+                    "artists": [
+                        {
+                            "name": "Landa, Daniel"
+                        }
+                        ],
+                    "year": 2006,
+                    "size": 68207885,
+                    "url": "https://www.alza.cz/media/best-of-d1774646.htm",
+                    "trackCount": 1
+                },
+                {
+                    "id": 615454,
+                    "type": "Album",
+                    "code": "AA006662",
+                    "name": "Iron Maiden",
+                    "activationState": "Active",
+                    "length": 2449,
+                    "duration": "40:49",
+                    "purchaseDate": "09. 10. 2015 02:32",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "supplierCode": "sPvMmTpzvzd-cRTqwgVhSk",
+                    "sourceType": 3,
+                    "artist": "Maiden, Iron",
+                    "imageUrl": "https://i.alza.cz/Foto/f7/AA/AA006662.jpg",
+                    "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA006662.jpg",
+                    "dwnUrlsCount": 0,
+                    "dwnUrls": null,
+                    "lastPlayedTrack": null,
+                    "lastPlayedTrackId": null,
+                    "genres_cnt": 1,
+                    "genres": [
+                        {
+                            "id": 8,
+                            "name": "Metal",
+                            "url": "/media/metalova-hudba-ke-stazeni/18854752.htm"
+                        }
+                        ],
+                    "artists_cnt": 1,
+                    "artists": [
+                        {
+                            "name": "Maiden, Iron"
+                        }
+                        ],
+                    "year": 1998,
+                    "size": 39220735,
+                    "url": "https://www.alza.cz/media/iron-maiden-d615454.htm",
+                    "trackCount": 9
+                }
+            ]
+        }
+
 
 
 ### Hudba - Seznam songu alba [/v1/getMusicTracks/{albumId}]
@@ -1459,7 +1459,7 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
 
 `supplierCode` jedinecne ID pro streamovani hudby  ramci Alza Premium
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -1468,54 +1468,54 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
 + parameters
     + albumId: 2278985 (number) - ID alba
     
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Gmail",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 4840508,
-                "favCnt": 1,
-                "alzaCredit": null,
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "15. 11. 2015",
-                "premiumRenew": false,
-                "data_cnt": 1,
-                "data": [
-                    {
-                        "id": 1774664,
-                        "type": "Track",
-                        "code": "AA11980501007",
-                        "name": "Holky A Masiny",
-                        "activationState": "Active",
-                        "length": 232,
-                        "duration": "03:52",
-                        "purchaseDate": "12. 10. 2015 05:19",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "supplierCode": "qjWFwcEWFQiOndj0-0J2pn",
-                        "sourceType": 1,
-                        "order": 1,
-                        "dwnUrl": null,
-                        "size": 9288700,
-                        "mimeType": "audio/mpeg3",
-                        "progress": 0,
-                        "timesListened": 0,
-                        "lastListened": 0,
-                        "dPrice": 0
-                    }
-                ]
-            }
-        ]
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Gmail",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 4840508,
+            "favCnt": 1,
+            "alzaCredit": null,
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "15. 11. 2015",
+            "premiumRenew": false,
+            "data_cnt": 1,
+            "data": [
+                {
+                    "id": 1774664,
+                    "type": "Track",
+                    "code": "AA11980501007",
+                    "name": "Holky A Masiny",
+                    "activationState": "Active",
+                    "length": 232,
+                    "duration": "03:52",
+                    "purchaseDate": "12. 10. 2015 05:19",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "supplierCode": "qjWFwcEWFQiOndj0-0J2pn",
+                    "sourceType": 1,
+                    "order": 1,
+                    "dwnUrl": null,
+                    "size": 9288700,
+                    "mimeType": "audio/mpeg3",
+                    "progress": 0,
+                    "timesListened": 0,
+                    "lastListened": 0,
+                    "dPrice": 0
+                }
+            ]
+        }
+
 
 
 ### Hudba - Seznam songu alba vcetne URL na stazeni [/v1/getMusicTracks/{albumId}?dwnUrl={dwnUrl}]
@@ -1528,7 +1528,7 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
 
 `supplierCode` jedinecne ID pro streamovani hudby  ramci Alza Premium
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -1538,54 +1538,54 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
     + albumId: 2278985 (number) - ID alba
     + dwnUrl: 1 (bool) - priznam zda je pozadovano i URL na stazeni
     
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Gmail",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 4840508,
-                "favCnt": 1,
-                "alzaCredit": null,
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "15. 11. 2015",
-                "premiumRenew": false,
-                "data_cnt": 1,
-                "data": [
-                    {
-                        "id": 1774664,
-                        "type": "Track",
-                        "code": "AA11980501007",
-                        "name": "Holky A Masiny",
-                        "activationState": "Active",
-                        "length": 232,
-                        "duration": "03:52",
-                        "purchaseDate": "12. 10. 2015 05:19",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "supplierCode": "qjWFwcEWFQiOndj0-0J2pn",
-                        "sourceType": 1,
-                        "order": 1,
-                        "dwnUrl": "http://podavac.mopa.cz/ef92b1a90d2c40fab76ef670f8d1a6c311fd368b/Best-Of-CD01-007-Holky-a-masiny.mp3",
-                        "size": 9288700,
-                        "mimeType": "audio/mpeg3",
-                        "progress": 0,
-                        "timesListened": 0,
-                        "lastListened": 0,
-                        "dPrice": 0
-                    }
-                ]
-            }
-        ]
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Gmail",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 4840508,
+            "favCnt": 1,
+            "alzaCredit": null,
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "15. 11. 2015",
+            "premiumRenew": false,
+            "data_cnt": 1,
+            "data": [
+                {
+                    "id": 1774664,
+                    "type": "Track",
+                    "code": "AA11980501007",
+                    "name": "Holky A Masiny",
+                    "activationState": "Active",
+                    "length": 232,
+                    "duration": "03:52",
+                    "purchaseDate": "12. 10. 2015 05:19",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "supplierCode": "qjWFwcEWFQiOndj0-0J2pn",
+                    "sourceType": 1,
+                    "order": 1,
+                    "dwnUrl": "http://podavac.mopa.cz/ef92b1a90d2c40fab76ef670f8d1a6c311fd368b/Best-Of-CD01-007-Holky-a-masiny.mp3",
+                    "size": 9288700,
+                    "mimeType": "audio/mpeg3",
+                    "progress": 0,
+                    "timesListened": 0,
+                    "lastListened": 0,
+                    "dPrice": 0
+                }
+            ]
+        }
+
 
 
 ### Hudba - Premium - Seznam songu alba vcetne URL na stazeni [/v1/getMusic/{albumId}]
@@ -1595,7 +1595,7 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
 Provede nacteni informaci o albu a jeho pisnicek bey zavislosti na tom, zda ma uzivatel album zakoupeno.
 Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -1604,219 +1604,219 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 + parameters
     + albumId: 2278985 (number) - ID alba
     
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Gmail",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 4840508,
-                "favCnt": 1,
-                "alzaCredit": null,
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "15. 11. 2015",
-                "premiumRenew": false,
-                "album": {
-                    "id": 1774646,
-                    "type": "Album",
-                    "code": "AA119805",
-                    "name": "Best Of",
-                    "activationState": null,
-                    "length": 4259,
-                    "duration": "01:10:59",
-                    "canStream": true,
-                    "canUserStream": true,
-                    "supplierCode": "Ge18XlJ2Th5LytR1VEVX3m",
-                    "sourceType": 3,
-                    "artist": "Daniel Landa",
-                    "imageUrl": "https://i.alza.cz/Foto/f7/AA/AA119805.jpg",
-                    "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA119805.jpg",
-                    "dwnUrlsCount": 0,
-                    "dwnUrls": null,
-                    "lastPlayedTrack": null,
-                    "lastPlayedTrackId": null,
-                    "genres_cnt": 1,
-                    "genres": [
-                        {
-                            "id": 3,
-                            "name": "Pop"
-                        }
-                        ],
-                    "year": 2006,
-                    "url": "https://www.alza.cz/media/best-of-d1774646.htm",
-                    "trackCount": 22,
-                    "tracks": [
-                        {
-                            "id": 1774658,
-                            "type": "Track",
-                            "code": "AA11980501001",
-                            "name": "Jo, Ulice",
-                            "activationState": "Active",
-                            "length": 146,
-                            "duration": "02:26",
-                            "purchaseDate": "03. 09. 2015 09:05",
-                            "canStream": true,
-                            "canUserStream": true,
-                            "supplierCode": "IKPsh-SU8ZQyhHHHSDoShm",
-                            "sourceType": 3,
-                            "order": 1,
-                            "dwnUrl": null,
-                            "size": 5845475,
-                            "mimeType": "audio/mpeg3",
-                            "progress": 0,
-                            "timesListened": 0,
-                            "lastListened": 0,
-                            "dPrice": 0
-                        },
-                        {
-                            "id": 1774659,
-                            "type": "Track",
-                            "code": "AA11980501002",
-                            "name": "Prizraky",
-                            "activationState": "Active",
-                            "length": 160,
-                            "duration": "02:40",
-                            "purchaseDate": "03. 09. 2015 09:05",
-                            "canStream": true,
-                            "canUserStream": true,
-                            "supplierCode": "zNvAqEcfBrYYz9aeYlpBSn",
-                            "sourceType": 3,
-                            "order": 2,
-                            "dwnUrl": null,
-                            "size": 6406000,
-                            "mimeType": "audio/mpeg3",
-                            "progress": 0,
-                            "timesListened": 0,
-                            "lastListened": 0,
-                            "dPrice": 0
-                        }
-                    ]
-            }
-        ]
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Gmail",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 4840508,
+            "favCnt": 1,
+            "alzaCredit": null,
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "15. 11. 2015",
+            "premiumRenew": false,
+            "album": {
+                "id": 1774646,
+                "type": "Album",
+                "code": "AA119805",
+                "name": "Best Of",
+                "activationState": null,
+                "length": 4259,
+                "duration": "01:10:59",
+                "canStream": true,
+                "canUserStream": true,
+                "supplierCode": "Ge18XlJ2Th5LytR1VEVX3m",
+                "sourceType": 3,
+                "artist": "Daniel Landa",
+                "imageUrl": "https://i.alza.cz/Foto/f7/AA/AA119805.jpg",
+                "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA119805.jpg",
+                "dwnUrlsCount": 0,
+                "dwnUrls": null,
+                "lastPlayedTrack": null,
+                "lastPlayedTrackId": null,
+                "genres_cnt": 1,
+                "genres": [
+                    {
+                        "id": 3,
+                        "name": "Pop"
+                    }
+                    ],
+                "year": 2006,
+                "url": "https://www.alza.cz/media/best-of-d1774646.htm",
+                "trackCount": 22,
+                "tracks": [
+                    {
+                        "id": 1774658,
+                        "type": "Track",
+                        "code": "AA11980501001",
+                        "name": "Jo, Ulice",
+                        "activationState": "Active",
+                        "length": 146,
+                        "duration": "02:26",
+                        "purchaseDate": "03. 09. 2015 09:05",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "supplierCode": "IKPsh-SU8ZQyhHHHSDoShm",
+                        "sourceType": 3,
+                        "order": 1,
+                        "dwnUrl": null,
+                        "size": 5845475,
+                        "mimeType": "audio/mpeg3",
+                        "progress": 0,
+                        "timesListened": 0,
+                        "lastListened": 0,
+                        "dPrice": 0
+                    },
+                    {
+                        "id": 1774659,
+                        "type": "Track",
+                        "code": "AA11980501002",
+                        "name": "Prizraky",
+                        "activationState": "Active",
+                        "length": 160,
+                        "duration": "02:40",
+                        "purchaseDate": "03. 09. 2015 09:05",
+                        "canStream": true,
+                        "canUserStream": true,
+                        "supplierCode": "zNvAqEcfBrYYz9aeYlpBSn",
+                        "sourceType": 3,
+                        "order": 2,
+                        "dwnUrl": null,
+                        "size": 6406000,
+                        "mimeType": "audio/mpeg3",
+                        "progress": 0,
+                        "timesListened": 0,
+                        "lastListened": 0,
+                        "dPrice": 0
+                    }
+                ]
+        }
+
 
 
 ### Hudba - Premium - Oblibene - Seznam skladeb [/v1/apPlaylistGet]
 
 #### v1/apPlaylistGet [GET] 
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
             Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "data_cnt": 28,
-                "data": [
-                    {
-                        "id": 1412797,
-                        "code": "AA07327102001",
-                        "img": "https://i2.alza.cz/Foto/f8/AA/AA073271.jpg",
-                        "name": "Murderer (Remix)",
-                        "spec": "Stopa",
-                        "price": "35 Kč",
-                        "cprice": null,
-                        "priceWithoutVat": "29 Kč",
-                        "avail": "Ihned k poslechu",
-                        "avail_postfix": null,
-                        "availLegend": null,
-                        "avail_postfix2": null,
-                        "avail_color": "398000",
-                        "is_action": false,
-                        "action_name": null,
-                        "rating": null,
-                        "promo_cnt": 0,
-                        "promos": null,
-                        "order": 1,
-                        "is_special_service": false,
-                        "type": 0,
-                        "artistId": 25,
-                        "artistName": "Helloween",
-                        "year": 2008,
-                        "itemType": "MusicTrack",
-                        "iType": 10,
-                        "url": "https://www.alza.cz/media/walls-of-jericho-bonus-track-edition-d1177348.htm",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "supplierCode": "f02mQbLdE7u-AQjyCcpPvm",
-                        "parentId": 1177348,
-                        "parentName": "Walls Of Jericho (Bonus Track Edition)",
-                        "minimumAmount": 1,
-                        "amountInPack": 0,
-                        "start_time": null,
-                        "variant_type": 0,
-                        "duration": "04:34"
-                    },
-                    {
-                        "id": 2827158,
-                        "code": "AA16370101003",
-                        "img": "https://i3.alza.cz/Foto/f8/AA/AA163701.jpg",
-                        "name": "The Lemon Song",
-                        "spec": "Stopa",
-                        "price": "39 Kč",
-                        "cprice": null,
-                        "priceWithoutVat": "32 Kč",
-                        "avail": "Ihned k poslechu",
-                        "avail_postfix": null,
-                        "availLegend": null,
-                        "avail_postfix2": null,
-                        "avail_color": "398000",
-                        "is_action": false,
-                        "action_name": null,
-                        "rating": null,
-                        "promo_cnt": 0,
-                        "promos": null,
-                        "order": 2,
-                        "is_special_service": false,
-                        "type": 0,
-                        "artistId": 57308,
-                        "artistName": "Led Zeppelin",
-                        "itemType": "MusicTrack",
-                        "iType": 10,
-                        "url": "https://www.alza.cz/media/led-zeppelin-ii-deluxe-edition-d2729904.htm",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "supplierCode": "2XewBB2wAGUHPvtumqGr2l",
-                        "parentId": 2729904,
-                        "parentName": "Led Zeppelin II (Deluxe Edition)",
-                        "minimumAmount": 1,
-                        "amountInPack": 0,
-                        "start_time": null,
-                        "variant_type": 0,
-                        "duration": "06:19"
-                    }
-                ]
-            }
-        ]
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 28,
+            "data": [
+                {
+                    "id": 1412797,
+                    "code": "AA07327102001",
+                    "img": "https://i2.alza.cz/Foto/f8/AA/AA073271.jpg",
+                    "name": "Murderer (Remix)",
+                    "spec": "Stopa",
+                    "price": "35 Kč",
+                    "cprice": null,
+                    "priceWithoutVat": "29 Kč",
+                    "avail": "Ihned k poslechu",
+                    "avail_postfix": null,
+                    "availLegend": null,
+                    "avail_postfix2": null,
+                    "avail_color": "398000",
+                    "is_action": false,
+                    "action_name": null,
+                    "rating": null,
+                    "promo_cnt": 0,
+                    "promos": null,
+                    "order": 1,
+                    "is_special_service": false,
+                    "type": 0,
+                    "artistId": 25,
+                    "artistName": "Helloween",
+                    "year": 2008,
+                    "itemType": "MusicTrack",
+                    "iType": 10,
+                    "url": "https://www.alza.cz/media/walls-of-jericho-bonus-track-edition-d1177348.htm",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "supplierCode": "f02mQbLdE7u-AQjyCcpPvm",
+                    "parentId": 1177348,
+                    "parentName": "Walls Of Jericho (Bonus Track Edition)",
+                    "minimumAmount": 1,
+                    "amountInPack": 0,
+                    "start_time": null,
+                    "variant_type": 0,
+                    "duration": "04:34"
+                },
+                {
+                    "id": 2827158,
+                    "code": "AA16370101003",
+                    "img": "https://i3.alza.cz/Foto/f8/AA/AA163701.jpg",
+                    "name": "The Lemon Song",
+                    "spec": "Stopa",
+                    "price": "39 Kč",
+                    "cprice": null,
+                    "priceWithoutVat": "32 Kč",
+                    "avail": "Ihned k poslechu",
+                    "avail_postfix": null,
+                    "availLegend": null,
+                    "avail_postfix2": null,
+                    "avail_color": "398000",
+                    "is_action": false,
+                    "action_name": null,
+                    "rating": null,
+                    "promo_cnt": 0,
+                    "promos": null,
+                    "order": 2,
+                    "is_special_service": false,
+                    "type": 0,
+                    "artistId": 57308,
+                    "artistName": "Led Zeppelin",
+                    "itemType": "MusicTrack",
+                    "iType": 10,
+                    "url": "https://www.alza.cz/media/led-zeppelin-ii-deluxe-edition-d2729904.htm",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "supplierCode": "2XewBB2wAGUHPvtumqGr2l",
+                    "parentId": 2729904,
+                    "parentName": "Led Zeppelin II (Deluxe Edition)",
+                    "minimumAmount": 1,
+                    "amountInPack": 0,
+                    "start_time": null,
+                    "variant_type": 0,
+                    "duration": "06:19"
+                }
+            ]
+        }
+
 
 
 ### Hudba - Premium - Oblibene - Pridani skladeb [/v2/apPlaylistAdd]
@@ -1827,53 +1827,53 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
 `forse` v pripade ze je plna knihovna, tak nastavenim na hodnotu 1 se prepisi posledni tracky
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
             Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+    + Body
 
-+ Request (application/json)
+            {
+                "commodityIds": [
+                    1412797,
+                    2827158
+                ],
+                "forse": 0
+            }
+
+
++ Response 200 (application/json; charset=utf-8)
+
 
         {
-            "commodityIds": [
-                1412797,
-                2827158
-            ],
-            "forse": 0
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
         }
 
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-            }
-        ]
 
 
 ### Hudba - Premium - Oblibene - Smazani skladeb [/v1/apPlaylistRemove/{trackId}]
 
 #### v1/apPlaylistRemove [GET] 
 
-+ Request
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -1883,29 +1883,29 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
     + trackId: 1412797 (number) - ID tracku
 
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-            }
-        ]
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+        }
+
 
 
 ### Hudba - Premium - Oblibene - Zmena poradi [/v1/apSetPlaylistOrder]
@@ -1916,7 +1916,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
 `forse` v pripade ze je plna knihovna, tak nastavenim na hodnotu 1 se prepisi posledni tracky
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -1938,29 +1938,29 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
             }
 
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-            }
-        ]
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+        }
+
 
 
 ### Hudba - Premium - Radio - Susteni radia podle skladby [/v1/apGetRadio/{supplierCode};{supplierCode}]
@@ -1969,7 +1969,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
 `supplierCode` Do sluzby je mozne poslat vice supplierCodes tracku oddelenych strednikem
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -1978,110 +1978,110 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 + parameters
     + supplierCode: 2XewBB2wAGUHPvtumqGr2l (string) - MusicJet ID tracku
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "data_cnt": 44,
-                "data": [
-                    {
-                        "id": 827184,
-                        "code": "AA03294701004",
-                        "img": "https://i1.alza.cz/Foto/f8/AA/AA032947.jpg",
-                        "name": "Future Lovers (Album Version)",
-                        "blurImg": "https://i1.alza.cz/Foto/f17/AA/AA032947.jpg",
-                        "spec": "Stopa",
-                        "price": "39 Kč",
-                        "cprice": null,
-                        "priceWithoutVat": "32 Kč",
-                        "avail": "Ihned k poslechu",
-                        "avail_postfix": null,
-                        "availLegend": null,
-                        "avail_postfix2": null,
-                        "avail_color": "398000",
-                        "is_action": false,
-                        "action_name": null,
-                        "rating": null,
-                        "promo_cnt": 0,
-                        "promos": null,
-                        "order": 0,
-                        "is_special_service": false,
-                        "type": 0,
-                        "artistId": 320,
-                        "artistName": "Madonna",
-                        "year": 2005,
-                        "itemType": "MusicTrack",
-                        "iType": 10,
-                        "url": "https://www.alza.cz/media/confessions-on-a-dance-floor-d648748.htm",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "supplierCode": "cdKY8.6EBR8Uzbx7OiJHWl",
-                        "parentId": 648748,
-                        "parentName": "Confessions On A Dance Floor",
-                        "minimumAmount": 1,
-                        "amountInPack": 0,
-                        "start_time": null,
-                        "variant_type": 0
-                    },
-                    {
-                        "id": 1247414,
-                        "code": "AA05517201005",
-                        "img": "https://i3.alza.cz/Foto/f8/AA/AA055172.jpg",
-                        "name": "Mad Cyril",
-                        "blurImg": "https://i3.alza.cz/Foto/f17/AA/AA055172.jpg",
-                        "spec": "Stopa",
-                        "price": "29 Kč",
-                        "cprice": null,
-                        "priceWithoutVat": "24 Kč",
-                        "avail": "Ihned k poslechu",
-                        "avail_postfix": null,
-                        "availLegend": null,
-                        "avail_postfix2": null,
-                        "avail_color": "398000",
-                        "is_action": false,
-                        "action_name": null,
-                        "rating": null,
-                        "promo_cnt": 0,
-                        "promos": null,
-                        "order": 0,
-                        "is_special_service": false,
-                        "type": 0,
-                        "artistId": 11139,
-                        "artistName": "Happy Mondays",
-                        "year": 1990,
-                        "itemType": "MusicTrack",
-                        "iType": 10,
-                        "url": "https://www.alza.cz/media/loads-d1159245.htm",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "supplierCode": "ogfRg1NrgDAVX4RyRGQDWm",
-                        "parentId": 1159245,
-                        "parentName": "Loads",
-                        "minimumAmount": 1,
-                        "amountInPack": 0,
-                        "start_time": null,
-                        "variant_type": 0
-                    }
-                ]
-            }
-        ]
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 44,
+            "data": [
+                {
+                    "id": 827184,
+                    "code": "AA03294701004",
+                    "img": "https://i1.alza.cz/Foto/f8/AA/AA032947.jpg",
+                    "name": "Future Lovers (Album Version)",
+                    "blurImg": "https://i1.alza.cz/Foto/f17/AA/AA032947.jpg",
+                    "spec": "Stopa",
+                    "price": "39 Kč",
+                    "cprice": null,
+                    "priceWithoutVat": "32 Kč",
+                    "avail": "Ihned k poslechu",
+                    "avail_postfix": null,
+                    "availLegend": null,
+                    "avail_postfix2": null,
+                    "avail_color": "398000",
+                    "is_action": false,
+                    "action_name": null,
+                    "rating": null,
+                    "promo_cnt": 0,
+                    "promos": null,
+                    "order": 0,
+                    "is_special_service": false,
+                    "type": 0,
+                    "artistId": 320,
+                    "artistName": "Madonna",
+                    "year": 2005,
+                    "itemType": "MusicTrack",
+                    "iType": 10,
+                    "url": "https://www.alza.cz/media/confessions-on-a-dance-floor-d648748.htm",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "supplierCode": "cdKY8.6EBR8Uzbx7OiJHWl",
+                    "parentId": 648748,
+                    "parentName": "Confessions On A Dance Floor",
+                    "minimumAmount": 1,
+                    "amountInPack": 0,
+                    "start_time": null,
+                    "variant_type": 0
+                },
+                {
+                    "id": 1247414,
+                    "code": "AA05517201005",
+                    "img": "https://i3.alza.cz/Foto/f8/AA/AA055172.jpg",
+                    "name": "Mad Cyril",
+                    "blurImg": "https://i3.alza.cz/Foto/f17/AA/AA055172.jpg",
+                    "spec": "Stopa",
+                    "price": "29 Kč",
+                    "cprice": null,
+                    "priceWithoutVat": "24 Kč",
+                    "avail": "Ihned k poslechu",
+                    "avail_postfix": null,
+                    "availLegend": null,
+                    "avail_postfix2": null,
+                    "avail_color": "398000",
+                    "is_action": false,
+                    "action_name": null,
+                    "rating": null,
+                    "promo_cnt": 0,
+                    "promos": null,
+                    "order": 0,
+                    "is_special_service": false,
+                    "type": 0,
+                    "artistId": 11139,
+                    "artistName": "Happy Mondays",
+                    "year": 1990,
+                    "itemType": "MusicTrack",
+                    "iType": 10,
+                    "url": "https://www.alza.cz/media/loads-d1159245.htm",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "supplierCode": "ogfRg1NrgDAVX4RyRGQDWm",
+                    "parentId": 1159245,
+                    "parentName": "Loads",
+                    "minimumAmount": 1,
+                    "amountInPack": 0,
+                    "start_time": null,
+                    "variant_type": 0
+                }
+            ]
+        }
+
 
 
 ### Hudba - Premium - Radio - Spusteni radia podle alba [/v1/apGetRadioByAlbum/{supplierCode}]
@@ -2090,7 +2090,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
 `supplierCode` Do sluzby se posila supplierCode alba podle ktereho chceme hrat radio
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -2099,110 +2099,110 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 + parameters
     + supplierCode: Ge18XlJ2Th5LytR1VEVX3m (string) - MusicJet ID alba
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "data_cnt": 44,
-                "data": [
-                    {
-                        "id": 827184,
-                        "code": "AA03294701004",
-                        "img": "https://i1.alza.cz/Foto/f8/AA/AA032947.jpg",
-                        "name": "Future Lovers (Album Version)",
-                        "blurImg": "https://i1.alza.cz/Foto/f17/AA/AA032947.jpg",
-                        "spec": "Stopa",
-                        "price": "39 Kč",
-                        "cprice": null,
-                        "priceWithoutVat": "32 Kč",
-                        "avail": "Ihned k poslechu",
-                        "avail_postfix": null,
-                        "availLegend": null,
-                        "avail_postfix2": null,
-                        "avail_color": "398000",
-                        "is_action": false,
-                        "action_name": null,
-                        "rating": null,
-                        "promo_cnt": 0,
-                        "promos": null,
-                        "order": 0,
-                        "is_special_service": false,
-                        "type": 0,
-                        "artistId": 320,
-                        "artistName": "Madonna",
-                        "year": 2005,
-                        "itemType": "MusicTrack",
-                        "iType": 10,
-                        "url": "https://www.alza.cz/media/confessions-on-a-dance-floor-d648748.htm",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "supplierCode": "cdKY8.6EBR8Uzbx7OiJHWl",
-                        "parentId": 648748,
-                        "parentName": "Confessions On A Dance Floor",
-                        "minimumAmount": 1,
-                        "amountInPack": 0,
-                        "start_time": null,
-                        "variant_type": 0
-                    },
-                    {
-                        "id": 1247414,
-                        "code": "AA05517201005",
-                        "img": "https://i3.alza.cz/Foto/f8/AA/AA055172.jpg",
-                        "name": "Mad Cyril",
-                        "blurImg": "https://i3.alza.cz/Foto/f17/AA/AA055172.jpg",
-                        "spec": "Stopa",
-                        "price": "29 Kč",
-                        "cprice": null,
-                        "priceWithoutVat": "24 Kč",
-                        "avail": "Ihned k poslechu",
-                        "avail_postfix": null,
-                        "availLegend": null,
-                        "avail_postfix2": null,
-                        "avail_color": "398000",
-                        "is_action": false,
-                        "action_name": null,
-                        "rating": null,
-                        "promo_cnt": 0,
-                        "promos": null,
-                        "order": 0,
-                        "is_special_service": false,
-                        "type": 0,
-                        "artistId": 11139,
-                        "artistName": "Happy Mondays",
-                        "year": 1990,
-                        "itemType": "MusicTrack",
-                        "iType": 10,
-                        "url": "https://www.alza.cz/media/loads-d1159245.htm",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "supplierCode": "ogfRg1NrgDAVX4RyRGQDWm",
-                        "parentId": 1159245,
-                        "parentName": "Loads",
-                        "minimumAmount": 1,
-                        "amountInPack": 0,
-                        "start_time": null,
-                        "variant_type": 0
-                    }
-                ]
-            }
-        ]
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 44,
+            "data": [
+                {
+                    "id": 827184,
+                    "code": "AA03294701004",
+                    "img": "https://i1.alza.cz/Foto/f8/AA/AA032947.jpg",
+                    "name": "Future Lovers (Album Version)",
+                    "blurImg": "https://i1.alza.cz/Foto/f17/AA/AA032947.jpg",
+                    "spec": "Stopa",
+                    "price": "39 Kč",
+                    "cprice": null,
+                    "priceWithoutVat": "32 Kč",
+                    "avail": "Ihned k poslechu",
+                    "avail_postfix": null,
+                    "availLegend": null,
+                    "avail_postfix2": null,
+                    "avail_color": "398000",
+                    "is_action": false,
+                    "action_name": null,
+                    "rating": null,
+                    "promo_cnt": 0,
+                    "promos": null,
+                    "order": 0,
+                    "is_special_service": false,
+                    "type": 0,
+                    "artistId": 320,
+                    "artistName": "Madonna",
+                    "year": 2005,
+                    "itemType": "MusicTrack",
+                    "iType": 10,
+                    "url": "https://www.alza.cz/media/confessions-on-a-dance-floor-d648748.htm",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "supplierCode": "cdKY8.6EBR8Uzbx7OiJHWl",
+                    "parentId": 648748,
+                    "parentName": "Confessions On A Dance Floor",
+                    "minimumAmount": 1,
+                    "amountInPack": 0,
+                    "start_time": null,
+                    "variant_type": 0
+                },
+                {
+                    "id": 1247414,
+                    "code": "AA05517201005",
+                    "img": "https://i3.alza.cz/Foto/f8/AA/AA055172.jpg",
+                    "name": "Mad Cyril",
+                    "blurImg": "https://i3.alza.cz/Foto/f17/AA/AA055172.jpg",
+                    "spec": "Stopa",
+                    "price": "29 Kč",
+                    "cprice": null,
+                    "priceWithoutVat": "24 Kč",
+                    "avail": "Ihned k poslechu",
+                    "avail_postfix": null,
+                    "availLegend": null,
+                    "avail_postfix2": null,
+                    "avail_color": "398000",
+                    "is_action": false,
+                    "action_name": null,
+                    "rating": null,
+                    "promo_cnt": 0,
+                    "promos": null,
+                    "order": 0,
+                    "is_special_service": false,
+                    "type": 0,
+                    "artistId": 11139,
+                    "artistName": "Happy Mondays",
+                    "year": 1990,
+                    "itemType": "MusicTrack",
+                    "iType": 10,
+                    "url": "https://www.alza.cz/media/loads-d1159245.htm",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "supplierCode": "ogfRg1NrgDAVX4RyRGQDWm",
+                    "parentId": 1159245,
+                    "parentName": "Loads",
+                    "minimumAmount": 1,
+                    "amountInPack": 0,
+                    "start_time": null,
+                    "variant_type": 0
+                }
+            ]
+        }
+
 
 
 ### Hudba - Premium - Radio - Nacteni zanrovych radii [/v1/apGetRadioGenres]
@@ -2211,68 +2211,68 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
 Nacteni zanrovych radii. Tyto radia jsou natvrdo vydefinovana v kodu na serveru
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
             Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "data_cnt": 17,
-                "data": [
-                    {
-                        "id": 1,
-                        "name": "ROCK",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA076350.jpg",
-                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA076350.jpg",
-                        "supplierCode": [
-                            "yC-CuWlmFRMy8aiplotkGm",
-                            "dx23HtAHjkouggbuOsulcm",
-                            ".pk.FOo5oU4QehT1GchZtn",
-                            "47CZxrpdawLWEhySFJ79Uk",
-                            "2hEVS9utj2qyXMxb4d5TQk"
-                        ]
-                    },
-                    {
-                        "id": 2,
-                        "name": "POP",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA013673.jpg",
-                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA013673.jpg",
-                        "supplierCode": [
-                            "PoEAdmy0NpMsC2iTP3jlUl",
-                            "RGkr7IhHsa7Io0DJ2cuWQl",
-                            "DWwjiMhasOHCm5ctEp4Fpl",
-                            "cW2ROtzGhThdbWjFI3SG0n",
-                            "y5eecyYJ34xIaQ4onOEP.l"
-                        ]
-                    }
-                ]
-            }
-        ]
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 17,
+            "data": [
+                {
+                    "id": 1,
+                    "name": "ROCK",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA076350.jpg",
+                    "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA076350.jpg",
+                    "supplierCode": [
+                        "yC-CuWlmFRMy8aiplotkGm",
+                        "dx23HtAHjkouggbuOsulcm",
+                        ".pk.FOo5oU4QehT1GchZtn",
+                        "47CZxrpdawLWEhySFJ79Uk",
+                        "2hEVS9utj2qyXMxb4d5TQk"
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "POP",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA013673.jpg",
+                    "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA013673.jpg",
+                    "supplierCode": [
+                        "PoEAdmy0NpMsC2iTP3jlUl",
+                        "RGkr7IhHsa7Io0DJ2cuWQl",
+                        "DWwjiMhasOHCm5ctEp4Fpl",
+                        "cW2ROtzGhThdbWjFI3SG0n",
+                        "y5eecyYJ34xIaQ4onOEP.l"
+                    ]
+                }
+            ]
+        }
+
 
 
 ### Hudba - Premium - Radio - Nacteni historickych radii [/v1/apGetRadiohistory]
@@ -2281,60 +2281,60 @@ Nacteni zanrovych radii. Tyto radia jsou natvrdo vydefinovana v kodu na serveru
 
 Nacteni zanrovych radii. Tyto radia jsou natvrdo vydefinovana v kodu na serveru
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
             Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "data_cnt": 17,
-                "data": [
-                    {
-                        "id": 1,
-                        "name": "ROCK",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA076350.jpg",
-                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA076350.jpg",
-                        "supplierCode": [
-                            "yC-CuWlmFRMy8aiplotkGm"
-                        ]
-                    },
-                    {
-                        "id": 2,
-                        "name": "POP",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA013673.jpg",
-                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA013673.jpg",
-                        "supplierCode": [
-                            "PoEAdmy0NpMsC2iTP3jlUl"
-                        ]
-                    }
-                ]
-            }
-        ]
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 17,
+            "data": [
+                {
+                    "id": 1,
+                    "name": "ROCK",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA076350.jpg",
+                    "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA076350.jpg",
+                    "supplierCode": [
+                        "yC-CuWlmFRMy8aiplotkGm"
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "POP",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA013673.jpg",
+                    "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA013673.jpg",
+                    "supplierCode": [
+                        "PoEAdmy0NpMsC2iTP3jlUl"
+                    ]
+                }
+            ]
+        }
+
 
 
 ### Hudba - Premium - Radio - Nacteni doporucenych radii [/v1/apGetRadioRecommended]
@@ -2343,60 +2343,58 @@ Nacteni zanrovych radii. Tyto radia jsou natvrdo vydefinovana v kodu na serveru
 
 Nacteni doporucenych radii. Tyto radia jsou generovana na serveru podle toho co uzivatel prehrava
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
             Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "data_cnt": 17,
-                "data": [
-                    {
-                        "id": 1,
-                        "name": "ROCK",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA076350.jpg",
-                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA076350.jpg",
-                        "supplierCode": [
-                            "yC-CuWlmFRMy8aiplotkGm"
-                        ]
-                    },
-                    {
-                        "id": 2,
-                        "name": "POP",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA013673.jpg",
-                        "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA013673.jpg",
-                        "supplierCode": [
-                            "PoEAdmy0NpMsC2iTP3jlUl"
-                        ]
-                    }
-                ]
-            }
-        ]
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 17,
+            "data": [
+                {
+                    "id": 1,
+                    "name": "ROCK",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA076350.jpg",
+                    "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA076350.jpg",
+                    "supplierCode": [
+                        "yC-CuWlmFRMy8aiplotkGm"
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "POP",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "imageUrl": "https://i.alza.cz/Foto/f8/AA/AA013673.jpg",
+                    "bigImgUrl": "https://i.alza.cz/Foto/f9_rect/AA/AA013673.jpg",
+                    "supplierCode": [
+                        "PoEAdmy0NpMsC2iTP3jlUl"
+                    ]
+                }
+            ]
+        }
 
 
 ### Hudba - Premium - Zaznameni prehravani [/v1/apSetPlayed/{trackId}]
@@ -2405,7 +2403,7 @@ Nacteni doporucenych radii. Tyto radia jsou generovana na serveru podle toho co 
 
 Zaznamenani prehrani pisnicky. Je zapotrebi aby server spravne generoval radia a radil hudbu.
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -2414,36 +2412,35 @@ Zaznamenani prehrani pisnicky. Je zapotrebi aby server spravne generoval radia a
 + parameters
     + trackId: 1774664 (number) - ID tracku
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-            }
-        ]
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+        }
+
 
 
 ### Hudba - Premium - Vyhledani hudby [/v1/searchMusic/{keyword}]
 
 #### v1/searchMusic [GET] 
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -2452,104 +2449,103 @@ Zaznamenani prehrani pisnicky. Je zapotrebi aby server spravne generoval radia a
 + parameters
     + keyword: Landa (string) - vyhledavany vyraz
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "data_cnt": 22,
-                "data": [
-                    {
-                        "id": 1774646,
-                        "code": "AA119805",
-                        "img": "https://i3.alza.cz/Foto/f8/AA/AA119805.jpg",
-                        "name": "Best Of",
-                        "spec": "Album MP3",
-                        "price": "239 Kč",
-                        "cprice": null,
-                        "priceWithoutVat": "198 Kč",
-                        "avail": "Ihned k poslechu",
-                        "avail_postfix": null,
-                        "availLegend": null,
-                        "avail_postfix2": null,
-                        "avail_color": "398000",
-                        "is_action": false,
-                        "action_name": null,
-                        "rating": 5,
-                        "promo_cnt": 0,
-                        "promos": null,
-                        "order": 25,
-                        "is_special_service": false,
-                        "type": 0,
-                        "artistId": 20,
-                        "artistName": "Daniel Landa",
-                        "year": 2006,
-                        "itemType": "MusicAlbum",
-                        "iType": 9,
-                        "url": "https://www.alza.cz/media/best-of-d1774646.htm",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "supplierCode": "Ge18XlJ2Th5LytR1VEVX3m",
-                        "minimumAmount": 1,
-                        "amountInPack": 0,
-                        "start_time": null,
-                        "variant_type": 0
-                    },
-                    {
-                        "id": 1164956,
-                        "code": "AA060883",
-                        "img": "https://i1.alza.cz/Foto/f8/AA/AA060883.jpg",
-                        "name": "Klic Kralu",
-                        "spec": "Album MP3",
-                        "price": "379 Kč",
-                        "cprice": null,
-                        "priceWithoutVat": "313 Kč",
-                        "avail": "Ihned k poslechu",
-                        "avail_postfix": null,
-                        "availLegend": null,
-                        "avail_postfix2": null,
-                        "avail_color": "398000",
-                        "is_action": false,
-                        "action_name": null,
-                        "rating": null,
-                        "promo_cnt": 0,
-                        "promos": null,
-                        "order": 25,
-                        "is_special_service": false,
-                        "type": 0,
-                        "artistId": 20,
-                        "artistName": "Daniel Landa",
-                        "year": 2013,
-                        "itemType": "MusicAlbum",
-                        "iType": 9,
-                        "url": "https://www.alza.cz/media/klic-kralu-d1164956.htm",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "supplierCode": "klqS5Pbg-gNY03Z0POIXYl",
-                        "minimumAmount": 1,
-                        "amountInPack": 0,
-                        "start_time": null,
-                        "variant_type": 0
-                    }
-                ]
-            }
-        ]
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 22,
+            "data": [
+                {
+                    "id": 1774646,
+                    "code": "AA119805",
+                    "img": "https://i3.alza.cz/Foto/f8/AA/AA119805.jpg",
+                    "name": "Best Of",
+                    "spec": "Album MP3",
+                    "price": "239 Kč",
+                    "cprice": null,
+                    "priceWithoutVat": "198 Kč",
+                    "avail": "Ihned k poslechu",
+                    "avail_postfix": null,
+                    "availLegend": null,
+                    "avail_postfix2": null,
+                    "avail_color": "398000",
+                    "is_action": false,
+                    "action_name": null,
+                    "rating": 5,
+                    "promo_cnt": 0,
+                    "promos": null,
+                    "order": 25,
+                    "is_special_service": false,
+                    "type": 0,
+                    "artistId": 20,
+                    "artistName": "Daniel Landa",
+                    "year": 2006,
+                    "itemType": "MusicAlbum",
+                    "iType": 9,
+                    "url": "https://www.alza.cz/media/best-of-d1774646.htm",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "supplierCode": "Ge18XlJ2Th5LytR1VEVX3m",
+                    "minimumAmount": 1,
+                    "amountInPack": 0,
+                    "start_time": null,
+                    "variant_type": 0
+                },
+                {
+                    "id": 1164956,
+                    "code": "AA060883",
+                    "img": "https://i1.alza.cz/Foto/f8/AA/AA060883.jpg",
+                    "name": "Klic Kralu",
+                    "spec": "Album MP3",
+                    "price": "379 Kč",
+                    "cprice": null,
+                    "priceWithoutVat": "313 Kč",
+                    "avail": "Ihned k poslechu",
+                    "avail_postfix": null,
+                    "availLegend": null,
+                    "avail_postfix2": null,
+                    "avail_color": "398000",
+                    "is_action": false,
+                    "action_name": null,
+                    "rating": null,
+                    "promo_cnt": 0,
+                    "promos": null,
+                    "order": 25,
+                    "is_special_service": false,
+                    "type": 0,
+                    "artistId": 20,
+                    "artistName": "Daniel Landa",
+                    "year": 2013,
+                    "itemType": "MusicAlbum",
+                    "iType": 9,
+                    "url": "https://www.alza.cz/media/klic-kralu-d1164956.htm",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "supplierCode": "klqS5Pbg-gNY03Z0POIXYl",
+                    "minimumAmount": 1,
+                    "amountInPack": 0,
+                    "start_time": null,
+                    "variant_type": 0
+                }
+            ]
+        }
+
 
 
 
