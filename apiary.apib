@@ -2553,7 +2553,7 @@ Zaznamenani prehrani pisnicky. Je zapotrebi aby server spravne generoval radia a
 
 #### v1/getMyVideoCollection [GET] 
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -2562,106 +2562,104 @@ Zaznamenani prehrani pisnicky. Je zapotrebi aby server spravne generoval radia a
 + parameters
     + active: true (bool) - defaultne nastavujeme TRUE a tim se vraceji pouze aktuvni filmy
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "videos": [
-                    {
-                        "id": 4599614,
-                        "name": "Fakjů pane učiteli",
-                        "code": "AVCA0045",
-                        "url": "https://www.alza.cz/media/fakju-pane-uciteli-d2269552.htm",
-                        "imageUrl": "https://i1.alza.cz/Foto/f7/AV/AVCA0045.jpg",
-                        "blurImageUrl": "https://i1.alza.cz/Foto/f17/AV/AVCA0045.jpg",
-                        "price": "55 Kč",
-                        "viewState": 1,
-                        "activationState": 0,
-                        "count": 1,
-                        "expiration": null,
-                        "expirationString": null,
-                        "parameterLength": "117 min",
-                        "parameterQuality": "HD (720p)",
-                        "parameterProductions": [
-                            {
-                                "id": 12608,
-                                "name": "Německo"
-                            }
-                        ],
-                        "parameterGenres": [
-                            {
-                                "id": 11606,
-                                "name": "Komedie"
-                            }
-                        ],
-                        "parameterLanguages": [
-                            {
-                                "id": 5536,
-                                "name": "česky, německy"
-                            }
-                        ],
-                        "parameterSubtitles": [
-                            {
-                                "id": 10660,
-                                "name": "České"
-                            }
-                        ],
-                        "parameterDirectors": [
-                            {
-                                "id": 19668,
-                                "name": "Bora Dagtekin"
-                            }
-                        ],
-                        "legend": "Zeki Müller nemá na vybranou. Někdo totiž postavil školní tělocvičnu přímo nad jeho &bdquo;úsporami&quot;. Tedy nad místem se zakopanými ukradenými penězi, které tam pro něj ukryla jeho přítelkyně. A tak, aby se po propuštění z basy dostal ke své kořisti, musí se vydávat za suplujícího učitele na Götheho gymnáziu, čímž vznikne už tak sužovanému vzdělávacímu systému další problém, protože od toho okamžiku zaměstnává nejbláznivějšího učitele všech dob. V noci se Zeki snaží tajně prokopat ke své uloupené kořisti a během dne používá sice drastické, ale účinné metody, aby zkrotil neukázněné teenagery ve třídě 10. B. Jeho upjatá, korektní kolegyně, učitelka Lisi Schnabelstedtová (Karoline Herfurthová), sice odsuzuje jeho neortodoxní pedagogické metody, ale nemůže si pomoct a do nového &bdquo;kolegy&quot; se zamiluje. Dokonce mu pomůže vykopat něco cennějšího než je hotovost &ndash; zbytky jeho vlastní morální integrity.",
-                        "parameterActors": [
-                            {
-                                "id": 19675,
-                                "name": "Alwara Höfels"
-                            },
-                            {
-                                "id": 19669,
-                                "name": "Elyas M'Barek"
-                            },
-                            {
-                                "id": 19674,
-                                "name": "Jana Pallaske"
-                            },
-                            {
-                                "id": 19672,
-                                "name": "Karoline Herfurth"
-                            },
-                            {
-                                "id": 19673,
-                                "name": "Katja Riemann"
-                            }
-                        ],
-                        "commodityId": 2269552,
-                        "parameterYear": "2013",
-                        "isFavourite": false,
-                        "sourceType": 3,
-                        "canStream": true,
-                        "canUserStream": true
-                    }
-                ]
-            }
-        ]
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "videos": [
+                {
+                    "id": 4599614,
+                    "name": "Fakjů pane učiteli",
+                    "code": "AVCA0045",
+                    "url": "https://www.alza.cz/media/fakju-pane-uciteli-d2269552.htm",
+                    "imageUrl": "https://i1.alza.cz/Foto/f7/AV/AVCA0045.jpg",
+                    "blurImageUrl": "https://i1.alza.cz/Foto/f17/AV/AVCA0045.jpg",
+                    "price": "55 Kč",
+                    "viewState": 1,
+                    "activationState": 0,
+                    "count": 1,
+                    "expiration": null,
+                    "expirationString": null,
+                    "parameterLength": "117 min",
+                    "parameterQuality": "HD (720p)",
+                    "parameterProductions": [
+                        {
+                            "id": 12608,
+                            "name": "Německo"
+                        }
+                    ],
+                    "parameterGenres": [
+                        {
+                            "id": 11606,
+                            "name": "Komedie"
+                        }
+                    ],
+                    "parameterLanguages": [
+                        {
+                            "id": 5536,
+                            "name": "česky, německy"
+                        }
+                    ],
+                    "parameterSubtitles": [
+                        {
+                            "id": 10660,
+                            "name": "České"
+                        }
+                    ],
+                    "parameterDirectors": [
+                        {
+                            "id": 19668,
+                            "name": "Bora Dagtekin"
+                        }
+                    ],
+                    "legend": "Zeki Müller nemá na vybranou. Někdo totiž postavil školní tělocvičnu přímo nad jeho &bdquo;úsporami&quot;. Tedy nad místem se zakopanými ukradenými penězi, které tam pro něj ukryla jeho přítelkyně. A tak, aby se po propuštění z basy dostal ke své kořisti, musí se vydávat za suplujícího učitele na Götheho gymnáziu, čímž vznikne už tak sužovanému vzdělávacímu systému další problém, protože od toho okamžiku zaměstnává nejbláznivějšího učitele všech dob. V noci se Zeki snaží tajně prokopat ke své uloupené kořisti a během dne používá sice drastické, ale účinné metody, aby zkrotil neukázněné teenagery ve třídě 10. B. Jeho upjatá, korektní kolegyně, učitelka Lisi Schnabelstedtová (Karoline Herfurthová), sice odsuzuje jeho neortodoxní pedagogické metody, ale nemůže si pomoct a do nového &bdquo;kolegy&quot; se zamiluje. Dokonce mu pomůže vykopat něco cennějšího než je hotovost &ndash; zbytky jeho vlastní morální integrity.",
+                    "parameterActors": [
+                        {
+                            "id": 19675,
+                            "name": "Alwara Höfels"
+                        },
+                        {
+                            "id": 19669,
+                            "name": "Elyas M'Barek"
+                        },
+                        {
+                            "id": 19674,
+                            "name": "Jana Pallaske"
+                        },
+                        {
+                            "id": 19672,
+                            "name": "Karoline Herfurth"
+                        },
+                        {
+                            "id": 19673,
+                            "name": "Katja Riemann"
+                        }
+                    ],
+                    "commodityId": 2269552,
+                    "parameterYear": "2013",
+                    "isFavourite": false,
+                    "sourceType": 3,
+                    "canStream": true,
+                    "canUserStream": true
+                }
+            ]
+        }
 
 
 ### Filmy - Nacteni detailu zakoupeneho filmu [/v1/getVideoDetail/{videoId}]
@@ -2680,7 +2678,7 @@ ActivationResult
 * LicenceNotFound = -2,
 * UnableToActivate = -3
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -2689,57 +2687,56 @@ ActivationResult
 + parameters
     + videoId: 945603 (number) - ID filmu
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "movie": {
-                    "id": 941443,
-                    "name": "Mi Tu (Album Version)",
-                    "code": "AA00978003003",
-                    "url": "/media/band-5-shi-ji-zu-he-5-cd-digital-only-d621641.htm",
-                    "imageUrl": "https://i4.alza.cz/Foto/f3/AA/AA009780.jpg",
-                    "blurImageUrl": "https://i4.alza.cz/Foto/f17/AA/AA009780.jpg",
-                    "price": "35 Kč",
-                    "viewState": 0,
-                    "activationState": 0,
-                    "count": 0,
-                    "expiration": null,
-                    "expirationString": null,
-                    "parameterLength": null,
-                    "parameterQuality": null,
-                    "parameterProductions": null,
-                    "parameterGenres": null,
-                    "parameterLanguages": null,
-                    "parameterSubtitles": null,
-                    "parameterDirectors": null,
-                    "legend": null,
-                    "parameterActors": null,
-                    "commodityId": 941443,
-                    "parameterYear": null,
-                    "sourceType": 0,
-                    "canStream": true,
-                    "canUserStream": true
-                }
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "movie": {
+                "id": 941443,
+                "name": "Mi Tu (Album Version)",
+                "code": "AA00978003003",
+                "url": "/media/band-5-shi-ji-zu-he-5-cd-digital-only-d621641.htm",
+                "imageUrl": "https://i4.alza.cz/Foto/f3/AA/AA009780.jpg",
+                "blurImageUrl": "https://i4.alza.cz/Foto/f17/AA/AA009780.jpg",
+                "price": "35 Kč",
+                "viewState": 0,
+                "activationState": 0,
+                "count": 0,
+                "expiration": null,
+                "expirationString": null,
+                "parameterLength": null,
+                "parameterQuality": null,
+                "parameterProductions": null,
+                "parameterGenres": null,
+                "parameterLanguages": null,
+                "parameterSubtitles": null,
+                "parameterDirectors": null,
+                "legend": null,
+                "parameterActors": null,
+                "commodityId": 941443,
+                "parameterYear": null,
+                "sourceType": 0,
+                "canStream": true,
+                "canUserStream": true
             }
-        ]
+        }
+
 
 
 ### Filmy - Nacteni detailu filmu - i pro Premium [/v1/getMyVideo/{videoId}]
@@ -2748,7 +2745,7 @@ ActivationResult
 
 `playlistUrl` obsahuje URL na nacteni playlistu pro film
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -2757,34 +2754,32 @@ ActivationResult
 + parameters
     + videoId: 945603 (number) - ID filmu
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": "",
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "playlistUrl": "http://cdnls01.nacevi.cz/ls/ClientLink?id=xUbtT0tKdk9d9Xm",
-                "customData": "4FXmq3fJMGFAgWPKuQqIED3Dv3nwuRpe9CqQt4ipl2iwoqUd8S2OeW96MSQx2BsK+LIrLbCEtFZ0lhhyUt3dpWdu3fhy6y5jhzYYjgujve/WG+29SzePp+yb50KtlyZI/UbgXcN5m0xAmOvoWFsdCEPiYHWovrfu3O9XIcj4U14=",
-                "id": 4599614,
-                "name": "Fakjů pane učiteli",
-                "code": "AVCA0045"
-            }
-        ]
+        {
+            "err": 0,
+            "msg": "",
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "playlistUrl": "http://cdnls01.nacevi.cz/ls/ClientLink?id=xUbtT0tKdk9d9Xm",
+            "customData": "4FXmq3fJMGFAgWPKuQqIED3Dv3nwuRpe9CqQt4ipl2iwoqUd8S2OeW96MSQx2BsK+LIrLbCEtFZ0lhhyUt3dpWdu3fhy6y5jhzYYjgujve/WG+29SzePp+yb50KtlyZI/UbgXcN5m0xAmOvoWFsdCEPiYHWovrfu3O9XIcj4U14=",
+            "id": 4599614,
+            "name": "Fakjů pane učiteli",
+            "code": "AVCA0045"
+        }
 
 
 ### Filmy - Link na stazeni [/v1/getMyVideoForDownload/{videoId}]
@@ -2793,7 +2788,7 @@ ActivationResult
 
 `playlistUrl` obsahuje URL na nacteni playlistu pro film
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -2802,34 +2797,34 @@ ActivationResult
 + parameters
     + videoId: 945603 (number) - ID filmu
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": "",
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "playlistUrl": "http://cdnls01.nacevi.cz/ls/ClientLink?id=xUbtT0tKdk9d9Xm",
-                "customData": "4FXmq3fJMGFAgWPKuQqIED3Dv3nwuRpe9CqQt4ipl2iwoqUd8S2OeW96MSQx2BsK+LIrLbCEtFZ0lhhyUt3dpWdu3fhy6y5jhzYYjgujve/WG+29SzePp+yb50KtlyZI/UbgXcN5m0xAmOvoWFsdCEPiYHWovrfu3O9XIcj4U14=",
-                "id": 4599614,
-                "name": "Fakjů pane učiteli",
-                "code": "AVCA0045"
-            }
-        ]
+
+        {
+            "err": 0,
+            "msg": "",
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "playlistUrl": "http://cdnls01.nacevi.cz/ls/ClientLink?id=xUbtT0tKdk9d9Xm",
+            "customData": "4FXmq3fJMGFAgWPKuQqIED3Dv3nwuRpe9CqQt4ipl2iwoqUd8S2OeW96MSQx2BsK+LIrLbCEtFZ0lhhyUt3dpWdu3fhy6y5jhzYYjgujve/WG+29SzePp+yb50KtlyZI/UbgXcN5m0xAmOvoWFsdCEPiYHWovrfu3O9XIcj4U14=",
+            "id": 4599614,
+            "name": "Fakjů pane učiteli",
+            "code": "AVCA0045"
+        }
+
 
 
 ### Filmy - Premium - Vyhledani [/v3/search?stock=false&news=false&order=0&category=18855030&page=0&exp={keyword}&facets=4]
@@ -2838,7 +2833,7 @@ ActivationResult
 
 `playlistUrl` obsahuje URL na nacteni playlistu pro film
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -2847,79 +2842,78 @@ ActivationResult
 + parameters
     + keyword: Wick (string) - vyhledavany vyraz
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "display_cnt": 37,
-                "data1_cnt": 0,
-                "data2_cnt": 25,
-                "data1": [],
-                "data2": [
-                    {
-                        "id": 2649408,
-                        "code": "AVBF0197",
-                        "img": "https://i1.alza.cz/Foto/f8/AV/AVBF0197.jpg",
-                        "name": "John Wick",
-                        "spec": "Film k online zhlédnutí",
-                        "price": "55 Kč",
-                        "cprice": null,
-                        "priceWithoutVat": "45 Kč",
-                        "avail": "Ihned k online přehrávání",
-                        "avail_postfix": null,
-                        "availLegend": null,
-                        "avail_postfix2": null,
-                        "avail_color": "398000",
-                        "is_action": false,
-                        "action_name": null,
-                        "rating": null,
-                        "promo_cnt": 1,
-                        "promos": [
-                            {
-                                "id": 2415829,
-                                "name": "Digitální předplatné Film eXtra - aktuální číslo",
-                                "img": "https://i2.alza.cz/Foto/f8/MA/MAG01407.jpg",
-                                "count": 1,
-                                "price": "0,-",
-                                "is_enabled": true,
-                                "order": 1
-                            }
-                        ],
-                        "order": 26,
-                        "is_special_service": false,
-                        "type": 0,
-                        "itemType": "Video",
-                        "iType": 12,
-                        "url": "https://www.alza.cz/media/john-wick-d2649408.htm?o=1",
-                        "canStream": true,
-                        "canUserStream": true,
-                        "minimumAmount": 1,
-                        "amountInPack": 0,
-                        "start_time": null,
-                        "variant_type": 0
-                    }
-                ],
-                "total": 37,
-                "has_next": true
-            }
-        ]
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "display_cnt": 37,
+            "data1_cnt": 0,
+            "data2_cnt": 25,
+            "data1": [],
+            "data2": [
+                {
+                    "id": 2649408,
+                    "code": "AVBF0197",
+                    "img": "https://i1.alza.cz/Foto/f8/AV/AVBF0197.jpg",
+                    "name": "John Wick",
+                    "spec": "Film k online zhlédnutí",
+                    "price": "55 Kč",
+                    "cprice": null,
+                    "priceWithoutVat": "45 Kč",
+                    "avail": "Ihned k online přehrávání",
+                    "avail_postfix": null,
+                    "availLegend": null,
+                    "avail_postfix2": null,
+                    "avail_color": "398000",
+                    "is_action": false,
+                    "action_name": null,
+                    "rating": null,
+                    "promo_cnt": 1,
+                    "promos": [
+                        {
+                            "id": 2415829,
+                            "name": "Digitální předplatné Film eXtra - aktuální číslo",
+                            "img": "https://i2.alza.cz/Foto/f8/MA/MAG01407.jpg",
+                            "count": 1,
+                            "price": "0,-",
+                            "is_enabled": true,
+                            "order": 1
+                        }
+                    ],
+                    "order": 26,
+                    "is_special_service": false,
+                    "type": 0,
+                    "itemType": "Video",
+                    "iType": 12,
+                    "url": "https://www.alza.cz/media/john-wick-d2649408.htm?o=1",
+                    "canStream": true,
+                    "canUserStream": true,
+                    "minimumAmount": 1,
+                    "amountInPack": 0,
+                    "start_time": null,
+                    "variant_type": 0
+                }
+            ],
+            "total": 37,
+            "has_next": true
+        }
+
 
 
 ### Filmy - Seznam oblibenych [/v1/favourites]
@@ -2928,16 +2922,15 @@ ActivationResult
 
 `iType` zobrazujeme pouze polozky ktere maji nastaveno iType na 12 - tzn jedna se o film
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
             Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
+        {
             "err": 0,
             "msg": null,
             "vzt": 254798307,
@@ -3002,8 +2995,8 @@ ActivationResult
             ],
             "total": 0,
             "has_next": false
-            }
-        ]
+        }
+
 
 
 
@@ -3019,7 +3012,7 @@ ActivationResult
 
 #### v1/getMyMagazines [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -3028,10 +3021,9 @@ ActivationResult
 + parameters
     + active: 1 (bool) - 1 pokud chceme vse
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
+        {
             "err": 0,
             "msg": null,
             "vzt": 254798307,
@@ -3114,8 +3106,8 @@ ActivationResult
             "totalCount": 0,
             "categoryId": 18855237,
             "categoryName": "Časopisy"
-            }
-        ]
+        }
+
 
 
 ### Casopisy - Nacteni seznamu [/v2/getMagazineData]
@@ -3131,7 +3123,7 @@ ActivationResult
 `key` - prozatim prazdne - mozna do budoucna pouzito
 
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -3144,30 +3136,30 @@ ActivationResult
             }
 
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err":0,
-                "msg":null,
-                "vzt":257309448,
-                "user_name":"WEB@ TEST"
-                ,"basket_cnt":5,
-                "basket_total_cnt":69,
-                "user_id":2366954,
-                "favCnt":8,
-                "alzaCredit":"174 Kč",
-                "countryID":0,
-                "countryPhonePrefix":"420",
-                "premiumBooks":10,
-                "premiumMusic":10,
-                "premiumMovies":10,
-                "premiumDelivery":10,
-                "premiumValidTo":"24. 6. 2018",
-                "premiumRenew":false,
-                "url":"https:\/\/www.alza.cz\/download\/magazine\/13113713-726B686B786E6979837168857961686881646472657D67666E992-0727B6B343813281A28122TB7f35.pdf","id":0,"key":"MDc0MjM2RDZ2RTE3QzE5Mg=="
-            }
-        ]
+        {
+            "err":0,
+            "msg":null,
+            "vzt":257309448,
+            "user_name":"WEB@ TEST"
+            ,"basket_cnt":5,
+            "basket_total_cnt":69,
+            "user_id":2366954,
+            "favCnt":8,
+            "alzaCredit":"174 Kč",
+            "countryID":0,
+            "countryPhonePrefix":"420",
+            "premiumBooks":10,
+            "premiumMusic":10,
+            "premiumMovies":10,
+            "premiumDelivery":10,
+            "premiumValidTo":"24. 6. 2018",
+            "premiumRenew":false,
+            "url":"https:\/\/www.alza.cz\/download\/magazine\/13113713-726B686B786E6979837168857961686881646472657D67666E992-0727B6B343813281A28122TB7f35.pdf","id":0,"key":"MDc0MjM2RDZ2RTE3QzE5Mg==",
+            "id": 0,
+            "key": "MDJyMzM4Njg2QjFHUUYyQg=="
+        }
 
 
 ### Casopisy - Nacteni priloh [/v1/getMyMagazineAttachments/{magazineId}]
@@ -3176,7 +3168,7 @@ Provolavame na casopisech (novinach) ktere maji nastaveno hasAttachments na TRUE
 
 #### v1/getMyMagazineAttachments [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -3185,69 +3177,67 @@ Provolavame na casopisech (novinach) ktere maji nastaveno hasAttachments na TRUE
 + parameters
     + magazineId: 4033417 (number) - ID casopisu
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "Filip Bocek",
-                "basket_cnt": 1,
-                "basket_total_cnt": 1,
-                "user_id": 974395,
-                "favCnt": 2,
-                "alzaCredit": "16 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "19. 7. 2016",
-                "premiumRenew": true,
-                "data_cnt": 12,
-                "data": [
-                    {
-                        "issueId": 280882,
-                        "attId": 1910774,
-                        "id": 280883,
-                        "name": "Brno a Jižní Morava",
-                        "imgUrl": "https://i3.alza.cz/Foto/f9_rect/MA/MAG00601V00303E001.jpg",
-                        "isFree": true,
-                        "isOwned": true
-                    },
-                    {
-                        "issueId": 280882,
-                        "attId": 1910779,
-                        "id": 280888,
-                        "name": "Královéhradecký kraj",
-                        "imgUrl": "https://i4.alza.cz/Foto/f9_rect/MA/MAG00601V00303E006.jpg",
-                        "isFree": true,
-                        "isOwned": true
-                    }
-                ],
-                "issue": {
-                    "id": 280882,
-                    "docId": 280882,
-                    "code": "MAG00601V00303",
-                    "extId": null,
-                    "name": "2014-10-17",
-                    "published": "16.10.2014",
-                    "publishedUnix": 1413496800,
-                    "state": 0,
-                    "imgUrl": "https://i1.alza.cz/Foto/f9_rect/MA/MAG00601V00303.jpg",
-                    "isArchive": false,
-                    "canView": true,
-                    "canActivate": false,
-                    "hasAttachments": true,
-                    "freeAttachmentsCount": 14,
-                    "activationState": "Active",
-                    "issueName": null,
-                    "url": "/"
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 12,
+            "data": [
+                {
+                    "issueId": 280882,
+                    "attId": 1910774,
+                    "id": 280883,
+                    "name": "Brno a Jižní Morava",
+                    "imgUrl": "https://i3.alza.cz/Foto/f9_rect/MA/MAG00601V00303E001.jpg",
+                    "isFree": true,
+                    "isOwned": true
+                },
+                {
+                    "issueId": 280882,
+                    "attId": 1910779,
+                    "id": 280888,
+                    "name": "Královéhradecký kraj",
+                    "imgUrl": "https://i4.alza.cz/Foto/f9_rect/MA/MAG00601V00303E006.jpg",
+                    "isFree": true,
+                    "isOwned": true
                 }
+            ],
+            "issue": {
+                "id": 280882,
+                "docId": 280882,
+                "code": "MAG00601V00303",
+                "extId": null,
+                "name": "2014-10-17",
+                "published": "16.10.2014",
+                "publishedUnix": 1413496800,
+                "state": 0,
+                "imgUrl": "https://i1.alza.cz/Foto/f9_rect/MA/MAG00601V00303.jpg",
+                "isArchive": false,
+                "canView": true,
+                "canActivate": false,
+                "hasAttachments": true,
+                "freeAttachmentsCount": 14,
+                "activationState": "Active",
+                "issueName": null,
+                "url": "/"
             }
-        ]
+        }
 
 
 
@@ -3264,7 +3254,7 @@ Provolavame na casopisech (novinach) ktere maji nastaveno hasAttachments na TRUE
 
 #### v1/logError [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -3273,47 +3263,47 @@ Provolavame na casopisech (novinach) ktere maji nastaveno hasAttachments na TRUE
     + Body
         
             {
-                "AppId": "1"
-                "CommodityCode": "51082662_EPUB"
-                "ErrorCode": "194"
-                "ErrorType": 102
-                "Message": "500"
-                "OperatingSystemVersion": "5.1.1"
-                "Platform": 1
-                "UserID": 2366954
-                "device": "motorola XT1039"
+                "AppId": "1",
+                "CommodityCode": "51082662_EPUB",
+                "ErrorCode": "194",
+                "ErrorType": 102,
+                "Message": "500",
+                "OperatingSystemVersion": "5.1.1",
+                "Platform": 1,
+                "UserID": 2366954,
+                "device": "WEB APIARY TEST"
             }
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-               "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "WEB@ TEST",
-                "basket_cnt": 3,
-                "basket_total_cnt": 4,
-                "user_id": 2366954,
-                "favCnt": 10,
-                "alzaCredit": "134 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "24. 6. 2018",
-                "premiumRenew": false
-            }
-        ]
+
+        {
+           "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "WEB@ TEST",
+            "basket_cnt": 3,
+            "basket_total_cnt": 4,
+            "user_id": 2366954,
+            "favCnt": 10,
+            "alzaCredit": "134 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "24. 6. 2018",
+            "premiumRenew": false
+        }
+
 
 
 ### Log - Rychlost hudby [/v1/logAudioResponse]
 
 #### v1/logAudioResponse [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -3322,43 +3312,42 @@ Provolavame na casopisech (novinach) ktere maji nastaveno hasAttachments na TRUE
     + Body
         
             {
-                "app": 1
-                "musicType": 2
-                "platform": 1
-                "productCode": "AKZ476-1-60"
+                "app": 1,
+                "musicType": 2,
+                "platform": 1,
+                "productCode": "AKZ476-1-60",
                 "time": 2610
             }
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-               "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "WEB@ TEST",
-                "basket_cnt": 3,
-                "basket_total_cnt": 4,
-                "user_id": 2366954,
-                "favCnt": 10,
-                "alzaCredit": "134 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "24. 6. 2018",
-                "premiumRenew": false
-            }
-        ]
+        {
+           "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "WEB@ TEST",
+            "basket_cnt": 3,
+            "basket_total_cnt": 4,
+            "user_id": 2366954,
+            "favCnt": 10,
+            "alzaCredit": "134 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "24. 6. 2018",
+            "premiumRenew": false
+        }
+
 
 
 ### Log - Rychlost renderingu PDF [/v1/logMagazineRenderingTime]
 
 #### v1/logMagazineRenderingTime [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
@@ -3367,37 +3356,37 @@ Provolavame na casopisech (novinach) ktere maji nastaveno hasAttachments na TRUE
     + Body
         
             {
-                "CommodityCode": "MAG01433V00035"
-                "Device": "Manufacturer: motorola; Model: XT1039"
-                "OperatingSystemVersion": "5.1.1"
-                "Page": 1
-                "Platform": "1"
+                "CommodityCode": "MAG01433V00035",
+                "Device": "WEB APIARY TEST",
+                "OperatingSystemVersion": "5.1.1",
+                "Page": 1,
+                "Platform": "1",
                 "Time": 1113
             }
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-               "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "WEB@ TEST",
-                "basket_cnt": 3,
-                "basket_total_cnt": 4,
-                "user_id": 2366954,
-                "favCnt": 10,
-                "alzaCredit": "134 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "24. 6. 2018",
-                "premiumRenew": false
-            }
-        ]
+
+        {
+           "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "WEB@ TEST",
+            "basket_cnt": 3,
+            "basket_total_cnt": 4,
+            "user_id": 2366954,
+            "favCnt": 10,
+            "alzaCredit": "134 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "24. 6. 2018",
+            "premiumRenew": false
+        }
+
 
 
 
