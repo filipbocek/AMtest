@@ -276,19 +276,19 @@ Tato sluzba funguje pouze na BETA prostredi a slouzi k prihlaseni se pod uctem u
 
 #### v2/createUser [POST]
 
-+ Request
++ Request (application/json; charset=utf-8)
 
         {
             [
                 {
-                    "email": "web@alza.cz",
+                    "login": "web@alza.cz",
                     "phone": "+420413332088",
                     "pwd": "heslo"
                 }
             ]
         }
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + header
     
