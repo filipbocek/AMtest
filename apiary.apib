@@ -2916,7 +2916,7 @@ ActivationResult
 
 
 
-### Filmy - Seznam oblibenych [/v1/favourites]
+### Filmy - Seznam oblibenych [/v1/favourites?comodityType={comodityType}]
 
 #### v1/favourites [GET] 
 
@@ -2927,6 +2927,9 @@ ActivationResult
     + header
     
             Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
++ parameters
+    + comodityType: 12 (number) - typ komodity FILMY
 
 + Response 200 (application/json; charset=utf-8)
 
@@ -3400,20 +3403,20 @@ Sluzba, ktera odemyka skryte nastaveni do iOS aplikace, pokud vrati true, tak se
 
 #### v1/logAppStarted [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + header
     
             Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
 
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
-        [
-            {
-                "v": false
-            }
-        ]
+
+        {
+            "v": false
+        }
+
 
 
 
