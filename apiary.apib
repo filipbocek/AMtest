@@ -264,14 +264,11 @@ Tato sluzba funguje pouze na BETA prostredi a slouzi k prihlaseni se pod uctem u
 + Request (application/json; charset=utf-8)
 
         {
-            [
-                {
-                    "login": "web@alza.cz",
-                    "phone": "+420413332088",
-                    "pwd": "heslo"
-                }
-            ]
+            "login": "web@alza.cz",
+            "phone": "+420413332088",
+            "pwd": "heslo"
         }
+
 
 + Response 200 (application/json; charset=utf-8)
 
@@ -281,27 +278,27 @@ Tato sluzba funguje pouze na BETA prostredi a slouzi k prihlaseni se pod uctem u
             
     + Body        
 
-            [
-                {
-                    "err": 0,
-                    "msg": null,
-                    "vzt": 254798307,
-                    "user_name": "WEB@ TEST",
-                    "basket_cnt": 3,
-                    "basket_total_cnt": 4,
-                    "user_id": 2366954,
-                    "favCnt": 10,
-                    "alzaCredit": "134 Kč",
-                    "countryID": 0,
-                    "countryPhonePrefix": "420",
-                    "premiumBooks": 10,
-                    "premiumMusic": 10,
-                    "premiumMovies": 10,
-                    "premiumDelivery": 10,
-                    "premiumValidTo": "24. 6. 2018",
-                    "premiumRenew": false
-                }
-            ]
+
+            {
+                "err": 0,
+                "msg": null,
+                "vzt": 254798307,
+                "user_name": "WEB@ TEST",
+                "basket_cnt": 3,
+                "basket_total_cnt": 4,
+                "user_id": 2366954,
+                "favCnt": 10,
+                "alzaCredit": "134 Kč",
+                "countryID": 0,
+                "countryPhonePrefix": "420",
+                "premiumBooks": 10,
+                "premiumMusic": 10,
+                "premiumMovies": 10,
+                "premiumDelivery": 10,
+                "premiumValidTo": "24. 6. 2018",
+                "premiumRenew": false
+            }
+
 
 
 ### Zpetna vazba [/v1/feedback]
