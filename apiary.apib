@@ -315,27 +315,66 @@ Zobrazeni weboveho clanku ve webview aplikace
 + Response 200 (application/json; charset=utf-8)
 
         
-            {
-                "err": 0,
-                "msg": null,
-                "vzt": 254798307,
-                "user_name": "WEB@ TEST",
-                "basket_cnt": 3,
-                "basket_total_cnt": 5,
-                "user_id": 2366954,
-                "favCnt": 10,
-                "alzaCredit": "74 Kč",
-                "countryID": 0,
-                "countryPhonePrefix": "420",
-                "premiumBooks": 10,
-                "premiumMusic": 10,
-                "premiumMovies": 10,
-                "premiumDelivery": 10,
-                "premiumValidTo": "24. 6. 2018",
-                "premiumRenew": false,
-                "content": "<a href=\"/playstation-4/18854416.htm\">PS4</a> či <a href=\"/wii-u/18854203.htm\">Nintendo Wii U</a>.<br /><br />Základem je jednoduché používání, které vám dopřeje vrhnout všechny vaše síly na předvádění hry a klidně i s okamžitým komentářem. K tomu skvěle poslouží dodávaný dálkový ovladač s notoricky známými tlačítky.</p><img alt=\"AVerMedia Gamer Capture HD II\" class=\"pic\" src=\"https://i.alza.cz/Foto/ImgGalery/Image/a0_1.jpg\" style=\"width: 500px; height: 264px;\" title=\"AVerMedia Gamer Capture HD II\" /><h2>Ulehčí vám práci a ušetří hromadu času</h2><p style=\"text-align: justify;\">Představte si, že chytrá krabička od AVerMedia je rovnou také pokročilá střižna nahraných záznamů v 1080p. Vestavěný video editor umí hodně kousků.<br /><br />K okamžitému sdílení videa na YouTube poslouží nachystaný klasický LAN port pro připojení k internetu. V poslední době také vznikla zajímavá aplikace pro chytré telefony, která po vzájemném spárování umí podrobně informovat o stavu zařízení. Navíc z <a href=\"/mobilni-telefony/smartphone-telefony/18845588.htm\">mobilu</a> udělá i druhé dálkové ovládání.</p></div>"
-            }
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "WEB@ TEST",
+            "basket_cnt": 3,
+            "basket_total_cnt": 5,
+            "user_id": 2366954,
+            "favCnt": 10,
+            "alzaCredit": "74 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "24. 6. 2018",
+            "premiumRenew": false,
+            "content": "<a href=\"/playstation-4/18854416.htm\">PS4</a> či <a href=\"/wii-u/18854203.htm\">Nintendo Wii U</a>.<br /><br />Základem je jednoduché používání, které vám dopřeje vrhnout všechny vaše síly na předvádění hry a klidně i s okamžitým komentářem. K tomu skvěle poslouží dodávaný dálkový ovladač s notoricky známými tlačítky.</p><img alt=\"AVerMedia Gamer Capture HD II\" class=\"pic\" src=\"https://i.alza.cz/Foto/ImgGalery/Image/a0_1.jpg\" style=\"width: 500px; height: 264px;\" title=\"AVerMedia Gamer Capture HD II\" /><h2>Ulehčí vám práci a ušetří hromadu času</h2><p style=\"text-align: justify;\">Představte si, že chytrá krabička od AVerMedia je rovnou také pokročilá střižna nahraných záznamů v 1080p. Vestavěný video editor umí hodně kousků.<br /><br />K okamžitému sdílení videa na YouTube poslouží nachystaný klasický LAN port pro připojení k internetu. V poslední době také vznikla zajímavá aplikace pro chytré telefony, která po vzájemném spárování umí podrobně informovat o stavu zařízení. Navíc z <a href=\"/mobilni-telefony/smartphone-telefony/18845588.htm\">mobilu</a> udělá i druhé dálkové ovládání.</p></div>"
+        }
+ 
+
+### Aktiva uzivatele pro MJ [/v1/apActivateMjUser]
+
+Zobrazeni weboveho clanku ve webview aplikace
+
+#### v1/apActivateMjUser [GET]
+
++ Request (application/json; charset=utf-8)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+
+
++ Response 200 (application/json; charset=utf-8)
+
         
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "WEB@ TEST",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 2366954,
+            "favCnt": 5,
+            "alzaCredit": "110 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "30. 6. 2020",
+            "premiumRenew": false,
+            "id": "alza#09C331B6865DD1D97CRO9Ez21e",
+            "pass": "AlzaHrajeHudbu!"
+        }
+               
 
 
 
