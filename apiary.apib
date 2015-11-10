@@ -2974,8 +2974,9 @@ ActivationResult
 
 
 
-
+####################################################################################################
 ## Group Casopisy
+####################################################################################################
 
 ### Casopisy - Nacteni seznamu [/v1/getMyMagazines/{active}]
 
@@ -3076,6 +3077,115 @@ ActivationResult
             "categoryId": 18855237,
             "categoryName": "Časopisy"
         }
+
+
+### Casopisy - Nacteni noveho seznamu [/v2/getMyMagazines?isArchive={isArchive}?previewCount={previewCount}]
+
+#### v2/getMyMagazines [GET]
+
++ Request (application/json; charset=utf-8)
+
+    + header
+    
+            Cookie: UIDX=jQ2cdBoqUESUDjegXqeBw1KvPs+du09Z3ll9XDWA3+s=;platform=ios;density=2;
+
++ parameters
+    + isArchive: 0 (bool) - 0 pokud chceme jen tituly ktere jsou novejsi jak 3 mesice nebo je uyivatel manualne nearchivoval
+    + previewCount: 2 (number) - pocet vzdani ktere se maji spolecne s titulem poslat
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 21,
+            "data": [
+                {
+                    "id": 2171409,
+                    "name": "FORBES CZ",
+                    "genresCnt": 2,
+                    "genres": [
+                        {
+                            "id": 18855334,
+                            "name": "Ekonomika a byznys"
+                        },
+                        {
+                            "id": 18855379,
+                            "name": "Obchod a marketing"
+                        }
+                    ],
+                    "url": "/media/forbes-cz-d2171409.htm",
+                    "issuesCnt": 3,
+                    "code": "MAG00008",
+                    "issues": [
+                        {
+                            "id": 4377491,
+                            "docId": 4377491,
+                            "code": "MAG00008V00043",
+                            "extId": null,
+                            "name": "FORBES CZ - 05/2015",
+                            "published": "5.5.2015",
+                            "publishedUnix": 1430863200,
+                            "state": 0,
+                            "imgUrl": "https://i3.alza.cz/Foto/f9_rect/MA/MAG00008V00043.jpg",
+                            "isArchive": false,
+                            "canView": true,
+                            "canActivate": false,
+                            "hasAttachments": false,
+                            "freeAttachmentsCount": 0,
+                            "activationState": "Active",
+                            "issueName": "05/2015",
+                            "url": "/media/forbes-cz-05-2015-d2428730.htm"
+                        },
+                        {
+                            "id": 4146617,
+                            "docId": 4146617,
+                            "code": "MAG00008V00042",
+                            "extId": null,
+                            "name": "FORBES CZ - 04/2015",
+                            "published": "31.3.2015",
+                            "publishedUnix": 1427839200,
+                            "state": 0,
+                            "imgUrl": "https://i1.alza.cz/Foto/f9_rect/MA/MAG00008V00042.jpg",
+                            "isArchive": false,
+                            "canView": true,
+                            "canActivate": false,
+                            "hasAttachments": false,
+                            "freeAttachmentsCount": 0,
+                            "activationState": "Active",
+                            "issueName": "04/2015",
+                            "url": "/media/forbes-cz-04-2015-d2418252.htm"
+                        }
+                    ]
+                }
+            ],
+            "hasNext": false,
+            "totalCount": 0,
+            "categoryId": 18855237,
+            "categoryName": "Časopisy"
+        }
+
+
+
+
+
+
+
 
 
 
