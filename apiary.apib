@@ -214,42 +214,6 @@ Pokud se vrati `err kod 101`, tak to znamena ze se jedna o SO uzivatele a musi s
 
 
 
-### Login - Zaslani validacniho emailu uzivateli [/v1/sendValidationCodeByEmail?email={email}&source={sourceAppId}]
-
-#### v1/sendValidationCodeByEmail [GET]
-
-+ Request (application/json; charset=utf-8)
-
-+ Parameters
-    + email: 1 (string) - email uzivatele
-    + sourceAppId: 1 (number) - ID aplikace 0 je AM a 1 je Acz
-
-
-+ Response 200 (application/json; charset=utf-8)
-
-        {
-            "err": 0,
-            "msg": null,
-            "vzt": 254798307,
-            "user_name": "Filip Bocek",
-            "basket_cnt": 1,
-            "basket_total_cnt": 1,
-            "user_id": 974395,
-            "favCnt": 2,
-            "alzaCredit": "16 Kč",
-            "countryID": 0,
-            "countryPhonePrefix": "420",
-            "premiumBooks": 10,
-            "premiumMusic": 10,
-            "premiumMovies": 10,
-            "premiumDelivery": 10,
-            "premiumValidTo": "19. 7. 2016",
-            "premiumRenew": true
-        }
-
-
-
-
 ### Login - Registrace [/v2/createUser]
 
 #### v2/createUser [POST]
@@ -287,6 +251,75 @@ Pokud se vrati `err kod 101`, tak to znamena ze se jedna o SO uzivatele a musi s
                 "premiumValidTo": "24. 6. 2018",
                 "premiumRenew": false
             }
+
+
+### Login - Zaslani validacniho emailu uzivateli [/v1/sendValidationCodeByEmail?email={email}&source={sourceAppId}]
+
+#### v1/sendValidationCodeByEmail [GET]
+
++ Request (application/json; charset=utf-8)
+
++ Parameters
+    + email: 1 (string) - email uzivatele
+    + sourceAppId: 1 (number) - ID aplikace 0 je AM a 1 je Acz
+
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true
+        }
+
+
+### Login - Zaslani validacniho emailu uzivateli [/v1/validateUserByCode?email={email}&code={code}]
+
+#### v1/validateUserByCode [GET]
+
++ Request (application/json; charset=utf-8)
+
++ Parameters
+    + email: 1 (string) - email uzivatele
+    + code: 1 (string) - overovaci kod ktery byl izivateli zaslan na email
+
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true
+        }
+
 
 
 
