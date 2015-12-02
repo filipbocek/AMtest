@@ -3654,7 +3654,7 @@ Sluzba, ktera odemyka skryte nastaveni do iOS aplikace, pokud vrati true, tak se
 
 ### Publero migrace [/v1/getPubleroStatus]
 
-Sluzba, ktera definuje, zda jiz byla migrace zahajena
+Sluzba, ktera definuje, zda jiz byla migrace zahajena a pro jakou platformu je aktualne povolena
 
 #### v1/getPubleroStatus [GET]
 
@@ -3663,9 +3663,22 @@ Sluzba, ktera definuje, zda jiz byla migrace zahajena
 + Response 200 (application/json; charset=utf-8)
 
 
-        {
-            "migration": 1
-        }
+        
+        [
+            {
+                "platformId": 3,
+                "migration": false
+            },
+            {
+                "platformId": 2,
+                "migration": false
+            },
+            {
+                "platformId": 7,
+                "migration": false
+            }
+        ]
+        
 
 
 
