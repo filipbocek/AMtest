@@ -3152,7 +3152,7 @@ ActivationResult
 
 ### Casopisy - Nacteni noveho seznamu [/v2/getMyMagazines?isArchive={isArchive}?previewCount={previewCount}]
 
-TODO - NOVA SLUZBA
+NEW
 
 #### v2/getMyMagazines [GET]
 
@@ -3262,7 +3262,7 @@ Zbytek si aplikace dotahne nasledujici sluzbou getMagazineIssues
 
 ### Casopisy - Nacteni vydani [/v1/getMagazineIssues/{magID}?page={page}]
 
-TODO - NOVA SLUZBA
+NEW
 
 #### v1/getMagazineIssues [GET]
 
@@ -3343,6 +3343,93 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
                 ]
             "hasNext": true
         }
+
+
+
+
+### Casopisy - Archivace časopisu [/v1/archiveMagazine]
+
+#### v1/archiveMagazine  [POST]
+
+`id` - id casopisu
+
++ Request (application/json; charset=utf-8)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+    + Body
+
+            {
+                "id": 2172048
+            }
+
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "err":0,
+            "msg":null,
+            "vzt":257309448,
+            "user_name":"WEB@ TEST"
+            ,"basket_cnt":5,
+            "basket_total_cnt":69,
+            "user_id":2366954,
+            "favCnt":8,
+            "alzaCredit":"174 Kč",
+            "countryID":0,
+            "countryPhonePrefix":"420",
+            "premiumBooks":10,
+            "premiumMusic":10,
+            "premiumMovies":10,
+            "premiumDelivery":10,
+            "premiumValidTo":"24. 6. 2018",
+            "premiumRenew": false
+        }
+
+
+### Casopisy - Archivace vydání časopisu [/v1/archiveMagazineIssue]
+
+#### v1/archiveMagazineIssue  [POST]
+
+`id` - id vydani casopisu
+
++ Request (application/json; charset=utf-8)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+    + Body
+
+            {
+                "id": 32697655
+            }
+
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "err":0,
+            "msg":null,
+            "vzt":257309448,
+            "user_name":"WEB@ TEST"
+            ,"basket_cnt":5,
+            "basket_total_cnt":69,
+            "user_id":2366954,
+            "favCnt":8,
+            "alzaCredit":"174 Kč",
+            "countryID":0,
+            "countryPhonePrefix":"420",
+            "premiumBooks":10,
+            "premiumMusic":10,
+            "premiumMovies":10,
+            "premiumDelivery":10,
+            "premiumValidTo":"24. 6. 2018",
+            "premiumRenew": false
+        }
+
 
 
 
