@@ -3260,7 +3260,7 @@ Zbytek si aplikace dotahne nasledujici sluzbou getMagazineIssues
 
 
 
-### Casopisy - Nacteni vydani [/v1/getMagazineIssues/{magID}]
+### Casopisy - Nacteni vydani [/v1/getMagazineIssues/{magID}?page={page}]
 
 TODO - NOVA SLUZBA
 
@@ -3276,6 +3276,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
 
 + parameters
     + magID: 2171409 (number) - ID titulu
+    + page: 1 - strankovani zacina od 1
 
 + Response 200 (application/json; charset=utf-8)
 
