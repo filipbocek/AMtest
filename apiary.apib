@@ -3150,7 +3150,7 @@ ActivationResult
         }
 
 
-### Casopisy - Nacteni noveho seznamu [/v2/getMyMagazines?isArchive={isArchive}?previewCount={previewCount}]
+### Casopisy - Nacteni noveho seznamu [/v2/getMyMagazines/{isArchive}?previewCount={previewCount}]
 
 NEW
 
@@ -3167,7 +3167,7 @@ Zbytek si aplikace dotahne nasledujici sluzbou getMagazineIssues
             Cookie: UIDX=jQ2cdBoqUESUDjegXqeBw1KvPs+du09Z3ll9XDWA3+s=;platform=ios;density=2;
 
 + parameters
-    + isArchive: 0 (bool) - 0 pokud chceme jen tituly ktere jsou novejsi jak 3 mesice nebo je uyivatel manualne nearchivoval
+    + isArchive: 0 (bool) - 0 pokud chceme jen tituly ktere nebyly archivovane
     + previewCount: 2 (number) - pocet vzdani ktere se maji spolecne s titulem poslat
 
 + Response 200 (application/json; charset=utf-8)
