@@ -3043,11 +3043,16 @@ ActivationResult
 
 
 
-
-
 ####################################################################################################
+####################################################################################################
+####################################################################################################
+
 ## Group Casopisy
+
 ####################################################################################################
+####################################################################################################
+####################################################################################################
+
 
 ### Casopisy - Nacteni seznamu [/v1/getMyMagazines/{active}]
 
@@ -3223,6 +3228,7 @@ Zbytek si aplikace dotahne nasledujici sluzbou getMagazineIssues
                             "isArchive": false,
                             "canView": true,
                             "canActivate": false,
+                            "isArchived": false,
                             "hasAttachments": false,
                             "freeAttachmentsCount": 0,
                             "activationState": "Active",
@@ -3242,6 +3248,7 @@ Zbytek si aplikace dotahne nasledujici sluzbou getMagazineIssues
                             "isArchive": false,
                             "canView": true,
                             "canActivate": false,
+                            "isArchived": false,
                             "hasAttachments": false,
                             "freeAttachmentsCount": 0,
                             "activationState": "Active",
@@ -3260,7 +3267,7 @@ Zbytek si aplikace dotahne nasledujici sluzbou getMagazineIssues
 
 
 
-### Casopisy - Nacteni vydani [/v1/getMagazineIssues/{magID}?page={page}]
+### Casopisy - Nacteni vydani [/v1/getMagazineIssues/{isArchive}/{magID}?page={page}]
 
 NEW
 
@@ -3275,6 +3282,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
             Cookie: UIDX=jQ2cdBoqUESUDjegXqeBw1KvPs+du09Z3ll9XDWA3+s=;platform=ios;density=2;
 
 + parameters
+    + isArchive: 1 (bool) - 1 pokud chceme vsechnz titulz vcetne archivovanych
     + magID: 2171409 (number) - ID titulu
     + page: 1 - strankovani zacina od 1
 
@@ -3315,6 +3323,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
                         "isArchive": false,
                         "canView": true,
                         "canActivate": false,
+                        "isArchived": false,
                         "hasAttachments": false,
                         "freeAttachmentsCount": 0,
                         "activationState": "Active",
@@ -3334,6 +3343,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
                         "isArchive": false,
                         "canView": true,
                         "canActivate": false,
+                        "isArchived": false,
                         "hasAttachments": false,
                         "freeAttachmentsCount": 0,
                         "activationState": "Active",
@@ -3348,6 +3358,8 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
 
 
 ### Casopisy - Archivace časopisu [/v1/archiveMagazine]
+
+NEW
 
 #### v1/archiveMagazine  [POST]
 
@@ -3391,7 +3403,103 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
 
 ### Casopisy - Archivace vydání časopisu [/v1/archiveMagazineIssue]
 
+NEW
+
 #### v1/archiveMagazineIssue  [POST]
+
+`id` - id vydani casopisu
+
++ Request (application/json; charset=utf-8)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+    + Body
+
+            {
+                "id": 32697655
+            }
+
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "err":0,
+            "msg":null,
+            "vzt":257309448,
+            "user_name":"WEB@ TEST"
+            ,"basket_cnt":5,
+            "basket_total_cnt":69,
+            "user_id":2366954,
+            "favCnt":8,
+            "alzaCredit":"174 Kč",
+            "countryID":0,
+            "countryPhonePrefix":"420",
+            "premiumBooks":10,
+            "premiumMusic":10,
+            "premiumMovies":10,
+            "premiumDelivery":10,
+            "premiumValidTo":"24. 6. 2018",
+            "premiumRenew": false
+        }
+
+
+
+
+
+
+
+
+### Casopisy - Archivace časopisu [/v1/unArchiveMagazine]
+
+NEW
+
+#### v1/unArchiveMagazine  [POST]
+
+`id` - id casopisu
+
++ Request (application/json; charset=utf-8)
+
+    + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+    + Body
+
+            {
+                "id": 2172048
+            }
+
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "err":0,
+            "msg":null,
+            "vzt":257309448,
+            "user_name":"WEB@ TEST"
+            ,"basket_cnt":5,
+            "basket_total_cnt":69,
+            "user_id":2366954,
+            "favCnt":8,
+            "alzaCredit":"174 Kč",
+            "countryID":0,
+            "countryPhonePrefix":"420",
+            "premiumBooks":10,
+            "premiumMusic":10,
+            "premiumMovies":10,
+            "premiumDelivery":10,
+            "premiumValidTo":"24. 6. 2018",
+            "premiumRenew": false
+        }
+
+
+### Casopisy - Archivace vydání časopisu [/v1/unArchiveMagazineIssue]
+
+NEW
+
+#### v1/unArchiveMagazineIssue  [POST]
 
 `id` - id vydani casopisu
 
