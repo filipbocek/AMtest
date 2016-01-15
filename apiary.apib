@@ -3675,6 +3675,53 @@ Provolavame na casopisech (novinach) ktere maji nastaveno hasAttachments na TRUE
 
 
 
+### Casopisy - Pridani prilohy [/v2/addMagazineAttachment]
+
+Potvrzeni vyberu prilohy k novinam
+
+#### v1/addMagazineAttachment [POST]
+
++ Request (application/json; charset=utf-8)
+
+     + header
+    
+            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            
+     + Body
+
+            {
+                "issueId": 2172048,
+                "attId": 321321
+            }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true,
+            "data_cnt": 12
+        }
+
+
+
+
+
+
 
 
 
