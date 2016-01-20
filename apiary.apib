@@ -3155,9 +3155,7 @@ ActivationResult
         }
 
 
-### Casopisy - Nacteni noveho seznamu [/v2/getMyMagazines/{active}?previewCount={previewCount}]
-
-NEW
+### Casopisy - Nacteni seznamu [/v2/getMyMagazines/{active}?previewCount={previewCount}]
 
 #### v2/getMyMagazines [GET]
 
@@ -3172,7 +3170,7 @@ Zbytek si aplikace dotahne nasledujici sluzbou getMagazineIssues
             Cookie: UIDX=jQ2cdBoqUESUDjegXqeBw1KvPs+du09Z3ll9XDWA3+s=;platform=ios;density=2;
 
 + parameters
-    + active: 1 (bool) - 1 pokud chceme jen tituly ktere jsou NEarchivovane
+    + active: 1 (bool) - 1 pokud chceme jen tituly ktere jsou aktivni - NEarchivovane
     + previewCount: 2 (number) - pocet vzdani ktere se maji spolecne s titulem poslat
 
 + Response 200 (application/json; charset=utf-8)
@@ -3267,9 +3265,7 @@ Zbytek si aplikace dotahne nasledujici sluzbou getMagazineIssues
 
 
 
-### Casopisy - Nacteni vydani [/v1/getMagazineIssues/{isArchive}/{magID}?page={page}]
-
-NEW
+### Casopisy - Nacteni vydani [/v1/getMagazineIssues/{active}/{magID}?page={page}]
 
 #### v1/getMagazineIssues [GET]
 
@@ -3282,7 +3278,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
             Cookie: UIDX=jQ2cdBoqUESUDjegXqeBw1KvPs+du09Z3ll9XDWA3+s=;platform=ios;density=2;
 
 + parameters
-    + isArchive: 1 (bool) - 1 pokud chceme vsechnz titulz vcetne archivovanych
+    + active: 1 (bool) - 1 pokud chceme aktivni - 0 pokud schceme vse vcetne archivnich
     + magID: 2171409 (number) - ID titulu
     + page: 1 - strankovani zacina od 1
 
@@ -3359,8 +3355,6 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
 
 ### Casopisy - Archivace časopisu [/v1/archiveMagazine]
 
-NEW
-
 #### v1/archiveMagazine  [POST]
 
 `id` - id casopisu
@@ -3402,8 +3396,6 @@ NEW
 
 
 ### Casopisy - Archivace vydání časopisu [/v1/archiveMagazineIssue]
-
-NEW
 
 #### v1/archiveMagazineIssue  [POST]
 
@@ -3451,9 +3443,7 @@ NEW
 
 
 
-### Casopisy - Archivace časopisu [/v1/unArchiveMagazine]
-
-NEW
+### Casopisy - Odarchivace časopisu [/v1/unArchiveMagazine]
 
 #### v1/unArchiveMagazine  [POST]
 
@@ -3495,9 +3485,7 @@ NEW
         }
 
 
-### Casopisy - Archivace vydání časopisu [/v1/unArchiveMagazineIssue]
-
-NEW
+### Casopisy - Odarchivace vydání časopisu [/v1/unArchiveMagazineIssue]
 
 #### v1/unArchiveMagazineIssue  [POST]
 
