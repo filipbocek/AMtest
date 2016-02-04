@@ -3777,6 +3777,20 @@ Potvrzeni vyberu prilohy k novinam
 ###################################################################################
 
 
+*Hlaní flow nkupu je nasledujici:*
+
+Je potreba provolat `getFastOrderSettings` a podle toho se prednastavi hodnoty do FO dialogu (tzn preferovana platba).
+
+Pokud neni platba prednastavena, tak misto nazvu platby napiseme vyberte.
+
+Seznam plateb se nacita sluzbou `getFastOrderEOSettingsFormValues`.
+
+Po vyberu platby (nebo i v pripade ze uzivatel ma predvyplnenou a nic s ni nedela) se provola `setFastOrderSettings` a tim se ulozi nastaveni na server.
+
+Pote se vola `createFastOrder`
+
+
+
 ### Nakup - Nacteni FO nastaveni [/v1/getFastOrderSettings]
 
 V dialogu budeme zobrazovat pouze platby. Doprava pro EO je vzdy jen Emailem, takze nema smysl zobrazovat.
