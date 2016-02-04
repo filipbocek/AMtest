@@ -7,6 +7,8 @@ Zde naleznete seznam všech API služeb, a jejich chování v rámci aplikace Al
 
 ## Historie úprav
 
+`04.02.2016` - Rozsireni API o sluzby pro Fast Order - sekce Nakupovani
+
 `20.01.2016` - Uprava parmetru isArchive na active ve sluzbe `v1/getMagazineIssues`
 
 `16.01.2016` - Doplneni sluzby `v1/addMagazineAttachment`
@@ -4048,18 +4050,18 @@ Vytvoreni fastOrderu.
 
 #### v1/createFastOrder [GET]
 
-`elPayments` Seznam ID plateb dostupnych pro EO zbozi
+Poprve se request posila s nastavenim `capchacode` a `capchatext` na null - tzn prazdne
 
-`paymentNames` Nazvy a ID vse plateb - POZOR je potreba vyfiltrovat jen ty ktere se shoduji z `elPayments`
+`dpConfirmed` a `showConfirm` nastavime na true 
 
-Poprve se request posila s nastavenim capchacode a capchatext na null - tzn prazdne
-
-Pokud v response prijde error a jsou nastaveny capchacode a text, tak je ji potreba zobrazit.
+Pokud v response prijde error a jsou nastaveny capchacode a text, tak je ji potreba zobrazit. a pak take poslat v requestu
 Pak se posle capchacode a text zase v nove requestu.
 
 Obrazek pro captchu je na URL: http://m.alza.cz/captcha.ashx?code={captchaCode}
 
 `gaDeliveryPrice` `gaPrice` `gaVat` je potreba posilat do Google Analytics
+
+`sendPaySecPayment` nastavujeme na false - neni aktualne podporovana
 
 + Request (application/json; charset=utf-8)
 
