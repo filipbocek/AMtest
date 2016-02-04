@@ -4024,15 +4024,13 @@ Jako dopravu vzdy nastavime Emailem
 
 
 
-d) public static final String URL_FAST_ORDER_CREATE = "Services/RestService.svc/v1/createFastOrder/";
+
 
 ### Nakup - Nacteni plateb pro FO [/v1/createFastOrder/{productId}?dpConfirmed={dpConfirmed}&showConfirm={showConfirm}&captchaCode={captchaCode}&captchaText={captchaText}&sendPaySecPayment={sendPaySecPayment}]
 
-IMPORTANT - Sluzba zatim neexistuje
+Vytvoreni fastOrderu.
 
-Jedna se o orezanou verzi sluzby getFastOrderSettingsFormValues (vraci data i pro fyzicke zbozi)
-
-Tato sluzba vrati pouze seznam plateb a jejich ID, ze kterych muze uzivatel vybrat
+`dpConfirmed` a `showConfirm` budeme nastavovat na true
 
 #### v1/createFastOrder [GET]
 
@@ -4040,6 +4038,14 @@ Tato sluzba vrati pouze seznam plateb a jejich ID, ze kterych muze uzivatel vybr
 
 `paymentNames` Nazvy a ID vse plateb - POZOR je potreba vyfiltrovat jen ty ktere se shoduji z `elPayments`
 
+Poprve se request posila s nastavenim capchacode a capchatext na null - tzn prazdne
+
+Pokud v response prijde error a jsou nastaveny capchacode a text, tak je ji potreba zobrazit.
+Pak se posle capchacode a text zase v nove requestu.
+
+Obrazek pro captchu je na URL: http://m.alza.cz/captcha.ashx?code={captchaCode}
+
+`gaDeliveryPrice` `gaPrice` `gaVat` je potreba posilat do Google Analytics
 
 + Request (application/json; charset=utf-8)
 
@@ -4052,6 +4058,8 @@ Tato sluzba vrati pouze seznam plateb a jejich ID, ze kterych muze uzivatel vybr
     + dpConfirmed: true (bool) - zobrazeni potvrzovaciho dialogu
     + showConfirm: true (bool) - zobrazeni potvrzovaciho dialogu
     + captchaCode: "null" (string)
+    + captchaText: "null" (string)
+    + sendPaySecPayment: false (bool)
 
 + Response 200 (application/json; charset=utf-8)
 
@@ -4072,7 +4080,22 @@ Tato sluzba vrati pouze seznam plateb a jejich ID, ze kterych muze uzivatel vybr
             "premiumMovies": 10,
             "premiumDelivery": 10,
             "premiumValidTo": "19. 7. 2016",
-            "premiumRenew": true
+            "premiumRenew": true,
+            "address": null,
+            "captchaCode": "Enkryptovany kod captcha (captchaCode)",
+            "captchaText": "Uzivatelem zadany text captcha (captchaText)",
+            "dName": "Nazev vybraneho doruceni (dName)",
+            "pName": "Nazev vybrane platby",
+            "gaDeliveryPrice": 0,
+            "gaPrice": 120.5,
+            "gaVat": 11,
+            "price": 131.5
+            "isVirtual": true,
+            "order_number": 132456,
+            "paySecId": 123,
+            "paySecType": "typ paysec platby",
+            "showConfirm": true,
+            "url_next": "Url dalšího kroku (v případě platby kartou apod.). Pokud je prázdné je klasický přechod zpet s potvrzeni Zaplaceno",
         }
 
 
