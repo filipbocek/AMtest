@@ -78,7 +78,7 @@ Zde naleznete seznam všech API služeb, a jejich chování v rámci aplikace Al
     * androidtablet
     * windowsphone
 * `density` dle rozliseni zarizeni (a velikosti dislay) se nastavuje na 1 - 4 (v případě Androidu i 1,5)
-* `UIDX` serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw= (cookie pro ucet web@alza.cz)
+* `UIDX` XXX (cookie pro ucet web@alza.cz)
 
 ### Data obsažená v každém response
 
@@ -114,7 +114,7 @@ Pokud se vrati `err kod 101`, tak to znamena ze se jedna o SO uzivatele a musi s
         
         {
             "login": "web@alza.cz",
-            "pwd": "heslo"
+            "pwd": "xxx"
         }
             
 
@@ -233,7 +233,7 @@ Pokud se vrati `err kod 101`, tak to znamena ze se jedna o SO uzivatele a musi s
         {
             "login": "web@alza.cz",
             "phone": "+420413332088",
-            "pwd": "heslo"
+            "pwd": "xxx"
         }
 
 
@@ -343,7 +343,7 @@ Odeslani zpetne vazby z aplikace
 
     + header
     
-            Cookie: UIDX=kHazacm0YuhQ4xrPvH+k/5h1ScuAeOZ0LnI13djK460=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
     
     + Body
     
@@ -386,19 +386,22 @@ Ulozeni tokenu pro zasilani notifikaci na server.
 
 `mobileApplicationType` = `2` pro Alza Media
 
+`appUid` = jedinecny identifikator aplikace na zarizeni pro daneho uzivatele 
+
 #### v2/setDeviceToken [POST]
 
 + Request (application/json; charset=utf-8)
 
     + header
     
-            Cookie: UIDX=kHazacm0YuhQ4xrPvH+k/5h1ScuAeOZ0LnI13djK460=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
     
     + Body
     
             {
                 "token": "SG5SG63S5G43S651GS65G1S6",
-                "mobileApplicationType": 1
+                "mobileApplicationType": 1,
+                "appUid": "132456SDA54"
             }
 
 + Response 200 (application/json; charset=utf-8)
@@ -436,7 +439,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
             
 + Parameters
     + articleId: 15078 (number) - ID clanku
@@ -477,7 +480,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 
 + Response 200 (application/json; charset=utf-8)
@@ -519,7 +522,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + Parameters
     + page: 1 (number) - Cislo stranky kterou chceme nacist
@@ -649,7 +652,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + Parameters
     + page: 1 (number) - Cislo stranky kterou chceme nacist
@@ -795,7 +798,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + Parameters
     + bookId: 52666985 (number) - ID kniky, parametr ID
@@ -903,7 +906,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + Parameters
     + bookId: 52764884 (number) - ID kniky, parametr ID
@@ -961,7 +964,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
     + Header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
             
     + Body
 
@@ -1004,7 +1007,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
     + Header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
             
     + Body
 
@@ -1049,7 +1052,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + Parameters
     + bookId: 52764884 (number) ID knihy - jako example je nastavena kniha Levhart
@@ -1091,7 +1094,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + Parameters
     + page: 1 (number) - Cislo stranky kterou chceme nacist
@@ -1208,7 +1211,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + Parameters
     + ID: 2266448 (number) - ID audioknihy
@@ -1296,7 +1299,7 @@ iOS a WP tuto sluzbu vubec nepouzivaji a funguji pouze na sluzbe refreshAlbumLin
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + Parameters
     + albumId: 2266448 (number) 
@@ -1342,7 +1345,7 @@ iOS a WP tuto sluzbu vubec nepouzivaji a funguji pouze na sluzbe refreshAlbumLin
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 
 + Parameters
@@ -1386,7 +1389,7 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 
 + Parameters
@@ -1438,7 +1441,7 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + Parameters
     + page: 1 (number) - Cislo stranky kterou chceme nacist
@@ -1564,7 +1567,7 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + parameters
     + albumId: 2278985 (number) - ID alba
@@ -1633,7 +1636,7 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + parameters
     + albumId: 2278985 (number) - ID alba
@@ -1700,7 +1703,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + parameters
     + albumId: 2278985 (number) - ID alba
@@ -1814,7 +1817,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + Response 200 (application/json; charset=utf-8)
 
@@ -1933,7 +1936,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
             
     + Body
 
@@ -1979,7 +1982,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + parameters
     + trackId: 1412797 (number) - ID tracku
@@ -2076,7 +2079,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + parameters
     + supplierCode: 2XewBB2wAGUHPvtumqGr2l (string) - MusicJet ID tracku
@@ -2197,7 +2200,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + parameters
     + supplierCode: Ge18XlJ2Th5LytR1VEVX3m (string) - MusicJet ID alba
@@ -2318,7 +2321,7 @@ Nacteni zanrovych radii. Tyto radia jsou natvrdo vydefinovana v kodu na serveru
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + Response 200 (application/json; charset=utf-8)
 
@@ -2388,7 +2391,7 @@ Nacteni zanrovych radii. Tyto radia jsou natvrdo vydefinovana v kodu na serveru
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + Response 200 (application/json; charset=utf-8)
 
@@ -2450,7 +2453,7 @@ Nacteni doporucenych radii. Tyto radia jsou generovana na serveru podle toho co 
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + Response 200 (application/json; charset=utf-8)
 
@@ -2510,7 +2513,7 @@ Zaznamenani prehrani pisnicky. Je zapotrebi aby server spravne generoval radia a
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + parameters
     + trackId: 1774664 (number) - ID tracku
@@ -2547,7 +2550,7 @@ Zaznamenani prehrani pisnicky. Je zapotrebi aby server spravne generoval radia a
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + parameters
     + keyword: Landa (string) - vyhledavany vyraz
@@ -2667,7 +2670,7 @@ Zaznamenani prehrani pisnicky. Je zapotrebi aby server spravne generoval radia a
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + parameters
     + active: true (bool) - defaultne nastavujeme TRUE a tim se vraceji pouze aktuvni filmy
@@ -2792,7 +2795,7 @@ ActivationResult
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + parameters
     + videoId: 945603 (number) - ID filmu
@@ -2859,7 +2862,7 @@ ActivationResult
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + parameters
     + videoId: 945603 (number) - ID filmu
@@ -2902,7 +2905,7 @@ ActivationResult
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + parameters
     + videoId: 945603 (number) - ID filmu
@@ -2947,7 +2950,7 @@ ActivationResult
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 + parameters
     + keyword: Wick (string) - vyhledavany vyraz
@@ -3036,7 +3039,7 @@ ActivationResult
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
             
 + parameters
     + comodityType: 12 (number) - typ komodity FILMY
@@ -3121,7 +3124,7 @@ ActivationResult
 
     + header
     
-            Cookie: UIDX=jQ2cdBoqUESUDjegXqeBw1KvPs+du09Z3ll9XDWA3+s=;platform=ios;density=2;
+            Cookie: XXX;platform=ios;density=2;
 
 + parameters
     + active: 1 (bool) - 1 pokud chceme vse
@@ -3226,7 +3229,7 @@ Zbytek si aplikace dotahne nasledujici sluzbou getMagazineIssues
 
     + header
     
-            Cookie: UIDX=jQ2cdBoqUESUDjegXqeBw1KvPs+du09Z3ll9XDWA3+s=;platform=ios;density=2;
+            Cookie: XXX;platform=ios;density=2;
 
 + parameters
     + active: 1 (bool) - 1 pokud chceme jen tituly ktere jsou aktivni - NEarchivovane
@@ -3334,7 +3337,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
 
     + header
     
-            Cookie: UIDX=jQ2cdBoqUESUDjegXqeBw1KvPs+du09Z3ll9XDWA3+s=;platform=ios;density=2;
+            Cookie: XXX;platform=ios;density=2;
 
 + parameters
     + active: 1 (bool) - 1 pokud chceme aktivni - 0 pokud schceme vse vcetne archivnich
@@ -3422,7 +3425,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
             
     + Body
 
@@ -3464,7 +3467,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
             
     + Body
 
@@ -3512,7 +3515,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
             
     + Body
 
@@ -3554,7 +3557,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
             
     + Body
 
@@ -3606,7 +3609,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
             
     + Body
 
@@ -3651,7 +3654,7 @@ Provolavame na casopisech (novinach) ktere maji nastaveno hasAttachments na TRUE
 
     + header
     
-            Cookie: UIDX=jQ2cdBoqUESUDjegXqeBw1KvPs+du09Z3ll9XDWA3+s=;platform=ios;density=2;
+            Cookie: XXX;platform=ios;density=2;
 
 + parameters
     + magazineId: 280882 (number) - ID casopisu
@@ -3726,13 +3729,13 @@ Provolavame na casopisech (novinach) ktere maji nastaveno hasAttachments na TRUE
 
 Potvrzeni vyberu prilohy k novinam
 
-#### v1/addMagazineAttachment [POST]
+#### v2/addMagazineAttachment [POST]
 
 + Request (application/json; charset=utf-8)
 
      + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
             
      + Body
 
@@ -3765,15 +3768,325 @@ Potvrzeni vyberu prilohy k novinam
         }
 
 
+###################################################################################
+###################################################################################
+###################################################################################
+## Group Nakupy
+###################################################################################
+###################################################################################
+###################################################################################
+
+
+### Nakup - Nacteni FO nastaveni [/v1/getFastOrderSettings]
+
+V dialogu budeme zobrazovat pouze platby. Doprava pro EO je vzdy jen Emailem, takze nema smysl zobrazovat.
+
+Platba se predvyplni podle preference uzivatele, ktera prijde z API. 
+
+Pokud v API nebudou hodnoty nastaveny, nepredvyplni se zadna (tzn "vyberte") a uzivatel musi vybrat platbu (dalsi API)
+Pripadne takto muze platbu zmenit.
+
+
+#### v1/getFastOrderSettings [GET]
+
+`elpId` - ID preferovane platby pro EO
+
+`elpName` - Nazev preferovane platby pro EO
+
+`showElConfirm` - pokud True, tak zobrazujeme fastOrder dialog, pokud False, tak se provede nakup na pozadi
+
+
++ Request (application/json; charset=utf-8)
+
+    + header
+    
+            Cookie: XXX;platform=ios;density=2;
+
+
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 292271339,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 3,
+            "alzaCredit": "11 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19.7.2016",
+            "premiumRenew": true,
+            "serverTime": 1454507155,
+            "eldId": 633,
+            "eldName": "Emailem",
+            "elpId": 172,
+            "elpName": "Kartou online",
+            "dId": 595,
+            "dName": "Praha 7 - Holešovice",
+            "pId": 101,
+            "pName": "Hotově / kartou (při vyzvednutí)",
+            "addrId": -1,
+            "address": null,
+            "isElDef": false,
+            "isDef": false,
+            "showElConfirm": true,
+            "showConfirm": true,
+            "elpscId": 0,
+            "pscId": 0,
+            "boxId": 0,
+            "boxName": ""
+        }
+
+
+
+
+
+### Nakup - Nacteni plateb pro FO [/v1/getFastOrderEOSettingsFormValues]
+
+IMPORTANT - Sluzba zatim neexistuje
+
+Jedna se o orezanou verzi sluzby getFastOrderSettingsFormValues (vraci data i pro fyzicke zbozi)
+
+Tato sluzba vrati pouze seznam plateb a jejich ID, ze kterych muze uzivatel vybrat
+
+#### v1/getFastOrderEOSettingsFormValues [GET]
+
+`elPayments` Seznam ID plateb dostupnych pro EO zbozi
+
+`paymentNames` Nazvy a ID vse plateb - POZOR je potreba vyfiltrovat jen ty ktere se shoduji z `elPayments`
+
+
++ Request (application/json; charset=utf-8)
+
+    + header
+    
+            Cookie: XXX;platform=ios;density=2;
+
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 292271339,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 3,
+            "alzaCredit": "11 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19.7.2016",
+            "premiumRenew": true,
+            "serverTime": 1454507155,
+            "elPayments_cnt": 12,
+            "elPayments": [
+                101,
+                172,
+                154,
+                186,
+                107,
+                143,
+                144,
+                149,
+                150,
+                151,
+                103,
+                139
+            ],
+            "paymentNames_cnt": 15,
+            "paymentNames": [
+                {
+                    "Key": 101,
+                    "Value": "Hotově / kartou (při vyzvednutí)"
+                },
+                {
+                    "Key": 172,
+                    "Value": "Kartou online"
+                },
+                {
+                    "Key": 154,
+                    "Value": "Alza Kredit"
+                },
+                {
+                    "Key": 186,
+                    "Value": "Visa kartou online(nad 1 000 Kč doprava zdarma)"
+                },
+                {
+                    "Key": 107,
+                    "Value": "eKonto Online"
+                },
+                {
+                    "Key": 143,
+                    "Value": "Platba 24"
+                },
+                {
+                    "Key": 144,
+                    "Value": "MojePlatba"
+                },
+                {
+                    "Key": 149,
+                    "Value": "ČSOB Online platba"
+                },
+                {
+                    "Key": 150,
+                    "Value": "Era / Poštovní spořitelna"
+                },
+                {
+                    "Key": 151,
+                    "Value": "Peněženka PaySec"
+                },
+                {
+                    "Key": 103,
+                    "Value": "Bankovním převodem - proforma "
+                },
+                {
+                    "Key": 139,
+                    "Value": "Příkazem"
+                },
+                {
+                    "Key": 161,
+                    "Value": "PayPal"
+                },
+                {
+                    "Key": 120,
+                    "Value": "Na splatnost - písemná objednávka"
+                },
+                {
+                    "Key": 102,
+                    "Value": "Dobírkou"
+                }
+            ]
+        }
+
+
+
+### Nakup - Ulozeni preferovane platby [/v1/setFastOrderSettings]
+
+Ulozeni uzivatelovy vybrane platby a dopravy
+
+Jako dopravu vzdy nastavime Emailem
+
+#### v1/setFastOrderSettings [POST]
+
++ Request (application/json; charset=utf-8)
+
+     + header
+    
+            Cookie: UIDX=XXX;platform=ios;density=2;
+            
+     + Body
+
+            {
+                "elpId" = 103,
+                "dId" = null,
+                "pId" = null,
+                "eldId" = 3,
+                "addrrId" = null,
+                "showElConfirm" = true,
+                "showConfirm" = true
+            }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true
+        }
+
+
+
+d) public static final String URL_FAST_ORDER_CREATE = "Services/RestService.svc/v1/createFastOrder/";
+
+### Nakup - Nacteni plateb pro FO [/v1/createFastOrder/{productId}?dpConfirmed={dpConfirmed}&showConfirm={showConfirm}&captchaCode={captchaCode}&captchaText={captchaText}&sendPaySecPayment={sendPaySecPayment}]
+
+IMPORTANT - Sluzba zatim neexistuje
+
+Jedna se o orezanou verzi sluzby getFastOrderSettingsFormValues (vraci data i pro fyzicke zbozi)
+
+Tato sluzba vrati pouze seznam plateb a jejich ID, ze kterych muze uzivatel vybrat
+
+#### v1/createFastOrder [GET]
+
+`elPayments` Seznam ID plateb dostupnych pro EO zbozi
+
+`paymentNames` Nazvy a ID vse plateb - POZOR je potreba vyfiltrovat jen ty ktere se shoduji z `elPayments`
+
+
++ Request (application/json; charset=utf-8)
+
+    + header
+    
+            Cookie: XXX;platform=ios;density=2;
+
++ parameters
+    + productId: 280882 (number) - ID produktu
+    + dpConfirmed: true (bool) - zobrazeni potvrzovaciho dialogu
+    + showConfirm: true (bool) - zobrazeni potvrzovaciho dialogu
+    + captchaCode: "null" (string)
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true
+        }
 
 
 
 
 
 
-
-
+###################################################################################
+###################################################################################
+###################################################################################
 ## Group Logovani
+###################################################################################
+###################################################################################
+###################################################################################
 
 
 ### Log - Chyby v aplikaci [/v1/logError]
@@ -3784,7 +4097,7 @@ Potvrzeni vyberu prilohy k novinam
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
     + Body
         
@@ -3833,7 +4146,7 @@ Potvrzeni vyberu prilohy k novinam
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
     + Body
         
@@ -3877,7 +4190,7 @@ Potvrzeni vyberu prilohy k novinam
 
     + header
     
-            Cookie: UIDX=serfgBqskfJwt2h0ZZWedwkGaNGSxYI2OG7Yr3NoSrw=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
     + Body
         
@@ -3916,9 +4229,14 @@ Potvrzeni vyberu prilohy k novinam
 
 
 
-
-
+###################################################################################
+###################################################################################
+###################################################################################
 ## Group Nastaveni
+###################################################################################
+###################################################################################
+###################################################################################
+
 
 ### Nastaveni [/v1/logAppStarted/1]
 
@@ -3930,7 +4248,7 @@ Sluzba, ktera odemyka skryte nastaveni do iOS aplikace, pokud vrati true, tak se
 
     + header
     
-            Cookie: UIDX=kHazacm0YuhQ4xrPvH+k/5h1ScuAeOZ0LnI13djK460=;platform=ios;density=2;
+            Cookie: UIDX=XXX;platform=ios;density=2;
 
 
 + Response 200 (application/json; charset=utf-8)
