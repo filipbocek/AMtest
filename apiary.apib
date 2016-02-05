@@ -189,7 +189,7 @@ Pokud se vrati `err kod 101`, tak to znamena ze se jedna o SO uzivatele a musi s
 
             
             
-### Login - Facebook [/v1/LoginUserGoogle]
+### Login - Google [/v1/LoginUserGoogle]
 
 #### v1/LoginUserGoogle [POST]
 
@@ -228,7 +228,7 @@ Pokud se vrati `err kod 101`, tak to znamena ze se jedna o SO uzivatele a musi s
 
 
 
-### Login - Registrace [/v2/createUser]
+### Registrace [/v2/createUser]
 
 #### v2/createUser [POST]
 
@@ -267,7 +267,7 @@ Pokud se vrati `err kod 101`, tak to znamena ze se jedna o SO uzivatele a musi s
             }
 
 
-### Login - Registrace - Zaslani validacniho emailu uzivateli [/v1/sendValidationCodeByEmail?email={email}&source={sourceAppId}]
+### Registrace - Zaslani validacniho emailu uzivateli [/v1/sendValidationCodeByEmail?email={email}&source={sourceAppId}]
 
 #### v1/sendValidationCodeByEmail [GET]
 
@@ -301,7 +301,7 @@ Pokud se vrati `err kod 101`, tak to znamena ze se jedna o SO uzivatele a musi s
         }
 
 
-### Login - Registrace - Overeni validacniho kodu [/v1/validateUserByCode?email={email}&code={code}]
+### Registrace - Overeni validacniho kodu [/v1/validateUserByCode?email={email}&code={code}]
 
 #### v1/validateUserByCode [GET]
 
@@ -518,7 +518,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 ## Group eKnihy
 
-### eKnihy - Načtení [/v5/getMyLibrary/{page}/{sort_type}/{asc_desc}]
+### Načtení knihovny OLD [/v5/getMyLibrary/{page}/{sort_type}/{asc_desc}]
 
 #### v5/getMyLibrary [GET]
 
@@ -636,7 +636,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 
 
-### eKnihy - Nacteni podle rozectenosti [/v1/getMyReadingLibrary/{page}/{sort_type}/{asc_desc}]
+### Nacteni podle rozectenosti [/v1/getMyReadingLibrary/{page}/{sort_type}/{asc_desc}]
 
 #### v1/getMyReadingLibrary [GET]
 
@@ -794,7 +794,7 @@ Zobrazeni weboveho clanku ve webview aplikace
     
 
 
-### eKnihy - Detail [/v1/getEbook/{bookId}]
+### Detail [/v1/getEbook/{bookId}]
 
 #### v1/getEbook [GET]
 
@@ -878,7 +878,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 
 
-### eKnihy - Detail rozectenosti [/v1/getEbookReaderData/{bookId}]
+### Nacteni rozectenosti [/v1/getEbookReaderData/{bookId}]
 
 #### v1/getEbookReaderData [GET]
 
@@ -960,7 +960,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 
 
-### eKnihy - Ulozeni rozectenosti [/v1/setEbookReaderData]
+### Ulozeni rozectenosti [/v1/setEbookReaderData]
 
 #### v1/setEbookReaderData [POST]
 
@@ -1003,7 +1003,7 @@ Zobrazeni weboveho clanku ve webview aplikace
         }
 
 
-### eKnihy - Ulozeni zalozky [/v1/setEbookReaderBookmark]
+### Ulozeni zalozky [/v1/setEbookReaderBookmark]
 
 #### v1/setEbookReaderBookmark [POST]
 
@@ -1048,7 +1048,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 
 
-### eKnihy - Smazani zalozky [/v1/deleteEbookReaderBookmark/{bookId}/{bookmarkId}]
+### Smazani zalozky [/v1/deleteEbookReaderBookmark/{bookId}/{bookmarkId}]
 
 #### v1/deleteEbookReaderBookmark [GET]
 
@@ -1088,7 +1088,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 ## Group Audioknihy
 
-### Audioknihy - Nacteni [/v4/getMyAudiobooks/{page}/{sort_type}/{asc_desc}]
+### Nacteni [/v4/getMyAudiobooks/{page}/{sort_type}/{asc_desc}]
 
 #### v4/getMyAudiobooks [GET]
 
@@ -1205,7 +1205,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 
 
-### Audioknihy - Nacteni kapitol [/v2/getAudioTracks/{ID}]
+### Nacteni kapitol [/v2/getAudioTracks/{ID}]
 
 #### v2/getAudioTracks [GET]
 
@@ -1291,7 +1291,7 @@ Zobrazeni weboveho clanku ve webview aplikace
 
 
 
-### Audioknihy - Kapitoly - Ziskani linku na stazeni [/v1/getAudioBookDwnUrl/{albumId}?trackId={trackId}]
+### Kapitoly - Ziskani linku na stazeni [/v1/getAudioBookDwnUrl/{albumId}?trackId={trackId}]
 
 #### v1/getAudioBookDwnUrl [GET]
 
@@ -1339,7 +1339,7 @@ iOS a WP tuto sluzbu vubec nepouzivaji a funguji pouze na sluzbe refreshAlbumLin
 
 
 
-### Audioknihy - Kapitoly - Ziskani noveho linku na stazeni [/v1/refreshAlbumLink?a={albumId}&p={trackId}&t={type}]
+### Kapitoly - Ziskani noveho linku na stazeni [/v1/refreshAlbumLink?a={albumId}&p={trackId}&t={type}]
 
 #### v1/refreshAlbumLink [GET]
 
@@ -1383,7 +1383,7 @@ iOS a WP tuto sluzbu vubec nepouzivaji a funguji pouze na sluzbe refreshAlbumLin
 
 
 
-### Audioknihy - Ulozeni rozposlouchanosti [/v1/saveAudioPosition?id={trackId}?finished={finished}?seconds={seconds}]
+### Ulozeni rozposlouchanosti [/v1/saveAudioPosition?id={trackId}?finished={finished}?seconds={seconds}]
 
 #### v1/saveAudioPosition [GET]
 
@@ -1431,7 +1431,7 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
 
 ## Group Hudba
 
-### Hudba - Nacteni knihovny [/v3/getMyMusic/{page}/{sort_type}/{asc_desc}]
+### Nacteni knihovny [/v3/getMyMusic/{page}/{sort_type}/{asc_desc}]
 
 #### v3/getMyMusic [GET]
 
@@ -1557,7 +1557,7 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
 
 
 
-### Hudba - Seznam songu alba [/v1/getMusicTracks/{albumId}]
+### Seznam songu alba [/v1/getMusicTracks/{albumId}]
 
 #### v1/getMusicTracks [GET]
 
@@ -1626,7 +1626,7 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
 
 
 
-### Hudba - Seznam songu alba vcetne URL na stazeni [/v1/getMusicTracks/{albumId}?dwnUrl={dwnUrl}]
+### Seznam songu alba vcetne URL na stazeni [/v1/getMusicTracks/{albumId}?dwnUrl={dwnUrl}]
 
 #### v1/getMusicTracks [GET]
 
@@ -1696,7 +1696,7 @@ Pokud nastavime v requestu `finished` na TRUE, tak se neposila parametr `seconds
 
 
 
-### Hudba - Premium - Seznam songu alba vcetne URL na stazeni [/v1/getMusic/{albumId}]
+### Premium - Seznam songu alba vcetne URL na stazeni [/v1/getMusic/{albumId}]
 
 #### v1/getMusic [GET]
 
@@ -1813,7 +1813,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
 
 
-### Hudba - Premium - Oblibene - Seznam skladeb [/v1/apPlaylistGet]
+### Premium - Oblibene - Seznam skladeb [/v1/apPlaylistGet]
 
 #### v1/apPlaylistGet [GET] 
 
@@ -1928,7 +1928,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
 
 
-### Hudba - Premium - Oblibene - Pridani skladeb [/v2/apPlaylistAdd]
+### Premium - Oblibene - Pridani skladeb [/v2/apPlaylistAdd]
 
 #### v2/apPlaylistAdd [POST] 
 
@@ -1978,7 +1978,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
 
 
-### Hudba - Premium - Oblibene - Smazani skladeb [/v1/apPlaylistRemove/{trackId}]
+### Premium - Oblibene - Smazani skladeb [/v1/apPlaylistRemove/{trackId}]
 
 #### v1/apPlaylistRemove [GET] 
 
@@ -2017,7 +2017,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
 
 
-### Hudba - Premium - Oblibene - Zmena poradi [/v1/apSetPlaylistOrder]
+### Premium - Oblibene - Zmena poradi [/v1/apSetPlaylistOrder]
 
 #### v1/apSetPlaylistOrder [POST] 
 
@@ -2073,7 +2073,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
 
 
-### Hudba - Premium - Radio - Susteni radia podle skladby [/v1/apGetRadio/{supplierCode};{supplierCode}]
+### Premium - Radio - Susteni radia podle skladby [/v1/apGetRadio/{supplierCode};{supplierCode}]
 
 #### v1/apGetRadio [GET]
 
@@ -2194,7 +2194,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
 
 
-### Hudba - Premium - Radio - Spusteni radia podle alba [/v1/apGetRadioByAlbum/{supplierCode}]
+### Premium - Radio - Spusteni radia podle alba [/v1/apGetRadioByAlbum/{supplierCode}]
 
 #### v1/apGetRadioByAlbum [GET]
 
@@ -2315,7 +2315,7 @@ Pouziva se v ramci Alza Premium pri vyhledavani hudby a zobrazeni detailu alba
 
 
 
-### Hudba - Premium - Radio - Nacteni zanrovych radii [/v1/apGetRadioGenres]
+### Premium - Radio - Nacteni zanrovych radii [/v1/apGetRadioGenres]
 
 #### v1/apGetRadioGenres [GET]
 
@@ -2385,7 +2385,7 @@ Nacteni zanrovych radii. Tyto radia jsou natvrdo vydefinovana v kodu na serveru
 
 
 
-### Hudba - Premium - Radio - Nacteni historickych radii [/v1/apGetRadiohistory]
+### Premium - Radio - Nacteni historickych radii [/v1/apGetRadiohistory]
 
 #### v1/apGetRadioHistory [GET]
 
@@ -2447,7 +2447,7 @@ Nacteni zanrovych radii. Tyto radia jsou natvrdo vydefinovana v kodu na serveru
 
 
 
-### Hudba - Premium - Radio - Nacteni doporucenych radii [/v1/apGetRadioRecommended]
+### Premium - Radio - Nacteni doporucenych radii [/v1/apGetRadioRecommended]
 
 #### v1/apGetRadioRecommended [GET]
 
@@ -2507,7 +2507,7 @@ Nacteni doporucenych radii. Tyto radia jsou generovana na serveru podle toho co 
         }
 
 
-### Hudba - Premium - Zaznameni prehravani [/v1/apSetPlayed/{trackId}]
+### Premium - Zaznameni prehravani [/v1/apSetPlayed/{trackId}]
 
 #### v1/apSetPlayed [GET]
 
@@ -2546,7 +2546,7 @@ Zaznamenani prehrani pisnicky. Je zapotrebi aby server spravne generoval radia a
 
 
 
-### Hudba - Premium - Vyhledani hudby [/v1/searchMusic/{keyword}]
+### Premium - Vyhledani hudby [/v1/searchMusic/{keyword}]
 
 #### v1/searchMusic [GET] 
 
@@ -2666,7 +2666,7 @@ Zaznamenani prehrani pisnicky. Je zapotrebi aby server spravne generoval radia a
 
 ## Group Filmy
 
-### Filmy - Nacteni seznamu [/v1/getMyVideoCollection?active={active}]
+### Nacteni seznamu [/v1/getMyVideoCollection?active={active}]
 
 #### v1/getMyVideoCollection [GET] 
 
@@ -2779,7 +2779,7 @@ Zaznamenani prehrani pisnicky. Je zapotrebi aby server spravne generoval radia a
         }
 
 
-### Filmy - Nacteni detailu zakoupeneho filmu [/v1/getVideoDetail/{videoId}]
+### Nacteni detailu zakoupeneho filmu [/v1/getVideoDetail/{videoId}]
 
 #### v1/getVideoDetail [GET] 
 
@@ -2856,7 +2856,7 @@ ActivationResult
 
 
 
-### Filmy - Nacteni detailu filmu - i pro Premium [/v1/getMyVideo/{videoId}]
+### Nacteni detailu filmu - i pro Premium [/v1/getMyVideo/{videoId}]
 
 #### v1/getMyVideo [GET] 
 
@@ -2899,7 +2899,7 @@ ActivationResult
         }
 
 
-### Filmy - Link na stazeni [/v1/getMyVideoForDownload/{videoId}]
+### Link na stazeni [/v1/getMyVideoForDownload/{videoId}]
 
 #### v1/getMyVideoForDownload [GET] 
 
@@ -2944,7 +2944,7 @@ ActivationResult
 
 
 
-### Filmy - Premium - Vyhledani [/v3/search?stock=false&news=false&order=0&category=18855030&page=0&exp={keyword}&facets=4]
+### Premium - Vyhledani [/v3/search?stock=false&news=false&order=0&category=18855030&page=0&exp={keyword}&facets=4]
 
 #### v3/search [GET] 
 
@@ -3033,7 +3033,7 @@ ActivationResult
 
 
 
-### Filmy - Seznam oblibenych [/v1/favourites?comodityType={comodityType}]
+### Seznam oblibenych [/v1/favourites?comodityType={comodityType}]
 
 #### v1/favourites [GET] 
 
@@ -3795,7 +3795,7 @@ Pote se vola `createFastOrder`
 
 
 
-### Nakup - Nacteni FO nastaveni [/v1/getFastOrderSettings]
+### Nacteni FO nastaveni [/v1/getFastOrderSettings]
 
 V dialogu budeme zobrazovat pouze platby. Doprava pro EO je vzdy jen Emailem, takze nema smysl zobrazovat.
 
@@ -3867,7 +3867,7 @@ Pripadne takto muze platbu zmenit.
 
 
 
-### Nakup - Nacteni plateb pro FO [/v1/getFastOrderEOSettingsFormValues]
+### Nacteni plateb pro FO [/v1/getFastOrderEOSettingsFormValues]
 
 IMPORTANT - Sluzba zatim neexistuje
 
@@ -3992,7 +3992,7 @@ Tato sluzba vrati pouze seznam plateb a jejich ID, ze kterych muze uzivatel vybr
 
 
 
-### Nakup - Ulozeni preferovane platby [/v1/setFastOrderSettings]
+### Ulozeni preferovane platby [/v1/setFastOrderSettings]
 
 Ulozeni uzivatelovy vybrane platby a dopravy
 
@@ -4044,7 +4044,7 @@ Jako dopravu vzdy nastavime Emailem
 
 
 
-### Nakup - Nacteni plateb pro FO [/v1/createFastOrder/{productId}?dpConfirmed={dpConfirmed}&showConfirm={showConfirm}&captchaCode={captchaCode}&captchaText={captchaText}&sendPaySecPayment={sendPaySecPayment}]
+### Nacteni plateb pro FO [/v1/createFastOrder/{productId}?dpConfirmed={dpConfirmed}&showConfirm={showConfirm}&captchaCode={captchaCode}&captchaText={captchaText}&sendPaySecPayment={sendPaySecPayment}]
 
 Vytvoreni fastOrderu.
 
@@ -4130,7 +4130,7 @@ Obrazek pro captchu je na URL: http://m.alza.cz/captcha.ashx?code={captchaCode}
 ###################################################################################
 
 
-### Log - Chyby v aplikaci [/v1/logError]
+### Chyby v aplikaci [/v1/logError]
 
 #### v1/logError [POST]
 
@@ -4179,7 +4179,7 @@ Obrazek pro captchu je na URL: http://m.alza.cz/captcha.ashx?code={captchaCode}
 
 
 
-### Log - Rychlost hudby [/v1/logAudioResponse]
+### Rychlost hudby [/v1/logAudioResponse]
 
 #### v1/logAudioResponse [POST]
 
@@ -4225,7 +4225,7 @@ Parametr maxversion urcuje pro jakou max verzi aplikace nastaveni zapnuti obchod
 
 
 
-### Log - Rychlost renderingu PDF [/v1/logMagazineRenderingTime]
+### Rychlost renderingu PDF [/v1/logMagazineRenderingTime]
 
 #### v1/logMagazineRenderingTime [POST]
 
