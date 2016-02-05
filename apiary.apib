@@ -7,17 +7,17 @@ Zde naleznete seznam všech API služeb, a jejich chování v rámci aplikace Al
 
 ## Historie úprav
 
-`05.02.2016` - Rozsireni response `v1/logAppStarted`  o parametr maxversion urcujici max verzi pro kterou plati nastaveni
+`05.02.2016` - Rozsireni response [v1/logAppStarted](#reference/nastaveni/odemceni-nakupu) o parametr maxversion urcujici max verzi pro kterou plati nastaveni
 
-`04.02.2016` - Rozsireni API o sluzby pro Fast Order - sekce Nakupovani
+`04.02.2016` - Rozsireni API o sluzby pro Fast Order - sekce [Nakupovani](#reference/nakupy)
 
-`20.01.2016` - Uprava parmetru isArchive na active ve sluzbe `v1/getMagazineIssues`
+`20.01.2016` - Uprava parmetru isArchive na active ve sluzbe [v1/getMagazineIssues](#reference/casopisy/casopisy-nacteni-vydani)
 
-`16.01.2016` - Doplneni sluzby `v1/addMagazineAttachment`
+`16.01.2016` - Doplneni sluzby [v1/addMagazineAttachment](#reference/casopisy/casopisy-nacteni-priloh)
 
-`15.01.2016` - Pridani parametru isArchive na objekt Issue v response `v2/getMyMagazines`
+`15.01.2016` - Pridani parametru isArchive na objekt Issue v response [v2/getMyMagazines](#reference/casopisy/casopisy-nacteni-seznamu)
 
-`26.01.2016` - Pridani sluzby `v2/setDeviceToken` pro Push notifikace
+`26.01.2016` - Pridani sluzby [v2/setDeviceToken](#reference/obecne/push-odeslani-tokenu) pro Push notifikace
 
 ## Requesty a stavy
 
@@ -405,7 +405,7 @@ Ulozeni tokenu pro zasilani notifikaci na server.
             {
                 "token": "SG5SG63S5G43S651GS65G1S6",
                 "mobileApplicationType": 1,
-                "appUid": "132456SDA54"
+                "deviceI@@@@d": "132456SDA54"
             }
 
 + Response 200 (application/json; charset=utf-8)
@@ -3120,7 +3120,7 @@ ActivationResult
 ####################################################################################################
 
 
-### Casopisy - Nacteni seznamu [/v1/getMyMagazines/{active}]
+### Nacteni seznamu v1 [/v1/getMyMagazines/{active}]
 
 #### v1/getMyMagazines [GET]
 
@@ -3221,7 +3221,7 @@ ActivationResult
         }
 
 
-### Casopisy - Nacteni seznamu [/v2/getMyMagazines/{active}?previewCount={previewCount}]
+### Nacteni seznamu v2 [/v2/getMyMagazines/{active}?previewCount={previewCount}]
 
 #### v2/getMyMagazines [GET]
 
@@ -3331,7 +3331,7 @@ Zbytek si aplikace dotahne nasledujici sluzbou getMagazineIssues
 
 
 
-### Casopisy - Nacteni vydani [/v1/getMagazineIssues/{active}/{magID}?page={page}]
+### Nacteni vydani [/v1/getMagazineIssues/{active}/{magID}?page={page}]
 
 #### v1/getMagazineIssues [GET]
 
@@ -3419,7 +3419,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
 
 
 
-### Casopisy - Archivace časopisu [/v1/archiveMagazine]
+### Archivace časopisu [/v1/archiveMagazine]
 
 #### v1/archiveMagazine  [POST]
 
@@ -3461,7 +3461,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
         }
 
 
-### Casopisy - Archivace vydání časopisu [/v1/archiveMagazineIssue]
+### Archivace vydání časopisu [/v1/archiveMagazineIssue]
 
 #### v1/archiveMagazineIssue  [POST]
 
@@ -3509,7 +3509,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
 
 
 
-### Casopisy - Odarchivace časopisu [/v1/unArchiveMagazine]
+### Odarchivace časopisu [/v1/unArchiveMagazine]
 
 #### v1/unArchiveMagazine  [POST]
 
@@ -3551,7 +3551,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
         }
 
 
-### Casopisy - Odarchivace vydání časopisu [/v1/unArchiveMagazineIssue]
+### Odarchivace vydání časopisu [/v1/unArchiveMagazineIssue]
 
 #### v1/unArchiveMagazineIssue  [POST]
 
@@ -3596,7 +3596,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
 
 
 
-### Casopisy - Detail info [/v2/getMagazineData]
+### Detailni info [/v2/getMagazineData]
 
 #### v2/getMagazineData [POST]
 
@@ -3648,7 +3648,7 @@ Sluzba vrati strankovane vsechny vydani pro dany titul.
         }
 
 
-### Casopisy - Nacteni priloh [/v1/getMyMagazineAttachments/{magazineId}]
+### Nacteni priloh [/v1/getMyMagazineAttachments/{magazineId}]
 
 Provolavame na casopisech (novinach) ktere maji nastaveno hasAttachments na TRUE
 
@@ -3729,7 +3729,7 @@ Provolavame na casopisech (novinach) ktere maji nastaveno hasAttachments na TRUE
 
 
 
-### Casopisy - Pridani prilohy [/v2/addMagazineAttachment]
+### Pridani prilohy [/v2/addMagazineAttachment]
 
 Potvrzeni vyberu prilohy k novinam
 
@@ -4327,18 +4327,3 @@ Sluzba, ktera definuje, zda jiz byla migrace zahajena a pro jakou platformu je a
             "migration_android": false,
             "migration_win": false
         }
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
