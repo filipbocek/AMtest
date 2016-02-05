@@ -7,6 +7,8 @@ Zde naleznete seznam všech API služeb, a jejich chování v rámci aplikace Al
 
 ## Historie úprav
 
+`05.02.2016` - Rozsireni response `v1/logAppStarted`  o parametr maxversion urcujici max verzi pro kterou plati nastaveni
+
 `04.02.2016` - Rozsireni API o sluzby pro Fast Order - sekce Nakupovani
 
 `20.01.2016` - Uprava parmetru isArchive na active ve sluzbe `v1/getMagazineIssues`
@@ -4277,7 +4279,7 @@ Obrazek pro captchu je na URL: http://m.alza.cz/captcha.ashx?code={captchaCode}
 ###################################################################################
 
 
-### Nastaveni [/v1/logAppStarted/1]
+### Odemceni nakupu [/v1/logAppStarted/1]
 
 Sluzba, ktera odemyka skryte nastaveni do iOS aplikace, pokud vrati true, tak se v app zobrazi tajne funkce
 
@@ -4294,8 +4296,10 @@ Sluzba, ktera odemyka skryte nastaveni do iOS aplikace, pokud vrati true, tak se
 
 
         {
-            "v": false
+            "v": false,
+            "maxversion": 324
         }
+
 
 
 
