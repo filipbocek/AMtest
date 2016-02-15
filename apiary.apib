@@ -7,6 +7,10 @@ Zde naleznete seznam všech API služeb, a jejich chování v rámci aplikace Al
 
 ## Historie úprav
 
+`15.02.2016` `BETA` - Pridani sluzby [v1/setphonenumber](#reference/nakupy/aktualizace-tel-cisla) pro pripad, kdy uzivatel nema vyplneno tel cislo a FO by neprosel
+
+`15.02.2016` `BETA` - Rozsireni response sluzby [v1/getFastOrderEOSettingsFormValues](##reference/nakupy/nacteni-plateb-pro-fo/v1/getfastordereosettingsformvalues) o atribut phoneNumber 
+
 `05.02.2016` - Rozsireni response [v1/logAppStarted](#reference/nastaveni/odemceni-nakupu) o parametr maxversion urcujici max verzi pro kterou plati nastaveni
 
 `04.02.2016` - Rozsireni API o sluzby pro Fast Order - sekce [Nakupovani](#reference/nakupy)
@@ -3881,6 +3885,8 @@ Tato sluzba vrati pouze seznam plateb a jejich ID, ze kterych muze uzivatel vybr
 
 `paymentNames` Nazvy a ID vse plateb - POZOR je potreba vyfiltrovat jen ty ktere se shoduji z `elPayments`
 
+`phoneNumber` Pokud he tekefon prazdny, je potreba vyzvat uzivatele k jeho zadani a ulozit jej sluzbou setPhoneNumber. Jinak FO neprojde
+
 
 + Request (application/json; charset=utf-8)
 
@@ -3911,6 +3917,7 @@ Tato sluzba vrati pouze seznam plateb a jejich ID, ze kterych muze uzivatel vybr
             "premiumRenew": true,
             "serverTime": 1454507155,
             "elPayments_cnt": 12,
+            "phoneNumber": "721273568",
             "elPayments": [
                 101,
                 172,
@@ -4117,7 +4124,45 @@ Obrazek pro captchu je na URL: http://m.alza.cz/captcha.ashx?code={captchaCode}
         }
 
 
+### Aktualizace tel. cisla [/v1/setphonenumber/{phoneNumber}]
 
+Pokud uzivatel nema nastaveno tel cislo, tak nemuze udelat FO. Proto je potreba zobrazit input pro zadani tel cisla, ktere se musi nejprve ulozit
+
+`dpConfirmed` a `showConfirm` budeme nastavovat na true
+
+#### v1/setphonenumber [GET]
+
++ Request (application/json; charset=utf-8)
+
+    + header
+    
+            Cookie: XXX;platform=ios;density=2;
+
++ parameters
+    + phoneNumber: 721245885 (string) - tel cislo
+
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "err": 0,
+            "msg": null,
+            "vzt": 254798307,
+            "user_name": "Filip Bocek",
+            "basket_cnt": 1,
+            "basket_total_cnt": 1,
+            "user_id": 974395,
+            "favCnt": 2,
+            "alzaCredit": "16 Kč",
+            "countryID": 0,
+            "countryPhonePrefix": "420",
+            "premiumBooks": 10,
+            "premiumMusic": 10,
+            "premiumMovies": 10,
+            "premiumDelivery": 10,
+            "premiumValidTo": "19. 7. 2016",
+            "premiumRenew": true
+        }
 
 
 
